@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TecnoShop - Cotizador y Tienda de Hardware</title>
+    <title>TecnoShop - Cotizador y Comparador de Hardware</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Encabezado Principal / Barra de Navegación -->
+    <!-- Header Principal -->
     <header class="header">
         <div class="nav-container">
-            <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
+            <div class="brand-box">
+                <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
+                <span class="sub-logo">Cotizador Hardware</span>
+            </div>
 
-            <!-- Buscador central estilo SoloTodo -->
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Buscar notebooks, procesadores, tarjetas de video...">
+                <input type="text" placeholder="¿Qué buscas? Ej: RTX 4060, Ryzen 7, Notebook Gamer...">
                 <button type="button">🔍</button>
             </div>
 
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="productos.html">Catálogo</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="login.html">Acceso</a></li>
                     <li>
@@ -35,87 +37,100 @@
         </div>
     </header>
 
-    <!-- Banner Hero / Mensaje de Bienvenida -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h2>Encuentra el Hardware al Mejor Precio</h2>
-            <p>Compara especificaciones técnicas y armas tu setup ideal en un solo lugar.</p>
-            <a href="productos.html" class="btn-hero">Explorar Catálogo Completo</a>
+    <!-- Barra de Categorías Rápidas (Sub-header) -->
+    <div class="sub-nav">
+        <div class="sub-nav-container">
+            <a href="productos.html?cat=notebooks">💻 Notebooks</a>
+            <a href="productos.html?cat=gpus">🎮 Tarjetas de Video</a>
+            <a href="productos.html?cat=cpus">🧠 Procesadores</a>
+            <a href="productos.html?cat=ram">⚡ Memorias RAM</a>
+            <a href="productos.html?cat=monitores">🖥️ Monitores</a>
+            <a href="productos.html?cat=perifericos">🖱️ Periféricos</a>
         </div>
-    </section>
+    </div>
 
-    <!-- Navegación Rápida por Categorías -->
     <main class="main-content">
-        <section class="categories-section">
-            <h3>Categorías Destacadas</h3>
-            <div class="categories-grid">
-                <a href="productos.html?cat=notebooks" class="category-card">
-                    <span class="category-icon">💻</span>
-                    <h4>Notebooks</h4>
-                </a>
-                <a href="productos.html?cat=componentes" class="category-card">
-                    <span class="category-icon">🖥️</span>
-                    <h4>Componentes PC</h4>
-                </a>
-                <a href="productos.html?cat=perifericos" class="category-card">
-                    <span class="category-icon">🖱️</span>
-                    <h4>Periféricos</h4>
-                </a>
-                <a href="productos.html?cat=monitores" class="category-card">
-                    <span class="category-icon">📺</span>
-                    <h4>Monitores</h4>
-                </a>
+        <!-- Banner Principal de Promociones -->
+        <section class="main-banner">
+            <div class="banner-text">
+                <h2>Compara y Ahorra en tu Próximo PC</h2>
+                <p>Encuentra las mejores ofertas de componentes y laptops en tiempo real.</p>
+                <a href="productos.html" class="btn-banner">Ver Ofertas Destacadas</a>
             </div>
         </section>
 
-        <!-- Productos Destacados / Ofertas -->
-        <section class="featured-products">
-            <div class="section-header">
-                <h2>Productos Destacados de la Semana</h2>
-                <a href="productos.html" class="link-more">Ver todos →</a>
+        <!-- Grilla de Ofertas Estilo SoloTodo -->
+        <section class="section-box">
+            <div class="section-title-bar">
+                <h2>🔥 Tendencias y Descuentos</h2>
+                <a href="productos.html">Ver catálogo completo →</a>
             </div>
 
-            <div id="grilla-destacados" class="productos-grid">
-                <!-- Tarjeta Destacada 1 -->
+            <div class="productos-grid">
+                <!-- Tarjeta 1 -->
                 <div class="product-card">
+                    <div class="card-badge">¡Mejor Precio!</div>
+                    <div class="product-img-box">
+                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=300" alt="Notebook">
+                    </div>
                     <div class="product-info">
-                        <span class="product-category">Notebooks</span>
-                        <h3>ASUS TUF Gaming A15</h3>
+                        <span class="product-category">Notebook Gamer</span>
+                        <h3>ASUS TUF Gaming A15 FA507</h3>
+                        <div class="rating">★★★★☆ <span class="rating-count">(12)</span></div>
                         <ul class="product-specs">
-                            <li><strong>CPU:</strong> AMD Ryzen 7 7735HS</li>
-                            <li><strong>RAM:</strong> 16 GB DDR5</li>
-                            <li><strong>GPU:</strong> NVIDIA RTX 3050 4GB</li>
+                            <li><strong>CPU:</strong> Ryzen 7 7735HS</li>
+                            <li><strong>RAM:</strong> 16GB DDR5</li>
+                            <li><strong>GPU:</strong> RTX 3050 4GB</li>
                         </ul>
-                        <div class="product-price">$719.990</div>
+                        <div class="price-box">
+                            <span class="old-price">$849.990</span>
+                            <span class="current-price">$719.990</span>
+                        </div>
                         <button class="btn-primary" onclick="addToCart(1)">Agregar al Carrito</button>
                     </div>
                 </div>
 
-                <!-- Tarjeta Destacada 2 -->
+                <!-- Tarjeta 2 -->
                 <div class="product-card">
+                    <div class="card-badge badge-blue">Destacado</div>
+                    <div class="product-img-box">
+                        <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=300" alt="Mouse">
+                    </div>
                     <div class="product-info">
                         <span class="product-category">Periféricos</span>
                         <h3>Logitech G Pro X Superlight</h3>
+                        <div class="rating">★★★★★ <span class="rating-count">(28)</span></div>
                         <ul class="product-specs">
-                            <li><strong>Sensor:</strong> HERO 25K (25.600 DPI)</li>
-                            <li><strong>Conexión:</strong> Inalámbrica LIGHTSPEED</li>
-                            <li><strong>Peso:</strong> &lt; 63 gramos</li>
+                            <li><strong>Sensor:</strong> HERO 25K</li>
+                            <li><strong>Peso:</strong> 63g Ultra Liviano</li>
+                            <li><strong>Conexión:</strong> Inalámbrica</li>
                         </ul>
-                        <div class="product-price">$99.990</div>
+                        <div class="price-box">
+                            <span class="old-price">$129.990</span>
+                            <span class="current-price">$99.990</span>
+                        </div>
                         <button class="btn-primary" onclick="addToCart(2)">Agregar al Carrito</button>
                     </div>
                 </div>
 
-                <!-- Tarjeta Destacada 3 -->
+                <!-- Tarjeta 3 -->
                 <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300" alt="Monitor">
+                    </div>
                     <div class="product-info">
                         <span class="product-category">Monitores</span>
-                        <h3>LG UltraGear 27" 27GN600</h3>
+                        <h3>LG UltraGear 27" IPS 144Hz</h3>
+                        <div class="rating">★★★★☆ <span class="rating-count">(8)</span></div>
                         <ul class="product-specs">
-                            <li><strong>Panel:</strong> IPS Full HD (1920x1080)</li>
-                            <li><strong>Refresco:</strong> 144 Hz / 1 ms</li>
+                            <li><strong>Res:</strong> FHD (1920x1080)</li>
+                            <li><strong>Panel:</strong> IPS 1ms</li>
+                            <li><strong>Tecnología:</strong> FreeSync</li>
                         </ul>
-                        <div class="product-price">$189.990</div>
+                        <div class="price-box">
+                            <span class="old-price">$229.990</span>
+                            <span class="current-price">$189.990</span>
+                        </div>
                         <button class="btn-primary" onclick="addToCart(3)">Agregar al Carrito</button>
                     </div>
                 </div>
@@ -123,14 +138,11 @@
         </section>
     </main>
 
-    <!-- Pie de página -->
     <footer class="footer">
-        <p>&copy; 2026 TecnoShop - Cotizador y Tienda de Hardware</p>
+        <p>&copy; 2026 TecnoShop - Proyecto Fullstack II (Duoc UC)</p>
     </footer>
 
-    <!-- Cargamos scripts esenciales -->
     <script src="js/main.js"></script>
     <script src="js/carrito.js"></script>
-    <script src="js/validaciones.js"></script>
 </body>
 </html>
