@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Mantenedor de Productos</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+            <h1 class="logo">TecnoShop Admin</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="productos.html" class="active">Productos</a></li>
+                    <li><a href="usuarios.html">Usuarios</a></li>
+                    <li><a href="../index.html">Volver a Tienda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2>Mantenedor de Productos</h2>
+
+        <section class="form-container" style="max-width: 100%; margin-bottom: 2rem;">
+            <h3>Gestión de Producto</h3>
+            <form id="adminProdForm" novalidate>
+                <div class="filter-group">
+                    <label for="pNombre">Nombre:</label>
+                    <input type="text" id="pNombre" placeholder="Ej: Notebook Gamer" required>
+                </div>
+                <div class="filter-group">
+                    <label for="pPrecio">Precio ($):</label>
+                    <input type="number" id="pPrecio" placeholder="719990" required>
+                </div>
+                <div class="filter-group">
+                    <label for="pStock">Stock:</label>
+                    <input type="number" id="pStock" placeholder="10" required>
+                </div>
+                <button type="submit" class="btn-primary">Guardar Producto</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Listado de Inventario</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="adminProdTable">
+                    <tr>
+                        <td>1</td>
+                        <td>ASUS TUF Gaming A15</td>
+                        <td>$719.990</td>
+                        <td>5</td>
+                        <td>
+                            <button class="btn-secondary" style="width:auto; padding: 0.2rem 0.5rem;">Editar</button>
+                            <button class="btn-secondary" style="width:auto; padding: 0.2rem 0.5rem; background:#fee2e2; color:#dc2626;">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

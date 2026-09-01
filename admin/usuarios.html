@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Mantenedor de Usuarios</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+            <h1 class="logo">TecnoShop Admin</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="usuarios.html" class="active">Usuarios</a></li>
+                    <li><a href="../index.html">Volver a Tienda</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h2>Mantenedor de Usuarios</h2>
+
+        <section class="form-container" style="max-width: 100%; margin-bottom: 2rem;">
+            <h3>Registrar / Modificar Usuario</h3>
+            <form id="adminUserForm" novalidate>
+                <div class="filter-group">
+                    <label for="uRun">RUN / RUT:</label>
+                    <input type="text" id="uRun" placeholder="19011022K" required>
+                </div>
+                <div class="filter-group">
+                    <label for="uNombre">Nombre Completo:</label>
+                    <input type="text" id="uNombre" placeholder="Juan Pérez" required>
+                </div>
+                <div class="filter-group">
+                    <label for="uEmail">Correo:</label>
+                    <input type="email" id="uEmail" placeholder="usuario@duoc.cl" required>
+                </div>
+                <button type="submit" class="btn-primary">Guardar Usuario</button>
+            </form>
+        </section>
+
+        <section>
+            <h3>Usuarios Registrados</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>RUN</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>19011022K</td>
+                        <td>Ignacio Saavedra</td>
+                        <td>i.saavedra@duoc.cl</td>
+                        <td>
+                            <button class="btn-secondary" style="width:auto; padding: 0.2rem 0.5rem;">Editar</button>
+                            <button class="btn-secondary" style="width:auto; padding: 0.2rem 0.5rem; background:#fee2e2; color:#dc2626;">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="../js/validaciones.js"></script>
+</body>
+</html>
