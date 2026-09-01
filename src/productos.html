@@ -1,33 +1,76 @@
 <!DOCTYPE html>
-<html> lang="es">
+<html lang="es">
 <head>
-    <meta charset="UTF"-8>
-    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
-    <title> TecnoShop - Catalogo de Productos</title>
-    <link rel="stylesheeet=" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoShop - Catálogo de Productos</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body> 
 
-    <header>
-        <h1> TecnoShop </h1>
-        <nav>
-            <a> href="index.html">Inicio</a>
-            <a> href="productos.html">Productos</a>
-            <a> href="registro.html">Registro</a>
-            <a> href="contacto.html">Contacto</a>
-            <a> href="carrito.html">Carrito</a>
-        </nav>
+    <!-- Encabezado / Navegación -->
+    <header class="header">
+        <div class="nav-container">
+            <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html" class="active">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="registro.html">Registro</a></li>
+                    <li><a href="login.html">Iniciar Sesión</a></li>
+                    <li>
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 Carrito <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="contenedor-catalago">
-        <h2>Catalogo de productos disponibles</h2>
-        <div id="grilla-productos" class="grilla-grid">
-            
+    <!-- Catálogo Principal -->
+    <main class="main-content">
+        <h2>Catálogo de Productos Disponibles</h2>
+        
+        <!-- Contenedor donde js/main.js pintará las tarjetas dinámicamente -->
+        <div id="grilla-productos" class="productos-grid">
+            <!-- Si JS no ha cargado los productos, se muestran estos ejemplos de respaldo -->
+            <div class="product-card">
+                <img src="images/laptop.jpg" alt="Notebook Gamer" onerror="this.src='https://via.placeholder.com/200x150?text=Notebook'">
+                <h3>Notebook ASUS TUF Gaming</h3>
+                <p class="product-specs">AMD Ryzen 7 / 16 GB RAM / SSD 512 GB / RTX 3050</p>
+                <div class="product-price">$719.990</div>
+                <button class="btn-primary" onclick="addToCart(1)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/mouse.jpg" alt="Mouse Gamer" onerror="this.src='https://via.placeholder.com/200x150?text=Mouse'">
+                <h3>Mouse Logitech G Pro X</h3>
+                <p class="product-specs">Sensor HERO 25K / Inalámbrico / 63g</p>
+                <div class="product-price">$99.990</div>
+                <button class="btn-primary" onclick="addToCart(2)">Agregar al Carrito</button>
+            </div>
+
+            <div class="product-card">
+                <img src="images/monitor.jpg" alt="Monitor Gamer" onerror="this.src='https://via.placeholder.com/200x150?text=Monitor'">
+                <h3>Monitor LG UltraGear 27"</h3>
+                <p class="product-specs">IPS 144Hz / 1ms / FHD / FreeSync</p>
+                <div class="product-price">$189.990</div>
+                <button class="btn-primary" onclick="addToCart(3)">Agregar al Carrito</button>
+            </div>
         </div>
     </main>
 
-    
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <p>&copy; 2026 TecnoShop - Proyecto Fullstack II (Duoc UC)</p>
+    </footer>
 
+    <!-- Scripts en el orden correcto -->
+    <script src="js/main.js"></script>
     <script src="js/carrito.js"></script>
+    <script src="js/validaciones.js"></script>
 </body>
 </html>
