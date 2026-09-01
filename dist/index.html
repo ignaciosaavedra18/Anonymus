@@ -1,15 +1,136 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Tecnoshop: tienda online de tecnología. Computadores, celulares, tablets, smartwatches, monitores, audífonos y accesorios." />
-    <title>Tecnoshop — Tienda de tecnología</title>
-    <script type="module" crossorigin src="/assets/index-DwRSWzRD.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-W0F0RSpB.css">
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoShop - Cotizador y Tienda de Hardware</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Encabezado Principal / Barra de Navegación -->
+    <header class="header">
+        <div class="nav-container">
+            <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
+
+            <!-- Buscador central estilo SoloTodo -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar notebooks, procesadores, tarjetas de video...">
+                <button type="button">🔍</button>
+            </div>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="login.html">Acceso</a></li>
+                    <li>
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Hero / Mensaje de Bienvenida -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Encuentra el Hardware al Mejor Precio</h2>
+            <p>Compara especificaciones técnicas y armas tu setup ideal en un solo lugar.</p>
+            <a href="productos.html" class="btn-hero">Explorar Catálogo Completo</a>
+        </div>
+    </section>
+
+    <!-- Navegación Rápida por Categorías -->
+    <main class="main-content">
+        <section class="categories-section">
+            <h3>Categorías Destacadas</h3>
+            <div class="categories-grid">
+                <a href="productos.html?cat=notebooks" class="category-card">
+                    <span class="category-icon">💻</span>
+                    <h4>Notebooks</h4>
+                </a>
+                <a href="productos.html?cat=componentes" class="category-card">
+                    <span class="category-icon">🖥️</span>
+                    <h4>Componentes PC</h4>
+                </a>
+                <a href="productos.html?cat=perifericos" class="category-card">
+                    <span class="category-icon">🖱️</span>
+                    <h4>Periféricos</h4>
+                </a>
+                <a href="productos.html?cat=monitores" class="category-card">
+                    <span class="category-icon">📺</span>
+                    <h4>Monitores</h4>
+                </a>
+            </div>
+        </section>
+
+        <!-- Productos Destacados / Ofertas -->
+        <section class="featured-products">
+            <div class="section-header">
+                <h2>Productos Destacados de la Semana</h2>
+                <a href="productos.html" class="link-more">Ver todos →</a>
+            </div>
+
+            <div id="grilla-destacados" class="productos-grid">
+                <!-- Tarjeta Destacada 1 -->
+                <div class="product-card">
+                    <div class="product-info">
+                        <span class="product-category">Notebooks</span>
+                        <h3>ASUS TUF Gaming A15</h3>
+                        <ul class="product-specs">
+                            <li><strong>CPU:</strong> AMD Ryzen 7 7735HS</li>
+                            <li><strong>RAM:</strong> 16 GB DDR5</li>
+                            <li><strong>GPU:</strong> NVIDIA RTX 3050 4GB</li>
+                        </ul>
+                        <div class="product-price">$719.990</div>
+                        <button class="btn-primary" onclick="addToCart(1)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Destacada 2 -->
+                <div class="product-card">
+                    <div class="product-info">
+                        <span class="product-category">Periféricos</span>
+                        <h3>Logitech G Pro X Superlight</h3>
+                        <ul class="product-specs">
+                            <li><strong>Sensor:</strong> HERO 25K (25.600 DPI)</li>
+                            <li><strong>Conexión:</strong> Inalámbrica LIGHTSPEED</li>
+                            <li><strong>Peso:</strong> &lt; 63 gramos</li>
+                        </ul>
+                        <div class="product-price">$99.990</div>
+                        <button class="btn-primary" onclick="addToCart(2)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Destacada 3 -->
+                <div class="product-card">
+                    <div class="product-info">
+                        <span class="product-category">Monitores</span>
+                        <h3>LG UltraGear 27" 27GN600</h3>
+                        <ul class="product-specs">
+                            <li><strong>Panel:</strong> IPS Full HD (1920x1080)</li>
+                            <li><strong>Refresco:</strong> 144 Hz / 1 ms</li>
+                        </ul>
+                        <div class="product-price">$189.990</div>
+                        <button class="btn-primary" onclick="addToCart(3)">Agregar al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2026 TecnoShop - Cotizador y Tienda de Hardware</p>
+    </footer>
+
+    <!-- Cargamos scripts esenciales -->
+    <script src="js/main.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/validaciones.js"></script>
+</body>
 </html>

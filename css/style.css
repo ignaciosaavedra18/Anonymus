@@ -1,115 +1,91 @@
-/* Layout General Estilo SoloTodo */
-.catalog-layout {
+/* Hero Banner */
+.hero-section {
+    background: linear-gradient(135deg, #4c1d95 0%, #6b21a8 100%);
+    color: white;
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #e9d5ff;
+}
+
+.btn-hero {
+    display: inline-block;
+    background: #ffffff;
+    color: #6b21a8;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.btn-hero:hover {
+    background: #f3e8ff;
+}
+
+/* Grilla de Categorías */
+.categories-section {
+    margin-bottom: 2.5rem;
+}
+
+.categories-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #6b21a8;
+    padding-bottom: 0.3rem;
+}
+
+.categories-grid {
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 1.5rem;
-    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
 }
 
-/* Buscador en Header */
-.search-bar {
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 4px;
-    overflow: hidden;
-    width: 40%;
-}
-
-.search-bar input {
-    border: none;
-    padding: 0.5rem 0.8rem;
-    width: 100%;
-    outline: none;
-}
-
-.search-bar button {
-    background: transparent;
-    border: none;
-    padding: 0.5rem 0.8rem;
-    cursor: pointer;
-}
-
-/* Sidebar de Filtros */
-.filters-sidebar {
+.category-card {
     background: white;
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    padding: 1.2rem;
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    text-decoration: none;
+    color: #1e293b;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.filters-sidebar h3 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #6b21a8;
-    padding-bottom: 0.4rem;
+.category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
-.filter-group {
-    margin-bottom: 1.2rem;
-}
-
-.filter-group label {
+.category-icon {
+    font-size: 2rem;
     display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
     margin-bottom: 0.4rem;
 }
 
-.filter-group select, .filter-group input {
-    width: 100%;
-    padding: 0.4rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 4px;
-}
-
-.price-inputs {
+/* Secciones generales */
+.section-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.4rem;
+    margin-bottom: 1rem;
 }
 
-.btn-secondary {
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    color: #334155;
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.btn-secondary:hover {
-    background: #e2e8f0;
-}
-
-/* Lista de Especificaciones en la Tarjeta */
-.product-category {
-    font-size: 0.75rem;
-    text-transform: uppercase;
+.link-more {
     color: #6b21a8;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.product-specs {
-    list-style: none;
-    font-size: 0.82rem;
-    color: #475569;
-    margin: 0.6rem 0;
-}
-
-.product-specs li {
-    margin-bottom: 0.2rem;
-}
-
-/* Adaptación para Pantallas Móviles */
-@media (max-width: 768px) {
-    .catalog-layout {
-        grid-template-columns: 1fr;
-    }
-    .search-bar {
-        width: 100%;
-        margin: 0.5rem 0;
-    }
+.link-more:hover {
+    text-decoration: underline;
 }
