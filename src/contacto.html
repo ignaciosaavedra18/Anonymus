@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - TechStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Encabezado / Navegación -->
+    <header class="header">
+        <div class="nav-container">
+            <h1 class="logo"><a href="index.html">TechStore</a></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                    <li><a href="login.html">Iniciar Sesión</a></li>
+                    <li>
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 Carrito <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <section class="contacto-section">
+            <h2>Ponte en Contacto con Nosotros</h2>
+            <p>Si tienes dudas sobre tu pedido o deseas consultar por un producto, déjanos un mensaje.</p>
+
+            <form id="contactoForm" class="form-container" novalidate>
+                <div id="errorMessages" class="alert-container"></div>
+
+                <div class="form-group">
+                    <label for="run">RUN / RUT (Sin puntos ni guión):</label>
+                    <input type="text" id="run" name="run" placeholder="Ej: 19011022K" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@duoc.cl" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="motivo">Motivo de Consulta:</label>
+                    <select id="motivo" name="motivo" required>
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="soporte">Soporte Técnico</option>
+                        <option value="ventas">Ventas y Cotizaciones</option>
+                        <option value="devolucion">Garantía / Devoluciones</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <section class="info-contacto">
+            <h3>Información de Atención</h3>
+            <ul>
+                <li><strong>Dirección:</strong> Av. Concha y Toro 1340, Puente Alto, Región Metropolitana</li>
+                <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
+                <li><strong>Horario:</strong> Lunes a Viernes de 09:00 a 18:00 hrs.</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <p>&copy; 2026 TechStore - Proyecto Fullstack II (Duoc UC)</p>
+    </footer>
+
+    <!-- Scripts de la Aplicación -->
+    <script src="js/main.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/validaciones.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+[
+  {
+    "id": "U001",
+    "name": "Ignacio González",
+    "email": "ignacio.gonzalez@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Los Lagos"
+  },
+  {
+    "id": "U002",
+    "name": "Kevin Aguilera",
+    "email": "kevin.aguilera@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Coquimbo"
+  },
+  {
+    "id": "U003",
+    "name": "Joaquín González",
+    "email": "joaquin.gonzalez@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Coquimbo"
+  },
+  {
+    "id": "U004",
+    "name": "Camila Vergara",
+    "email": "camila.vergara@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Metropolitana"
+  },
+  {
+    "id": "U005",
+    "name": "Fernanda Vergara",
+    "email": "fernanda.vergara@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Metropolitana"
+  },
+  {
+    "id": "U006",
+    "name": "Matías Contreras",
+    "email": "matias.contreras@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Maule"
+  },
+  {
+    "id": "U007",
+    "name": "Josefa Vergara",
+    "email": "josefa.vergara@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Coquimbo"
+  },
+  {
+    "id": "U008",
+    "name": "Diego Fuentes",
+    "email": "diego.fuentes@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Biobío"
+  },
+  {
+    "id": "U009",
+    "name": "Valentina Muñoz",
+    "email": "valentina.muñoz@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Valparaíso"
+  },
+  {
+    "id": "U010",
+    "name": "Sebastián Rojas",
+    "email": "sebastian.rojas@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Valparaíso"
+  },
+  {
+    "id": "U011",
+    "name": "Antonia Muñoz",
+    "email": "antonia.muñoz@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Los Lagos"
+  },
+  {
+    "id": "U012",
+    "name": "Cristóbal Cárdenas",
+    "email": "cristobal.cardenas@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Maule"
+  },
+  {
+    "id": "U013",
+    "name": "Martina Muñoz",
+    "email": "martina.muñoz@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Los Lagos"
+  },
+  {
+    "id": "U014",
+    "name": "Benjamín Rojas",
+    "email": "benjamin.rojas@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Metropolitana"
+  },
+  {
+    "id": "U015",
+    "name": "Constanza Saavedra",
+    "email": "constanza.saavedra@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Los Lagos"
+  },
+  {
+    "id": "U016",
+    "name": "Vicente Vergara",
+    "email": "vicente.vergara@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Coquimbo"
+  },
+  {
+    "id": "U017",
+    "name": "Isidora Aguilera",
+    "email": "isidora.aguilera@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "cliente",
+    "region": "Metropolitana"
+  },
+  {
+    "id": "U018",
+    "name": "Tomás Fuentes",
+    "email": "tomas.fuentes@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "administrador",
+    "region": "Valparaíso"
+  },
+  {
+    "id": "U019",
+    "name": "Florencia Fuentes",
+    "email": "florencia.fuentes@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "administrador",
+    "region": "Biobío"
+  },
+  {
+    "id": "U020",
+    "name": "Agustín Cárdenas",
+    "email": "agustin.cardenas@tecnoshop.cl",
+    "password": "Demo1234",
+    "role": "soporte",
+    "region": "Biobío"
+  }
+]

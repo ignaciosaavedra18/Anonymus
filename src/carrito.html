@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - TechStore</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+            <h1 class="logo"><a href="index.html">TechStore</a></h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li>
+                        <a href="carrito.html" class="cart-icon active">
+                            🛒 Carrito <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="cart-section">
+            <h2>Tu Carrito de Compras</h2>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cartTableBody">
+                    <!-- Filas generadas dinámicamente con JS -->
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <h3>Total a pagar: <span id="cartTotal">$0</span></h3>
+                <button class="btn-primary" onclick="alert('¡Gracias por tu compra!')">Finalizar Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 TechStore - Proyecto Fullstack II (Duoc UC)</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>

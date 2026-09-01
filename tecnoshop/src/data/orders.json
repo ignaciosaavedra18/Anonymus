@@ -1,0 +1,596 @@
+[
+  {
+    "id": "OC0001",
+    "userId": "U003",
+    "date": "2026-05-20",
+    "items": [
+      {
+        "productId": "P024",
+        "name": "Xiaomi Tablet 8\" Mini",
+        "unitPrice": 670990,
+        "qty": 1
+      },
+      {
+        "productId": "P019",
+        "name": "Xiaomi Tablet 8\" Mini",
+        "unitPrice": 275990,
+        "qty": 2
+      }
+    ],
+    "total": 1222970,
+    "status": "entregado"
+  },
+  {
+    "id": "OC0002",
+    "userId": "U017",
+    "date": "2026-02-05",
+    "items": [
+      {
+        "productId": "P043",
+        "name": "Sony Audífonos Cancelación de Ruido",
+        "unitPrice": 38990,
+        "qty": 3
+      }
+    ],
+    "total": 116970,
+    "status": "confirmado"
+  },
+  {
+    "id": "OC0003",
+    "userId": "U009",
+    "date": "2026-05-10",
+    "items": [
+      {
+        "productId": "P007",
+        "name": "Dell All in One 24\"",
+        "unitPrice": 573990,
+        "qty": 3
+      }
+    ],
+    "total": 1721970,
+    "status": "enviado"
+  },
+  {
+    "id": "OC0004",
+    "userId": "U007",
+    "date": "2026-01-03",
+    "items": [
+      {
+        "productId": "P014",
+        "name": "Xiaomi Smartphone 256GB",
+        "unitPrice": 295990,
+        "qty": 2
+      },
+      {
+        "productId": "P044",
+        "name": "Logitech Audífonos Deportivos",
+        "unitPrice": 133990,
+        "qty": 3
+      },
+      {
+        "productId": "P041",
+        "name": "JBL Audífonos Deportivos",
+        "unitPrice": 152990,
+        "qty": 2
+      }
+    ],
+    "total": 1299930,
+    "status": "confirmado"
+  },
+  {
+    "id": "OC0005",
+    "userId": "U014",
+    "date": "2026-08-18",
+    "items": [
+      {
+        "productId": "P003",
+        "name": "Apple Notebook 14\"",
+        "unitPrice": 721990,
+        "qty": 1
+      },
+      {
+        "productId": "P001",
+        "name": "Lenovo Notebook 14\"",
+        "unitPrice": 1048990,
+        "qty": 3
+      },
+      {
+        "productId": "P022",
+        "name": "Apple Tablet 10.9\"",
+        "unitPrice": 241990,
+        "qty": 2
+      }
+    ],
+    "total": 4352940,
+    "status": "confirmado"
+  },
+  {
+    "id": "OC0006",
+    "userId": "U014",
+    "date": "2026-03-18",
+    "items": [
+      {
+        "productId": "P008",
+        "name": "Lenovo Notebook Gamer 16\"",
+        "unitPrice": 383990,
+        "qty": 1
+      }
+    ],
+    "total": 383990,
+    "status": "entregado"
+  },
+  {
+    "id": "OC0007",
+    "userId": "U002",
+    "date": "2026-01-12",
+    "items": [
+      {
+        "productId": "P038",
+        "name": "Samsung Monitor 27\" QHD",
+        "unitPrice": 102990,
+        "qty": 2
+      },
+      {
+        "productId": "P036",
+        "name": "Dell Monitor 32\" 4K",
+        "unitPrice": 363990,
+        "qty": 1
+      },
+      {
+        "productId": "P010",
+        "name": "Motorola Smartphone 128GB",
+        "unitPrice": 310990,
+        "qty": 1
+      }
+    ],
+    "total": 880960,
+    "status": "en_preparacion"
+  },
+  {
+    "id": "OC0008",
+    "userId": "U007",
+    "date": "2026-07-20",
+    "items": [
+      {
+        "productId": "P043",
+        "name": "Sony Audífonos Cancelación de Ruido",
+        "unitPrice": 38990,
+        "qty": 2
+      },
+      {
+        "productId": "P007",
+        "name": "Dell All in One 24\"",
+        "unitPrice": 573990,
+        "qty": 3
+      }
+    ],
+    "total": 1799950,
+    "status": "entregado"
+  },
+  {
+    "id": "OC0009",
+    "userId": "U005",
+    "date": "2026-06-26",
+    "items": [
+      {
+        "productId": "P056",
+        "name": "Logitech Teclado Mecánico",
+        "unitPrice": 83990,
+        "qty": 1
+      },
+      {
+        "productId": "P011",
+        "name": "Samsung Smartphone 5G 128GB",
+        "unitPrice": 291990,
+        "qty": 2
+      }
+    ],
+    "total": 667970,
+    "status": "pendiente"
+  },
+  {
+    "id": "OC0010",
+    "userId": "U014",
+    "date": "2026-01-28",
+    "items": [
+      {
+        "productId": "P018",
+        "name": "Lenovo Tablet 8\" Mini",
+        "unitPrice": 346990,
+        "qty": 3
+      },
+      {
+        "productId": "P011",
+        "name": "Samsung Smartphone 5G 128GB",
+        "unitPrice": 291990,
+        "qty": 1
+      }
+    ],
+    "total": 1332960,
+    "status": "en_preparacion"
+  },
+  {
+    "id": "OC0011",
+    "userId": "U016",
+    "date": "2026-04-08",
+    "items": [
+      {
+        "productId": "P013",
+        "name": "Motorola Smartphone 5G 128GB",
+        "unitPrice": 896990,
+        "qty": 2
+      },
+      {
+        "productId": "P053",
+        "name": "JBL Funda Protectora",
+        "unitPrice": 26990,
+        "qty": 2
+      }
+    ],
+    "total": 1847960,
+    "status": "en_preparacion"
+  },
+  {
+    "id": "OC0012",
+    "userId": "U001",
+    "date": "2026-05-12",
+    "items": [
+      {
+        "productId": "P026",
+        "name": "Xiaomi Smartwatch Classic",
+        "unitPrice": 106990,
+        "qty": 2
+      },
+      {
+        "productId": "P022",
+        "name": "Apple Tablet 10.9\"",
+        "unitPrice": 241990,
+        "qty": 1
+      }
+    ],
+    "total": 455970,
+    "status": "cancelado"
+  },
+  {
+    "id": "OC0013",
+    "userId": "U017",
+    "date": "2026-05-02",
+    "items": [
+      {
+        "productId": "P044",
+        "name": "Logitech Audífonos Deportivos",
+        "unitPrice": 133990,
+        "qty": 1
+      },
+      {
+        "productId": "P054",
+        "name": "Logitech Mouse Inalámbrico",
+        "unitPrice": 47990,
+        "qty": 1
+      },
+      {
+        "productId": "P035",
+        "name": "Samsung Monitor 27\" QHD",
+        "unitPrice": 464990,
+        "qty": 2
+      },
+      {
+        "productId": "P022",
+        "name": "Apple Tablet 10.9\"",
+        "unitPrice": 241990,
+        "qty": 1
+      }
+    ],
+    "total": 1353950,
+    "status": "enviado"
+  },
+  {
+    "id": "OC0014",
+    "userId": "U004",
+    "date": "2026-04-09",
+    "items": [
+      {
+        "productId": "P023",
+        "name": "Xiaomi Tablet 8\" Mini",
+        "unitPrice": 739990,
+        "qty": 2
+      },
+      {
+        "productId": "P047",
+        "name": "Logitech Audífonos Cancelación de Ruido",
+        "unitPrice": 60990,
+        "qty": 3
+      },
+      {
+        "productId": "P051",
+        "name": "JBL Soporte para Notebook",
+        "unitPrice": 14990,
+        "qty": 3
+      },
+      {
+        "productId": "P021",
+        "name": "Lenovo Tablet 11\" Pro",
+        "unitPrice": 353990,
+        "qty": 1
+      }
+    ],
+    "total": 2061910,
+    "status": "en_preparacion"
+  },
+  {
+    "id": "OC0015",
+    "userId": "U002",
+    "date": "2026-06-14",
+    "items": [
+      {
+        "productId": "P001",
+        "name": "Lenovo Notebook 14\"",
+        "unitPrice": 1048990,
+        "qty": 3
+      },
+      {
+        "productId": "P034",
+        "name": "Asus Monitor 27\" QHD",
+        "unitPrice": 369990,
+        "qty": 3
+      },
+      {
+        "productId": "P052",
+        "name": "Belkin Hub USB-C",
+        "unitPrice": 65990,
+        "qty": 3
+      },
+      {
+        "productId": "P035",
+        "name": "Samsung Monitor 27\" QHD",
+        "unitPrice": 464990,
+        "qty": 3
+      }
+    ],
+    "total": 5849880,
+    "status": "entregado"
+  },
+  {
+    "id": "OC0016",
+    "userId": "U003",
+    "date": "2026-07-11",
+    "items": [
+      {
+        "productId": "P040",
+        "name": "LG Monitor 32\" 4K",
+        "unitPrice": 362990,
+        "qty": 1
+      },
+      {
+        "productId": "P021",
+        "name": "Lenovo Tablet 11\" Pro",
+        "unitPrice": 353990,
+        "qty": 3
+      },
+      {
+        "productId": "P043",
+        "name": "Sony Audífonos Cancelación de Ruido",
+        "unitPrice": 38990,
+        "qty": 2
+      }
+    ],
+    "total": 1502940,
+    "status": "enviado"
+  },
+  {
+    "id": "OC0017",
+    "userId": "U013",
+    "date": "2026-03-20",
+    "items": [
+      {
+        "productId": "P036",
+        "name": "Dell Monitor 32\" 4K",
+        "unitPrice": 363990,
+        "qty": 2
+      },
+      {
+        "productId": "P009",
+        "name": "Xiaomi Smartphone 5G 128GB",
+        "unitPrice": 237990,
+        "qty": 3
+      },
+      {
+        "productId": "P013",
+        "name": "Motorola Smartphone 5G 128GB",
+        "unitPrice": 896990,
+        "qty": 2
+      }
+    ],
+    "total": 3235930,
+    "status": "entregado"
+  },
+  {
+    "id": "OC0018",
+    "userId": "U010",
+    "date": "2026-06-15",
+    "items": [
+      {
+        "productId": "P036",
+        "name": "Dell Monitor 32\" 4K",
+        "unitPrice": 363990,
+        "qty": 2
+      },
+      {
+        "productId": "P054",
+        "name": "Logitech Mouse Inalámbrico",
+        "unitPrice": 47990,
+        "qty": 1
+      },
+      {
+        "productId": "P001",
+        "name": "Lenovo Notebook 14\"",
+        "unitPrice": 1048990,
+        "qty": 2
+      },
+      {
+        "productId": "P020",
+        "name": "Lenovo Tablet 8\" Mini",
+        "unitPrice": 727990,
+        "qty": 3
+      }
+    ],
+    "total": 5057920,
+    "status": "enviado"
+  },
+  {
+    "id": "OC0019",
+    "userId": "U015",
+    "date": "2026-06-03",
+    "items": [
+      {
+        "productId": "P044",
+        "name": "Logitech Audífonos Deportivos",
+        "unitPrice": 133990,
+        "qty": 3
+      },
+      {
+        "productId": "P014",
+        "name": "Xiaomi Smartphone 256GB",
+        "unitPrice": 295990,
+        "qty": 1
+      },
+      {
+        "productId": "P033",
+        "name": "Samsung Monitor 24\" FHD",
+        "unitPrice": 164990,
+        "qty": 3
+      },
+      {
+        "productId": "P031",
+        "name": "Xiaomi Smartwatch GPS",
+        "unitPrice": 171990,
+        "qty": 1
+      }
+    ],
+    "total": 1364920,
+    "status": "confirmado"
+  },
+  {
+    "id": "OC0020",
+    "userId": "U008",
+    "date": "2026-08-20",
+    "items": [
+      {
+        "productId": "P015",
+        "name": "Samsung Smartphone 256GB",
+        "unitPrice": 1095990,
+        "qty": 1
+      },
+      {
+        "productId": "P052",
+        "name": "Belkin Hub USB-C",
+        "unitPrice": 65990,
+        "qty": 1
+      },
+      {
+        "productId": "P013",
+        "name": "Motorola Smartphone 5G 128GB",
+        "unitPrice": 896990,
+        "qty": 1
+      }
+    ],
+    "total": 2058970,
+    "status": "confirmado"
+  },
+  {
+    "id": "OC0021",
+    "userId": "U003",
+    "date": "2026-03-21",
+    "items": [
+      {
+        "productId": "P027",
+        "name": "Apple Smartwatch GPS",
+        "unitPrice": 183990,
+        "qty": 3
+      },
+      {
+        "productId": "P041",
+        "name": "JBL Audífonos Deportivos",
+        "unitPrice": 152990,
+        "qty": 3
+      },
+      {
+        "productId": "P037",
+        "name": "LG Monitor 27\" QHD",
+        "unitPrice": 272990,
+        "qty": 2
+      },
+      {
+        "productId": "P013",
+        "name": "Motorola Smartphone 5G 128GB",
+        "unitPrice": 896990,
+        "qty": 2
+      }
+    ],
+    "total": 3350900,
+    "status": "en_preparacion"
+  },
+  {
+    "id": "OC0022",
+    "userId": "U001",
+    "date": "2026-08-02",
+    "items": [
+      {
+        "productId": "P050",
+        "name": "Anker Teclado Mecánico",
+        "unitPrice": 59990,
+        "qty": 2
+      }
+    ],
+    "total": 119980,
+    "status": "confirmado"
+  },
+  {
+    "id": "OC0023",
+    "userId": "U008",
+    "date": "2026-06-25",
+    "items": [
+      {
+        "productId": "P030",
+        "name": "Apple Smartwatch Classic",
+        "unitPrice": 214990,
+        "qty": 1
+      }
+    ],
+    "total": 214990,
+    "status": "entregado"
+  },
+  {
+    "id": "OC0024",
+    "userId": "U015",
+    "date": "2026-05-25",
+    "items": [
+      {
+        "productId": "P054",
+        "name": "Logitech Mouse Inalámbrico",
+        "unitPrice": 47990,
+        "qty": 3
+      },
+      {
+        "productId": "P036",
+        "name": "Dell Monitor 32\" 4K",
+        "unitPrice": 363990,
+        "qty": 2
+      },
+      {
+        "productId": "P029",
+        "name": "Samsung Smartwatch Classic",
+        "unitPrice": 127990,
+        "qty": 2
+      },
+      {
+        "productId": "P011",
+        "name": "Samsung Smartphone 5G 128GB",
+        "unitPrice": 291990,
+        "qty": 2
+      }
+    ],
+    "total": 1711910,
+    "status": "entregado"
+  }
+]
