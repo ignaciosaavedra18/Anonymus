@@ -4,7 +4,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario - TecnoShop</title>
+    <!-- Mantenemos tus estilos del header/footer -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Estilos directos para asegurar la apariencia exacta de la tarjeta -->
+    <style>
+        /* Centrado general de la tarjeta */
+        .main-content {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            min-height: calc(100vh - 220px) !important;
+            padding: 2.5rem 1rem !important;
+            background-color: #f8fafc !important;
+        }
+
+        /* Tarjeta idéntica a la imagen */
+        .form-card {
+            width: 100% !important;
+            max-width: 460px !important;
+            background: #ffffff !important;
+            border: 1px solid #bae6fd !important;
+            border-radius: 6px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+            overflow: hidden !important;
+        }
+
+        /* Cabecera Celeste */
+        .form-card-header {
+            background-color: #e0f2fe !important;
+            padding: 0.75rem 1.25rem !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            border-bottom: 1px solid #bae6fd !important;
+        }
+
+        .form-card-header h2 {
+            font-size: 1.1rem !important;
+            color: #0284c7 !important;
+            font-weight: 600 !important;
+            margin: 0 !important;
+        }
+
+        .link-login {
+            font-size: 0.85rem !important;
+            color: #0284c7 !important;
+            text-decoration: none !important;
+        }
+
+        .link-login:hover {
+            text-decoration: underline !important;
+        }
+
+        .form-card-body {
+            padding: 1.5rem 1.25rem !important;
+        }
+
+        /* Filas del formulario (Labels alineados a la derecha) */
+        .form-row {
+            display: grid !important;
+            grid-template-columns: 130px 1fr !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .form-row label {
+            font-size: 0.88rem !important;
+            font-weight: 700 !important;
+            color: #334155 !important;
+            text-align: right !important;
+            line-height: 1.2 !important;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="password"],
+        .form-row input[type="email"] {
+            width: 100% !important;
+            padding: 0.45rem 0.6rem !important;
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 4px !important;
+            font-size: 0.9rem !important;
+            color: #334155 !important;
+            outline: none !important;
+            box-sizing: border-box !important;
+        }
+
+        .form-row input::placeholder {
+            color: #94a3b8 !important;
+        }
+
+        /* Captcha */
+        .captcha-box {
+            background: #f8fafc !important;
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 4px !important;
+            padding: 0.75rem 1rem !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .captcha-checkbox {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.6rem !important;
+            font-size: 0.88rem !important;
+            color: #1e293b !important;
+        }
+
+        .captcha-checkbox input[type="checkbox"] {
+            width: 20px !important;
+            height: 20px !important;
+            cursor: pointer !important;
+        }
+
+        /* Botón celeste pequeño */
+        .btn-submit {
+            background-color: #38bdf8 !important;
+            color: #ffffff !important;
+            border: none !important;
+            padding: 0.5rem 1.2rem !important;
+            border-radius: 4px !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            cursor: pointer !important;
+            justify-self: start !important;
+        }
+
+        .btn-submit:hover {
+            background-color: #0284c7 !important;
+        }
+
+        /* Alerta roja */
+        .alert-error {
+            background-color: #fecdd3 !important;
+            border: 1px solid #fda4af !important;
+            border-radius: 4px !important;
+            padding: 0.8rem 1rem !important;
+            margin-top: 1.25rem !important;
+            position: relative !important;
+            color: #9f1239 !important;
+            font-size: 0.85rem !important;
+        }
+
+        .close-alert {
+            position: absolute !important;
+            top: 6px !important;
+            left: 8px !important;
+            cursor: pointer !important;
+            font-weight: bold !important;
+            color: #9f1239 !important;
+        }
+
+        .alert-error ul {
+            margin: 0.4rem 0 0 1.2rem !important;
+            padding: 0 !important;
+        }
+
+        @media (max-width: 500px) {
+            .form-row {
+                grid-template-columns: 1fr !important;
+                gap: 0.25rem !important;
+            }
+            .form-row label {
+                text-align: left !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -38,7 +208,7 @@
     </header>
 
     <main class="main-content">
-        <!-- Formulario Estilo Imagen -->
+        <!-- Formulario Estilo Tarjeta -->
         <div class="form-card">
             <!-- Cabecera del Cuadro -->
             <div class="form-card-header">
@@ -78,33 +248,30 @@
                         <input type="email" id="regEmail" placeholder="usuario@duoc.cl">
                     </div>
 
-                    <!-- Cuadro de Captcha Simulado -->
+                    <!-- Captcha Simulado -->
                     <div class="form-row">
-                        <div></div> <!-- Espacio para alinear con los inputs -->
+                        <div></div>
                         <div class="captcha-box">
                             <div class="captcha-checkbox">
                                 <input type="checkbox" id="regCaptcha">
                                 <label for="regCaptcha">No soy un robot</label>
                             </div>
-                            <div class="captcha-logo">
-                                
-                                
+                            <div style="font-size: 10px; color: #64748b; text-align: right;">
+                                🔄 reCAPTCHA
                             </div>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div></div>
-                        <button type="submit" class="btn-primary btn-submit">Registrar</button>
+                        <button type="submit" class="btn-submit">Registrar</button>
                     </div>
                 </form>
 
-                <!-- Cuadro Rojo de Errores (Visualización dinámica) -->
+                <!-- Cuadro de Errores -->
                 <div id="errorContainer" class="alert-error" style="display: none;">
                     <span class="close-alert" onclick="this.parentElement.style.display='none'">[X]</span>
-                    <ul id="errorList">
-                        <!-- Errores generados por validaciones.js -->
-                    </ul>
+                    <ul id="errorList"></ul>
                 </div>
             </div>
         </div>
