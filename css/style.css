@@ -2,7 +2,7 @@
     --purple-700: #4c1d95;
     --purple-600: #6b21a8;
     --purple-500: #7c3aed;
-    --purple-50: #f5f3ff;
+    --purple-50: #ffffff;
     --bg-main: #f8fafc;
     --bg-card: #ffffff;
     --text-primary: #0f172a;
@@ -899,4 +899,121 @@ body {
     .form-row {
         grid-template-columns: 1fr;
     }
+}
+
+/* ============================================================
+   CARRUSEL DESLIZABLE DE PRODUCTOS
+   ============================================================ */
+
+.carousel-wrapper {
+    position: relative; /* Clave para posicionar los botones respecto a esta caja */
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+/* Pista horizontal con scroll suave */
+.carousel-track {
+    display: flex !important;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 5px 20px 5px;
+    width: 100%;
+}
+
+/* Ocultar barra de scroll para un acabado limpio */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+.carousel-track {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Ancho fijo de tarjetas para habilitar el deslizamiento */
+.carousel-track .product-card,
+.carousel-track .card-producto {
+    flex: 0 0 280px;
+    max-width: 280px;
+}
+
+/* Estilos de los botones del carrusel */
+.carousel-btn {
+    position: absolute; /* Clave para ubicarlos sobre los bordes */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--purple-600);
+    color: #ffffff;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 20;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--purple-700);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: -15px;
+}
+
+.next-btn {
+    right: -15px;
+}
+
+/* Tarjeta especial "Ver Todo" al final del carrusel */
+.catalog-cta-card {
+    background: linear-gradient(135deg, var(--purple-600) 0%, #3b0764 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    flex: 0 0 280px;
+}
+
+.catalog-cta-card .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.catalog-cta-card .cta-icon {
+    font-size: 2.5rem;
+}
+
+.catalog-cta-card h3 {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.catalog-cta-card p {
+    font-size: 0.85rem;
+    color: #e9d5ff;
+}
+
+.catalog-cta-card .btn-banner {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    background-color: #ffffff;
+    color: var(--purple-600);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: bold;
 }

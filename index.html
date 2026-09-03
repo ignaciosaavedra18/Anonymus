@@ -57,88 +57,121 @@
     <main class="main-content">
         <!-- Banner Principal -->
         <section class="main-banner">
-            <div class="banner-text">
-                <h2>Compara y Ahorra en tu Próximo PC</h2>
-                <p>Encuentra las mejores ofertas de componentes y laptops en tiempo real.</p>
-                <a href="productos.html" class="btn-banner">Ver Ofertas Destacadas</a>
-            </div>
-        </section>
-
-        <!-- Grilla de Ofertas -->
-        <section class="section-box">
             <div class="section-title-bar">
                 <h2>🔥 Tendencias y Descuentos</h2>
                 <a href="productos.html">Ver catálogo completo →</a>
             </div>
 
-            <div class="productos-grid">
-                <!-- Tarjeta 1 -->
-                <div class="product-card">
-                    <div class="card-badge">¡Mejor Precio!</div>
-                    <div class="product-img-box">
-                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=300" alt="Notebook">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Notebook Gamer</span>
-                        <h3>ASUS TUF Gaming A15 FA507</h3>
-                        <div class="rating">★★★★☆ <span class="rating-count">(12)</span></div>
-                        <ul class="product-specs">
-                            <li><strong>CPU:</strong> Ryzen 7 7735HS</li>
-                            <li><strong>RAM:</strong> 16GB DDR5</li>
-                            <li><strong>GPU:</strong> RTX 3050 4GB</li>
-                        </ul>
-                        <div class="price-box">
-                            <span class="old-price">$849.990</span>
-                            <span class="current-price">$719.990</span>
+            <!-- Wrapper para posicionar los botones -->
+            <div class="carousel-wrapper">
+                <button id="prevBtn" class="carousel-btn prev-btn" aria-label="Anterior">❮</button>
+
+                <!-- Pista del carrusel -->
+                <div id="carouselTrack" class="carousel-track">
+                    
+                    <!-- Tarjeta 1 -->
+                    <div class="product-card">
+                        <div class="card-badge">¡Mejor Precio!</div>
+                        <div class="product-img-box">
+                            <img src="images/ASUS.png" alt="ASUS TUF Gaming A15">
                         </div>
-                        <button class="btn-primary" onclick="addToCart(1)">Agregar al Carrito</button>
+                        <div class="product-info">
+                            <span class="product-category">Notebook Gamer</span>
+                            <h3>ASUS TUF Gaming A15 FA507</h3>
+                            <div class="rating">★★★★☆ <span class="rating-count">(12)</span></div>
+                            <ul class="product-specs">
+                                <li><strong>CPU:</strong> Ryzen 7 7735HS</li>
+                                <li><strong>RAM:</strong> 16GB DDR5</li>
+                                <li><strong>GPU:</strong> RTX 3050 4GB</li>
+                            </ul>
+                            <div class="price-box">
+                                <span class="old-price">$849.990</span>
+                                <span class="current-price">$719.990</span>
+                            </div>
+                            <button class="btn-primary" onclick="addToCart(1)">Agregar al Carrito</button>
+                        </div>
                     </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="product-card">
+                        <div class="card-badge badge-blue">Destacado</div>
+                        <div class="product-img-box">
+                            <img src="images/Mouse Logitech G Pro 2.jpg" alt="Mouse Logitech G Pro">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Periféricos</span>
+                            <h3>Logitech G Pro X Superlight</h3>
+                            <div class="rating">★★★★★ <span class="rating-count">(28)</span></div>
+                            <ul class="product-specs">
+                                <li><strong>Sensor:</strong> HERO 25K</li>
+                                <li><strong>Peso:</strong> 63g Ultra Liviano</li>
+                                <li><strong>Conexión:</strong> Inalámbrica</li>
+                            </ul>
+                            <div class="price-box">
+                                <span class="old-price">$129.990</span>
+                                <span class="current-price">$99.990</span>
+                            </div>
+                            <button class="btn-primary" onclick="addToCart(2)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="images/Monitor LG 27 pulgadas, Panel IPS, 144Hz.jpg" alt="Monitor LG">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Monitores</span>
+                            <h3>LG UltraGear 27" IPS 144Hz</h3>
+                            <div class="rating">★★★★☆ <span class="rating-count">(8)</span></div>
+                            <ul class="product-specs">
+                                <li><strong>Res:</strong> FHD (1920x1080)</li>
+                                <li><strong>Panel:</strong> IPS 1ms</li>
+                                <li><strong>Tecnología:</strong> FreeSync</li>
+                            </ul>
+                            <div class="price-box">
+                                <span class="old-price">$229.990</span>
+                                <span class="current-price">$189.990</span>
+                            </div>
+                            <button class="btn-primary" onclick="addToCart(3)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4 -->
+                    <div class="product-card">
+                        <div class="product-img-box">
+                            <img src="images/RTX.png" alt="RTX 4060">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-category">Componentes</span>
+                            <h3>NVIDIA GeForce RTX 4060 8GB</h3>
+                            <div class="rating">★★★★★ <span class="rating-count">(15)</span></div>
+                            <ul class="product-specs">
+                                <li><strong>VRAM:</strong> 8GB GDDR6</li>
+                                <li><strong>Bus:</strong> 128-bit</li>
+                                <li><strong>DLSS:</strong> 3.0 Soporte</li>
+                            </ul>
+                            <div class="price-box">
+                                <span class="old-price">$389.990</span>
+                                <span class="current-price">$349.990</span>
+                            </div>
+                            <button class="btn-primary" onclick="addToCart(4)">Agregar al Carrito</button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta Call to Action (Ver más) -->
+                    <div class="product-card catalog-cta-card">
+                        <div class="cta-content">
+                            <span class="cta-icon">🚀</span>
+                            <h3>¿Buscas algo más?</h3>
+                            <p>Explora todo nuestro catálogo con filtros y ordenamiento.</p>
+                            <a href="productos.html" class="btn-banner">Ver todo el catálogo</a>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Tarjeta 2 -->
-                <div class="product-card">
-                    <div class="card-badge badge-blue">Destacado</div>
-                    <div class="product-img-box">
-                        <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=300" alt="Mouse">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Logitech G Pro X Superlight</h3>
-                        <div class="rating">★★★★★ <span class="rating-count">(28)</span></div>
-                        <ul class="product-specs">
-                            <li><strong>Sensor:</strong> HERO 25K</li>
-                            <li><strong>Peso:</strong> 63g Ultra Liviano</li>
-                            <li><strong>Conexión:</strong> Inalámbrica</li>
-                        </ul>
-                        <div class="price-box">
-                            <span class="old-price">$129.990</span>
-                            <span class="current-price">$99.990</span>
-                        </div>
-                        <button class="btn-primary" onclick="addToCart(2)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300" alt="Monitor">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Monitores</span>
-                        <h3>LG UltraGear 27" IPS 144Hz</h3>
-                        <div class="rating">★★★★☆ <span class="rating-count">(8)</span></div>
-                        <ul class="product-specs">
-                            <li><strong>Res:</strong> FHD (1920x1080)</li>
-                            <li><strong>Panel:</strong> IPS 1ms</li>
-                            <li><strong>Tecnología:</strong> FreeSync</li>
-                        </ul>
-                        <div class="price-box">
-                            <span class="old-price">$229.990</span>
-                            <span class="current-price">$189.990</span>
-                        </div>
-                        <button class="btn-primary" onclick="addToCart(3)">Agregar al Carrito</button>
-                    </div>
-                </div>
+                <button id="nextBtn" class="carousel-btn next-btn" aria-label="Siguiente">❯</button>
             </div>
         </section>
     </main>

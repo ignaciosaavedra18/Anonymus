@@ -19,17 +19,44 @@ function getProductos() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    // ==========================================
+    // 2. CONTROL DEL CARRUSEL EN EL HOME (index.html)
+    // ==========================================
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (track && prevBtn && nextBtn) {
+        const getScrollAmount = () => {
+            const firstCard = track.querySelector('.product-card, .card-producto');
+            if (firstCard) {
+                return firstCard.offsetWidth + 20; // Ancho + gap
+            }
+            return 300;
+        };
+
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+    }
+
+    // ==========================================
+    // 3. CONTROL DE FILTROS Y BÚSQUEDA (productos.html)
+    // ==========================================
     const grilla = document.getElementById("grilla-productos");
 
-    // Solo se ejecuta si estamos en productos.html
     if (grilla) {
-        // Evento al hacer clic en "Aplicar Filtros"
         const btnApply = document.getElementById("btnApplyFilters");
         if (btnApply) {
             btnApply.addEventListener("click", aplicarFiltros);
         }
 
-        // Evento al escribir o presionar Enter en el buscador central
         const searchInput = document.getElementById("searchInput");
         const searchBtn = document.querySelector(".search-bar button");
 
@@ -44,9 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Función de filtrado directo sobre el HTML
+// Función de filtrado en productos.html
 function aplicarFiltros() {
-    // 1. Obtener los valores seleccionados
     const catSeleccionada = document.getElementById("filterCategory") ? document.getElementById("filterCategory").value : "todos";
     const precioMinInput = document.getElementById("priceMin") ? document.getElementById("priceMin").value : "";
     const precioMaxInput = document.getElementById("priceMax") ? document.getElementById("priceMax").value : "";
@@ -55,44 +81,36 @@ function aplicarFiltros() {
     const precioMin = precioMinInput !== "" ? parseInt(precioMinInput) : 0;
     const precioMax = precioMaxInput !== "" ? parseInt(precioMaxInput) : Infinity;
 
-    // 2. Obtener todas las tarjetas de productos existentes en el HTML
     const tarjetas = document.querySelectorAll("#grilla-productos .product-card");
     let tarjetasVisibles = 0;
 
     tarjetas.forEach(card => {
-        // Leer la categoría escrita en el <span class="product-category">
         const catTexto = card.querySelector(".product-category")?.textContent.trim() || "";
         const catNormalizada = normalizarCategoria(catTexto);
 
-        // Leer el precio escrito en el <div class="product-price"> (extrae solo los números)
         const precioTexto = card.querySelector(".product-price")?.textContent || "";
         const precio = parseInt(precioTexto.replace(/\D/g, "")) || 0;
 
-        // Leer todo el texto de la tarjeta para búsqueda general
         const textoTarjeta = card.textContent.toLowerCase();
 
-        // Comprobar si cumple las 3 condiciones
         const cumpleCategoria = (catSeleccionada === "todos") || (catNormalizada === catSeleccionada);
         const cumplePrecio = (precio >= precioMin) && (precio <= precioMax);
         const cumpleBusqueda = (textoBusqueda === "") || textoTarjeta.includes(textoBusqueda);
 
-        // 3. Mostrar u Ocultar la tarjeta
         if (cumpleCategoria && cumplePrecio && cumpleBusqueda) {
-            card.style.display = ""; // Muestra el elemento respetando tu CSS
+            card.style.display = ""; 
             tarjetasVisibles++;
         } else {
-            card.style.display = "none"; // Oculta el elemento
+            card.style.display = "none"; 
         }
     });
 
-    // 4. Actualizar el contador de resultados
     const contador = document.querySelector(".results-count");
     if (contador) {
         contador.textContent = `Mostrando ${tarjetasVisibles} producto(s)`;
     }
 }
 
-// Utilidad para vincular el texto HTML con el valor del <select>
 function normalizarCategoria(texto) {
     const t = texto.toLowerCase().trim();
     if (t.includes("notebook")) return "notebooks";
