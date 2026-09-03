@@ -38,7 +38,7 @@
     <!-- Contenedor Principal: Filtros + Lista de Productos -->
     <main class="main-content catalog-layout">
         
-        <!-- Barra Lateral de Filtros (Estilo SoloTodo) -->
+        <!-- Barra Lateral de Filtros -->
         <aside class="filters-sidebar">
             <h3>Filtros de Búsqueda</h3>
 
@@ -69,14 +69,15 @@
         <section class="products-section">
             <div class="catalog-header">
                 <h2>Catálogo de Productos</h2>
-                <span class="results-count">Mostrando resultados destacados</span>
+                <span class="results-count">Mostrando 9 productos destacados</span>
             </div>
 
             <div id="grilla-productos" class="productos-grid">
-                <!-- Tarjeta 1 -->
+                
+                <!-- Tarjeta 1: Notebook -->
                 <div class="product-card">
                     <div class="product-img-box">
-                        <img src="images/laptop.jpg" alt="Notebook Gamer" onerror="this.src='https://via.placeholder.com/200x150?text=Notebook+ASUS'">
+                        <img src="images/laptop.jpg" alt="Notebook Gamer" onerror="this.src='https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=300'">
                     </div>
                     <div class="product-info">
                         <span class="product-category">Notebooks</span>
@@ -92,10 +93,10 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta 2 -->
+                <!-- Tarjeta 2: Mouse -->
                 <div class="product-card">
                     <div class="product-img-box">
-                        <img src="images/mouse.jpg" alt="Mouse Gamer" onerror="this.src='https://via.placeholder.com/200x150?text=Mouse+Logitech'">
+                        <img src="images/mouse.jpg" alt="Mouse Gamer" onerror="this.src='https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=300'">
                     </div>
                     <div class="product-info">
                         <span class="product-category">Periféricos</span>
@@ -103,17 +104,17 @@
                         <ul class="product-specs">
                             <li><strong>Sensor:</strong> HERO 25K (25.600 DPI)</li>
                             <li><strong>Conexión:</strong> Inalámbrica LIGHTSPEED</li>
-                            <li><strong>Peso:</strong> < 63 gramos</li>
+                            <li><strong>Peso:</strong> &lt; 63 gramos</li>
                         </ul>
                         <div class="product-price">$99.990</div>
                         <button class="btn-primary" onclick="addToCart(2)">Agregar al Carrito</button>
                     </div>
                 </div>
 
-                <!-- Tarjeta 3 -->
+                <!-- Tarjeta 3: Monitor -->
                 <div class="product-card">
                     <div class="product-img-box">
-                        <img src="images/monitor.jpg" alt="Monitor Gamer" onerror="this.src='https://via.placeholder.com/200x150?text=Monitor+LG'">
+                        <img src="images/monitor.jpg" alt="Monitor Gamer" onerror="this.src='https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=300'">
                     </div>
                     <div class="product-info">
                         <span class="product-category">Monitores</span>
@@ -127,6 +128,115 @@
                         <button class="btn-primary" onclick="addToCart(3)">Agregar al Carrito</button>
                     </div>
                 </div>
+
+                <!-- Tarjeta 4: Tarjeta de Video -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="images/gpu.jpg" alt="Tarjeta de Video" onerror="this.src='https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=300'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Componentes PC</span>
+                        <h3>NVIDIA GeForce RTX 4060 8GB</h3>
+                        <ul class="product-specs">
+                            <li><strong>Memoria:</strong> 8 GB GDDR6</li>
+                            <li><strong>Arquitectura:</strong> Ada Lovelace</li>
+                            <li><strong>Soporte:</strong> DLSS 3 / Ray Tracing</li>
+                        </ul>
+                        <div class="product-price">$349.990</div>
+                        <button class="btn-primary" onclick="addToCart(4)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Procesador -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="images/cpu.jpg" alt="Procesador AMD Ryzen" onerror="this.src='https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=300'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Componentes PC</span>
+                        <h3>AMD Ryzen 7 7800X3D</h3>
+                        <ul class="product-specs">
+                            <li><strong>Núcleos / Hilos:</strong> 8 / 16</li>
+                            <li><strong>Frecuencia Max:</strong> 5.0 GHz</li>
+                            <li><strong>Caché L3:</strong> 96 MB 3D V-Cache</li>
+                        </ul>
+                        <div class="product-price">$429.990</div>
+                        <button class="btn-primary" onclick="addToCart(5)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6: Memoria RAM -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="images/ram.jpg" alt="Memoria RAM DDR5" onerror="this.src='https://images.unsplash.com/photo-1562976540-1502c2145186?w=300'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Componentes PC</span>
+                        <h3>Corsair Vengeance RGB 32GB DDR5</h3>
+                        <ul class="product-specs">
+                            <li><strong>Capacidad:</strong> 32 GB (2 x 16GB)</li>
+                            <li><strong>Velocidad:</strong> 6000 MHz CL36</li>
+                            <li><strong>Iluminación:</strong> RGB Dinámico</li>
+                        </ul>
+                        <div class="product-price">$129.990</div>
+                        <button class="btn-primary" onclick="addToCart(6)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 7: Teclado Mecánico -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="images/teclado.jpg" alt="Teclado Mecánico" onerror="this.src='https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=300'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Periféricos</span>
+                        <h3>HyperX Alloy Origins Core</h3>
+                        <ul class="product-specs">
+                            <li><strong>Switches:</strong> HyperX Red (Lineal)</li>
+                            <li><strong>Formato:</strong> TKL (Sin teclado numérico)</li>
+                            <li><strong>Estructura:</strong> Aluminio de aviación</li>
+                        </ul>
+                        <div class="product-price">$69.990</div>
+                        <button class="btn-primary" onclick="addToCart(7)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 8: Audífonos Gamer -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="images/audifonos.jpg" alt="Audífonos Gamer" onerror="this.src='https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=300'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Periféricos</span>
+                        <h3>Razer BlackShark V2 X</h3>
+                        <ul class="product-specs">
+                            <li><strong>Audio:</strong> Sonido Surround 7.1</li>
+                            <li><strong>Drivers:</strong> Razer TriForce 50mm</li>
+                            <li><strong>Micrófono:</strong> Cardioide HyperClear</li>
+                        </ul>
+                        <div class="product-price">$49.990</div>
+                        <button class="btn-primary" onclick="addToCart(8)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 9: Gabinete PC -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="images/gabinete.jpg" alt="Gabinete Gamer" onerror="this.src='https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=300'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Componentes PC</span>
+                        <h3>Gabinete MSI MAG Forge 100R</h3>
+                        <ul class="product-specs">
+                            <li><strong>Formato:</strong> ATX / Micro-ATX</li>
+                            <li><strong>Ventiladores:</strong> 2x ARGB Incluidos</li>
+                            <li><strong>Panel Lateral:</strong> Cristal Templado</li>
+                        </ul>
+                        <div class="product-price">$59.990</div>
+                        <button class="btn-primary" onclick="addToCart(9)">Agregar al Carrito</button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
