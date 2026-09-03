@@ -3,25 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - TechStore</title>
+    <title>TecnoShop - Contacto y Soporte</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body> 
 
-    <!-- Encabezado / Navegación -->
+    <!-- Header / Barra Superior -->
     <header class="header">
         <div class="nav-container">
-            <h1 class="logo"><a href="index.html">TechStore</a></h1>
+            <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar notebooks, procesadores, tarjetas de video...">
+                <button type="button">🔍</button>
+            </div>
+
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="contacto.html" class="active">Contacto</a></li>
-                    <li><a href="login.html">Iniciar Sesión</a></li>
+                    <li><a href="login.html">Acceso</a></li>
                     <li>
                         <a href="carrito.html" class="cart-icon">
-                            🛒 Carrito <span class="cart-count">0</span>
+                            🛒 <span class="cart-count">0</span>
                         </a>
                     </li>
                 </ul>
@@ -29,69 +34,118 @@
         </div>
     </header>
 
-    <!-- Contenido Principal -->
-    <main class="main-content">
-        <section class="contacto-section">
-            <h2>Ponte en Contacto con Nosotros</h2>
-            <p>Si tienes dudas sobre tu pedido o deseas consultar por un producto, déjanos un mensaje.</p>
+    <!-- Sección Principal de Contacto -->
+    <main class="main-content contact-section">
+        
+        <!-- Encabezado de la página -->
+        <div class="contact-header">
+            <h2>¿En qué te podemos ayudar?</h2>
+            <p>Si tienes dudas con tu compra, necesitas asesoría técnica o cotizaciones a medida, escríbenos.</p>
+        </div>
 
-            <form id="contactoForm" class="form-container" novalidate>
-                <div id="errorMessages" class="alert-container"></div>
-
-                <div class="form-group">
-                    <label for="run">RUN / RUT (Sin puntos ni guión):</label>
-                    <input type="text" id="run" name="run" placeholder="Ej: 19011022K" required>
+        <div class="contact-grid">
+            
+            <!-- Columna Izquierda: Información de contacto -->
+            <div class="contact-info-cards">
+                
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h3>Ubicación</h3>
+                        <p>Av. Providencia 1234, Oficina 502<br>Santiago, Chile</p>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" required>
+                <div class="info-card">
+                    <div class="info-icon">💬</div>
+                    <div class="info-text">
+                        <h3>Atención por WhatsApp</h3>
+                        <p>+56 9 1234 5678</p>
+                        <span class="status-online">● En línea de Lunes a Viernes</span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" placeholder="ejemplo@duoc.cl" required>
+                <div class="info-card">
+                    <div class="info-icon">📧</div>
+                    <div class="info-text">
+                        <h3>Correo Electrónico</h3>
+                        <p>soporte@tecnoshop.cl</p>
+                        <p>ventas@tecnoshop.cl</p>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="motivo">Motivo de Consulta:</label>
-                    <select id="motivo" name="motivo" required>
-                        <option value="">-- Selecciona una opción --</option>
-                        <option value="soporte">Soporte Técnico</option>
-                        <option value="ventas">Ventas y Cotizaciones</option>
-                        <option value="devolucion">Garantía / Devoluciones</option>
-                        <option value="otro">Otro</option>
-                    </select>
+                <div class="info-card">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-text">
+                        <h3>Horario de Atención</h3>
+                        <p>Lunes a Viernes: 09:00 - 18:30 hrs</p>
+                        <p>Sábados: 10:00 - 14:00 hrs</p>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+
+            <!-- Columna Derecha: Formulario estilizado -->
+            <div class="contact-form-wrapper">
+                <h3>Envíanos un mensaje</h3>
+                
+                <!-- Alerta de éxito al enviar -->
+                <div id="contactSuccessAlert" class="alert-success" style="display: none;">
+                    ✅ ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.
                 </div>
 
-                <button type="submit" class="btn-primary">Enviar Mensaje</button>
-            </form>
-        </section>
+                <form id="contactForm" class="contact-form">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactNombre">Nombre Completo *</label>
+                            <input type="text" id="contactNombre" placeholder="Ej: Juan Pérez" required>
+                        </div>
 
-        <section class="info-contacto">
-            <h3>Información de Atención</h3>
-            <ul>
-                <li><strong>Dirección:</strong> Av. Concha y Toro 1340, Puente Alto, Región Metropolitana</li>
-                <li><strong>Teléfono:</strong> +56 9 1234 5678</li>
-                <li><strong>Horario:</strong> Lunes a Viernes de 09:00 a 18:00 hrs.</li>
-            </ul>
-        </section>
+                        <div class="form-group">
+                            <label for="contactEmail">Correo Electrónico *</label>
+                            <input type="email" id="contactEmail" placeholder="nombre@correo.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contactTelefono">Teléfono (Opcional)</label>
+                            <input type="tel" id="contactTelefono" placeholder="+56 9 8765 4321">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMotivo">Motivo de consulta</label>
+                            <select id="contactMotivo">
+                                <option value="cotizacion">Cotización de Armado PC</option>
+                                <option value="soporte">Soporte Técnico / Garantía</option>
+                                <option value="despacho">Estado de mi Pedido</option>
+                                <option value="otro">Consulta General</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMensaje">Mensaje *</label>
+                        <textarea id="contactMensaje" rows="5" placeholder="Escribe aquí tu consulta detallada..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-submit-contact">
+                        Enviar Consulta 🚀
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
     </main>
 
-    <!-- Pie de Página -->
     <footer class="footer">
-        <p>&copy; 2026 TechStore - Proyecto Fullstack II (Duoc UC)</p>
+        <p>&copy; 2026 TecnoShop - Cotizador y Tienda de Hardware</p>
     </footer>
 
-    <!-- Scripts de la Aplicación -->
     <script src="js/main.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/validaciones.js"></script>
-
 </body>
 </html>
