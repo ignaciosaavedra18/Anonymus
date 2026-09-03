@@ -28,26 +28,58 @@
 
     <main class="main-content">
         <section class="cart-section">
-            <h2>Tu Carrito de Compras</h2>
-            
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Subtotal</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="cartTableBody">
-                    <!-- Filas generadas dinámicamente con JS -->
-                </tbody>
-            </table>
+            <div class="section-title-bar">
+                <h2>Tu Carrito de Compras</h2>
+                <a href="productos.html">&larr; Seguir comprando</a>
+            </div>
 
-            <div class="cart-summary">
-                <h3>Total a pagar: <span id="cartTotal">$0</span></h3>
-                <button class="btn-primary" onclick="alert('¡Gracias por tu compra!')">Finalizar Compra</button>
+            <div class="cart-layout">
+                <!-- Columna izquierda: listado de productos -->
+                <div class="cart-items-box">
+                    <div class="table-responsive">
+                        <table class="data-table" id="cartTable">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartTableBody">
+                                <!-- Filas generadas dinámicamente con JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Estado vacío (se muestra/oculta desde carrito.js) -->
+                    <div class="cart-empty" id="cartEmpty" hidden>
+                        <p class="cart-empty-icon">🛒</p>
+                        <h3>Tu carrito está vacío</h3>
+                        <p>Agrega productos desde el catálogo para verlos aquí.</p>
+                        <a href="productos.html" class="btn-primary btn-inline">Ver productos</a>
+                    </div>
+                </div>
+
+                <!-- Columna derecha: resumen del pedido -->
+                <aside class="cart-summary">
+                    <h3>Resumen del pedido</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="cartSubtotal">$0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío</span>
+                        <span id="cartShipping">Gratis</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total a pagar</span>
+                        <span id="cartTotal">$0</span>
+                    </div>
+                    <button class="btn-primary" id="btnFinalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+                    <p class="summary-note">Pago 100% seguro · Devoluciones dentro de 10 días</p>
+                </aside>
             </div>
         </section>
     </main>
