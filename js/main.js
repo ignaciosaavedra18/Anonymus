@@ -1,16 +1,16 @@
 // js/main.js
 
-// 1. Catálogo para que carrito.js conozca los productos sin tocar el HTML
+// 1. Catálogo actualizado con las imágenes reales de tu carpeta /images
 const catalogoProductos = [
-    { id: 1, nombre: "ASUS TUF Gaming A15", categoria: "notebooks", precio: 719990, img: "images/laptop.jpg" },
-    { id: 2, nombre: "Logitech G Pro X Superlight", categoria: "perifericos", precio: 99990, img: "images/mouse.jpg" },
-    { id: 3, nombre: "LG UltraGear 27\" 27GN600", categoria: "monitores", precio: 189990, img: "images/monitor.jpg" },
-    { id: 4, nombre: "NVIDIA GeForce RTX 4060 8GB", categoria: "componentes", precio: 349990, img: "images/gpu.jpg" },
-    { id: 5, nombre: "AMD Ryzen 7 7800X3D", categoria: "componentes", precio: 429990, img: "images/cpu.jpg" },
-    { id: 6, nombre: "Corsair Vengeance RGB 32GB DDR5", categoria: "componentes", precio: 129990, img: "images/ram.jpg" },
-    { id: 7, nombre: "HyperX Alloy Origins Core", categoria: "perifericos", precio: 69990, img: "images/teclado.jpg" },
-    { id: 8, nombre: "Razer BlackShark V2 X", categoria: "perifericos", precio: 49990, img: "images/audifonos.jpg" },
-    { id: 9, nombre: "Gabinete MSI MAG Forge 100R", categoria: "componentes", precio: 59990, img: "images/gabinete.jpg" }
+    { id: 1, nombre: "ASUS TUF Gaming A15", categoria: "notebooks", precio: 719990, img: "images/ASUS.png" },
+    { id: 2, nombre: "Logitech G Pro X Superlight", categoria: "perifericos", precio: 99990, img: "images/Mouse Logitech G Pro 2.jpg" },
+    { id: 3, nombre: "LG UltraGear 27\" 27GN600", categoria: "monitores", precio: 189990, img: "images/Monitor LG 27 pulgadas, Panel IPS, 144Hz.jpg" },
+    { id: 4, nombre: "NVIDIA GeForce RTX 4060 8GB", categoria: "componentes", precio: 349990, img: "images/RTX.png" },
+    { id: 5, nombre: "AMD Ryzen 7 7800X3D", categoria: "componentes", precio: 429990, img: "images/Procesador Ryzen 7 9700X 3,8GHz 8 nucleos.jpg" },
+    { id: 6, nombre: "Corsair Vengeance RGB 32GB DDR5", categoria: "componentes", precio: 129990, img: "images/RTX.png" },
+    { id: 7, nombre: "HyperX Alloy Origins Core", categoria: "perifericos", precio: 69990, img: "images/Teclado Logitech G915.jpg" },
+    { id: 8, nombre: "Razer BlackShark V2 X", categoria: "perifericos", precio: 49990, img: "images/HyperX Cloud Stinger 2.jpg" },
+    { id: 9, nombre: "Gabinete MSI MAG Forge 100R", categoria: "componentes", precio: 59990, img: "images/ASUS.png" }
 ];
 
 // Función requerida por carrito.js
