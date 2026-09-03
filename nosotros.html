@@ -8,19 +8,26 @@
 </head>
 <body>
 
+    <!-- Header Principal -->
     <header class="header">
         <div class="nav-container">
-            <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
+            <a href="index.html" class="brand-link">
+                <img src="img/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
+                <div class="brand-box">
+                    <span class="logo">TecnoShop</span>
+                    <span class="sub-logo">Cotizador Hardware</span>
+                </div>
+            </a>
 
             <div class="search-bar">
-                <input type="text" placeholder="Buscar hardware, laptops, periféricos...">
+                <input type="text" placeholder="¿Qué buscas? Ej: RTX 4060, Ryzen 7, Notebook Gamer...">
                 <button type="button">🔍</button>
             </div>
 
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="productos.html">Catálogo</a></li>
                     <li><a href="nosotros.html" class="active">Nosotros</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="login.html">Acceso</a></li>
@@ -34,28 +41,45 @@
         </div>
     </header>
 
-    <main class="main-content">
-        <section class="about-section form-container" style="max-width: 800px; text-align: justify;">
-            <h2>Sobre TecnoShop</h2>
-            <p><strong>TecnoShop</strong> nace como una plataforma orientada a centralizar el catálogo de tecnología, accesorios y componentes de hardware en Chile. Nuestro objetivo es brindar fichas técnicas transparentes y precisas para que entusiastas del hardware y gamers puedan tomar la mejor decisión de compra.</p>
-            
-            <br>
-            <h3>Nuestra Misión</h3>
-            <p>Simplificar la búsqueda de componentes tecnológicos mediante interfaces rápidas, comparativas claras e integración directa de stocks en tiempo real.</p>
+    <!-- Sub-Header Categorías -->
+    <div class="sub-nav">
+        <div class="sub-nav-container">
+            <a href="productos.html?cat=notebooks">💻 Notebooks</a>
+            <a href="productos.html?cat=gpus">🎮 Tarjetas de Video</a>
+            <a href="productos.html?cat=cpus">🧠 Procesadores</a>
+            <a href="productos.html?cat=ram">⚡ Memorias RAM</a>
+            <a href="productos.html?cat=monitores">🖥️ Monitores</a>
+            <a href="productos.html?cat=perifericos">🖱️ Periféricos</a>
+        </div>
+    </div>
 
-            <br>
-            <h3>Equipo de Desarrollo</h3>
-            <p>Proyecto desarrollado por estudiantes de Informática de Duoc UC </p>
-            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                <li>Ignacio Saavedra</li>
-                <li>Kevin Aguilera</li>
-                <li>Joaquín Cárdenas</li>
-            </ul>
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <section class="about-hero">
+            <img src="img/LogoTienda.jpg" alt="TecnoShop Digital E-Commerce Technology" class="about-banner-img">
+            
+            <h2>¿Quiénes Somos?</h2>
+            <p><strong>TecnoShop</strong> es una plataforma de cotización y e-commerce de última tecnología diseñada para conectar a los entusiastas del hardware, gamers y profesionales con los mejores precios del mercado.</p>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>🚀 Nuestra Misión</h3>
+                    <p>Brindar transparencia y facilidad en la búsqueda de componentes de computadores, ofreciendo herramientas de comparación confiables e información en tiempo real.</p>
+                </div>
+                <div class="about-card">
+                    <h3>💡 Innovación Tecnológica</h3>
+                    <p>Integración de analíticas avanzadas, catálogos interactivos y procesos de compra seguros diseñados desde la plataforma e-commerce de TecnoShop.</p>
+                </div>
+                <div class="about-card">
+                    <h3>🔒 Seguridad y Confianza</h3>
+                    <p>Garantizamos transacciones protegidas e información verificada para que arme su PC con la máxima tranquilidad.</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 TecnoShop - Cotizador y Tienda de Hardware</p>
+        <p>&copy; 2026 TecnoShop - Proyecto Fullstack II (Duoc UC)</p>
     </footer>
 
     <script src="js/main.js"></script>
