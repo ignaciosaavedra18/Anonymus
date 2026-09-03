@@ -74,3 +74,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+// js/validaciones.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contactForm");
+    const successAlert = document.getElementById("contactSuccessAlert");
+
+    if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault(); // Previene recargar la página
+
+            // Mostrar la alerta de éxito
+            if (successAlert) {
+                successAlert.style.display = "block";
+            }
+
+            // Limpiar el formulario
+            contactForm.reset();
+
+            // Ocultar la alerta tras 5 segundos
+            setTimeout(() => {
+                if (successAlert) {
+                    successAlert.style.display = "none";
+                }
+            }, 5000);
+        });
+    }
+});
