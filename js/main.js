@@ -28,8 +28,15 @@ function getProductos() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const grilla = document.getElementById("grilla-productos");
+    // Inicialización del Carrusel horizontal estilo SoloTodo
+    const track = document.getElementById("carouselTrack");
+    if (track) {
+        renderCarrusel(track);
+        initCarouselControls(track);
+    }
 
+    // Inicialización de Grilla de Filtros (Si existe)
+    const grilla = document.getElementById("grilla-productos");
     if (grilla) {
         const btnApply = document.getElementById("btnApplyFilters");
         if (btnApply) {
@@ -49,6 +56,62 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+// Renderiza todos los productos guardados dentro de la pista del carrusel
+function renderCarrusel(trackElement) {
+    trackElement.innerHTML = "";
+
+    catalogoProductos.forEach(producto => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+            <div class="product-img-box">
+                <img src="${producto.img}" alt="${producto.nombre}">
+            </div>
+            <div class="product-info">
+                <span class="product-category">${producto.categoria}</span>
+                <h3>${producto.nombre}</h3>
+                <div class="rating">★★★★☆ <span class="rating-count">(12)</span></div>
+                <div class="price-box">
+                    <span class="current-price">$${producto.precio.toLocaleString("es-CL")}</span>
+                </div>
+                <button class="btn-primary" onclick="addToCart(${producto.id})">Agregar al Carrito</button>
+            </div>
+        `;
+        trackElement.appendChild(card);
+    });
+
+    // Tarjeta final para invitar a ver más
+    const ctaCard = document.createElement("div");
+    ctaCard.className = "product-card catalog-cta-card";
+    ctaCard.innerHTML = `
+        <div class="cta-content">
+            <span class="cta-icon">🚀</span>
+            <h3>¿Buscas algo más?</h3>
+            <p>Explora todo nuestro catálogo con filtros y ordenamiento.</p>
+            <a href="productos.html" class="btn-banner">Ver todo el catálogo</a>
+        </div>
+    `;
+    trackElement.appendChild(ctaCard);
+}
+
+// Configuración de eventos para desplazar las flechas izquierda y derecha
+function initCarouselControls(trackElement) {
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            trackElement.scrollBy({ left: -320, behavior: "smooth" });
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            trackElement.scrollBy({ left: 320, behavior: "smooth" });
+        });
+    }
+}
 
 function aplicarFiltros() {
     const catSeleccionada = document.getElementById("filterCategory") ? document.getElementById("filterCategory").value : "todos";

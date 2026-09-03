@@ -169,11 +169,11 @@ body {
     color: white;
 }
 
-/* --- BANNER HERO --- */
+/* --- BANNER HERO & CARRUSEL SOLOTODO --- */
 .main-banner {
     background: linear-gradient(135deg, var(--purple-700) 0%, var(--purple-500) 100%);
     color: white;
-    padding: 2.5rem 2rem;
+    padding: 2rem 1.5rem;
     border-radius: var(--radius-md);
     margin-bottom: 2rem;
     box-shadow: var(--shadow-md);
@@ -209,6 +209,89 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+/* Carrusel de Desplazamiento Horizontal con Botones */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1.2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0.8rem 0.2rem;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE / Edge */
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-track .product-card {
+    flex: 0 0 260px;
+    max-width: 260px;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: white;
+    color: var(--purple-700);
+    border: 1px solid var(--border-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    transition: background 0.2s, transform 0.2s, color 0.2s;
+}
+
+.carousel-btn:hover {
+    background: var(--purple-700);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: -18px;
+}
+
+.next-btn {
+    right: -18px;
+}
+
+.catalog-cta-card {
+    background: linear-gradient(135deg, #1e1b4b 0%, var(--purple-700) 100%);
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.catalog-cta-card h3 {
+    color: white;
+    margin: 0.8rem 0;
+}
+
+.catalog-cta-card p {
+    font-size: 0.85rem;
+    color: #e9d5ff;
+    margin-bottom: 1rem;
+}
+
+.cta-icon {
+    font-size: 2.5rem;
+}
+
 /* --- CONTENIDO & TARJETAS DE PRODUCTOS --- */
 .main-content {
     max-width: 1280px;
@@ -221,17 +304,18 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 0.6rem;
 }
 
 .section-title-bar h2 {
     font-size: 1.3rem;
     font-weight: 700;
+    color: white;
 }
 
 .section-title-bar a {
-    color: var(--purple-600);
+    color: #e9d5ff;
     text-decoration: none;
     font-weight: 600;
     font-size: 0.9rem;
@@ -239,6 +323,7 @@ body {
 
 .section-title-bar a:hover {
     text-decoration: underline;
+    color: white;
 }
 
 .productos-grid {
@@ -247,7 +332,7 @@ body {
     gap: 1.5rem;
 }
 
-/* Tarjeta Profesional con Flexbox interno de altura uniforme */
+/* Tarjeta Profesional */
 .product-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -333,7 +418,6 @@ body {
     margin-left: 0.2rem;
 }
 
-/* Especificaciones con fondo limpio tipo Ficha Técnica */
 .product-specs {
     list-style: none;
     background: var(--purple-50);
@@ -342,7 +426,6 @@ body {
     font-size: 0.78rem;
     margin: 0.6rem 0 1rem 0;
     color: var(--text-secondary);
-    border: 1px solid #ed893600;
 }
 
 .product-specs li {
@@ -375,7 +458,6 @@ body {
     color: var(--green-price);
 }
 
-/* Botones de Acción */
 .btn-primary {
     background: var(--purple-600);
     color: white;
@@ -397,12 +479,6 @@ body {
     transform: scale(0.98);
 }
 
-.btn-primary:disabled {
-    background: var(--text-muted);
-    cursor: not-allowed;
-    transform: none;
-}
-
 /* FOOTER */
 .footer {
     background: #0f172a;
@@ -414,7 +490,7 @@ body {
     border-top: 1px solid #1e293b;
 }
 
-/* MEDIA QUERIES (Móvil) */
+/* MEDIA QUERIES */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -428,11 +504,17 @@ body {
     .productos-grid {
         grid-template-columns: 1fr;
     }
-}
-/* ============================================================
-   CARRITO DE COMPRAS
-   ============================================================ */
 
+    .prev-btn {
+        left: -10px;
+    }
+
+    .next-btn {
+        right: -10px;
+    }
+}
+
+/* CARRITO */
 .cart-layout {
     display: grid;
     grid-template-columns: 1fr 320px;
@@ -556,7 +638,6 @@ body {
     background: #fee2e2;
 }
 
-/* Estado vacío */
 .cart-empty {
     text-align: center;
     padding: 3rem 1.5rem;
@@ -585,7 +666,6 @@ body {
     text-decoration: none;
 }
 
-/* Resumen lateral (sticky) */
 .cart-summary {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -629,21 +709,7 @@ body {
     margin-top: 0.8rem;
 }
 
-@media (max-width: 768px) {
-    .cart-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .cart-summary {
-        position: static;
-    }
-
-    .cart-product-cell img {
-        display: none;
-    }
-}
-
-/* --- ESTILOS DEL LOGO EN EL HEADER --- */
+/* BRAND HEADER */
 .brand-link {
     display: flex;
     align-items: center;
@@ -660,11 +726,6 @@ body {
     box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
 }
 
-.brand-box {
-    display: flex;
-    flex-direction: column;
-}
-
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
@@ -672,57 +733,7 @@ body {
     line-height: 1.1;
 }
 
-.sub-logo {
-    font-size: 0.65rem;
-    color: #e9d5ff;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    font-weight: 600;
-}
-
-/* --- ESTILOS DE LA PÁGINA NOSOTROS --- */
-.about-hero {
-    background: var(--bg-card, #ffffff);
-    border: 1px solid var(--border-color, #e2e8f0);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0,0,0,0.1));
-}
-
-.about-banner-img {
-    width: 100%;
-    max-height: 380px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,0.1));
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.about-card {
-    background: #f8fafc;
-    border-left: 4px solid #7c3aed;
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.about-card h3 {
-    margin-bottom: 0.5rem;
-    color: #4c1d95;
-}
-
-
-/* ==========================================
-   ESTILOS PARA LA PÁGINA DE CONTACTO
-   ========================================== */
-
+/* CONTACTO & OTROS */
 .contact-section {
     max-width: 1200px;
     margin: 30px auto;
@@ -745,7 +756,6 @@ body {
     font-size: 1.05rem;
 }
 
-/* Layout en 2 Columnas */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
@@ -753,7 +763,6 @@ body {
     align-items: start;
 }
 
-/* Tarjetas de Información */
 .contact-info-cards {
     display: flex;
     flex-direction: column;
@@ -805,7 +814,6 @@ body {
     font-weight: 600;
 }
 
-/* Formulario */
 .contact-form-wrapper {
     background: #ffffff;
     padding: 30px;
@@ -880,140 +888,11 @@ body {
     transform: translateY(-2px);
 }
 
-/* Alerta de Envío */
 .alert-success {
     background-color: #d4edda;
     color: #155724;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #c3e6cb;
-    margin-bottom: 20px;
-    font-weight: 500;
-}
-
-/* Adaptación para Pantallas Pequeñas (Celulares) */
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ============================================================
-   CARRUSEL DESLIZABLE DE PRODUCTOS
-   ============================================================ */
-
-.carousel-wrapper {
-    position: relative; /* Clave para posicionar los botones respecto a esta caja */
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-/* Pista horizontal con scroll suave */
-.carousel-track {
-    display: flex !important;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 10px 5px 20px 5px;
-    width: 100%;
-}
-
-/* Ocultar barra de scroll para un acabado limpio */
-.carousel-track::-webkit-scrollbar {
-    display: none;
-}
-.carousel-track {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-/* Ancho fijo de tarjetas para habilitar el deslizamiento */
-.carousel-track .product-card,
-.carousel-track .card-producto {
-    flex: 0 0 280px;
-    max-width: 280px;
-}
-
-/* Estilos de los botones del carrusel */
-.carousel-btn {
-    position: absolute; /* Clave para ubicarlos sobre los bordes */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background-color: var(--purple-600);
-    color: #ffffff;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 20;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.carousel-btn:hover {
-    background-color: var(--purple-700);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.prev-btn {
-    left: -15px;
-}
-
-.next-btn {
-    right: -15px;
-}
-
-/* Tarjeta especial "Ver Todo" al final del carrusel */
-.catalog-cta-card {
-    background: linear-gradient(135deg, var(--purple-600) 0%, #3b0764 100%);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: var(--radius-md);
-    padding: 20px;
-    flex: 0 0 280px;
-}
-
-.catalog-cta-card .cta-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-.catalog-cta-card .cta-icon {
-    font-size: 2.5rem;
-}
-
-.catalog-cta-card h3 {
-    font-size: 1.2rem;
-    color: #ffffff;
-}
-
-.catalog-cta-card p {
-    font-size: 0.85rem;
-    color: #e9d5ff;
-}
-
-.catalog-cta-card .btn-banner {
-    margin-top: 10px;
-    padding: 8px 16px;
-    font-size: 0.85rem;
-    background-color: #ffffff;
-    color: var(--purple-600);
+    padding: 1rem;
     border-radius: var(--radius-sm);
-    text-decoration: none;
-    font-weight: bold;
+    border: 1px solid #c3e6cb;
+    margin-top: 1rem;
 }
