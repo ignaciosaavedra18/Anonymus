@@ -964,3 +964,59 @@ body {
     border-color: #ef4444;
     transform: scale(1.05);
 }
+
+
+/* Oculta las flechas antiguas que quedaron flotando al medio */
+.carousel-wrapper > #prevBtn,
+.carousel-wrapper > #nextBtn {
+    display: none !important;
+}
+
+/* Espaciado y orden de las 2 filas */
+#carouselTrack {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+}
+
+.carousel-row-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel-row-track {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding: 10px 5px;
+    scrollbar-width: none;
+}
+
+.carousel-row-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-row-track .product-card {
+    flex: 0 0 auto;
+}
+
+/* Posición exacta de los botones de cada fila */
+.carousel-row-wrapper .carousel-btn {
+    display: flex !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-row-wrapper .prev-btn {
+    left: -15px;
+}
+
+.carousel-row-wrapper .next-btn {
+    right: -15px;
+}

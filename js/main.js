@@ -57,14 +57,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Renderiza todos los productos guardados dentro de la pista del carrusel
+// Renderiza 2 filas independientes con su propia tarjeta de catálogo
 function renderCarrusel(trackElement) {
     trackElement.innerHTML = "";
 
-    catalogoProductos.forEach(producto => {
-        const card = document.createElement("div");
-        card.className = "product-card";
-        card.innerHTML = `
+    const productosFila1 = catalogoProductos.slice(0, 7);
+    const productosFila2 = catalogoProductos.slice(7, 14);
+
+    const crearCardHTML = (producto) => `
+        <div class="product-card">
             <div class="product-img-box">
                 <img src="${producto.img}" alt="${producto.nombre}">
             </div>
@@ -77,40 +78,61 @@ function renderCarrusel(trackElement) {
                 </div>
                 <button class="btn-primary" onclick="addToCart(${producto.id})">Agregar al Carrito</button>
             </div>
-        `;
-        trackElement.appendChild(card);
-    });
-
-    // Tarjeta final para invitar a ver más
-    const ctaCard = document.createElement("div");
-    ctaCard.className = "product-card catalog-cta-card";
-    ctaCard.innerHTML = `
-        <div class="cta-content">
-            <span class="cta-icon">🚀</span>
-            <h3>¿Buscas algo más?</h3>
-            <p>Explora todo nuestro catálogo con filtros y ordenamiento.</p>
-            <a href="productos.html" class="btn-banner">Ver todo el catálogo</a>
         </div>
     `;
-    trackElement.appendChild(ctaCard);
-}
 
-// Configuración de eventos para desplazar las flechas izquierda y derecha
-function initCarouselControls(trackElement) {
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+    const crearFilaConBotones = (productos, tieneCTA = true) => {
+        const wrapper = document.createElement("div");
+        wrapper.className = "carousel-row-wrapper";
 
-    if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-            trackElement.scrollBy({ left: -320, behavior: "smooth" });
+        const btnPrev = document.createElement("button");
+        btnPrev.className = "carousel-btn prev-btn";
+        btnPrev.innerHTML = "❮";
+        btnPrev.setAttribute("aria-label", "Anterior");
+
+        const rowTrack = document.createElement("div");
+        rowTrack.className = "carousel-row-track";
+
+        productos.forEach(producto => {
+            rowTrack.innerHTML += crearCardHTML(producto);
         });
-    }
 
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            trackElement.scrollBy({ left: 320, behavior: "smooth" });
+        if (tieneCTA) {
+            rowTrack.innerHTML += `
+                <div class="product-card catalog-cta-card">
+                    <div class="cta-content">
+                        <span class="cta-icon">🚀</span>
+                        <h3>¿Buscas algo más?</h3>
+                        <p>Explora todo nuestro catálogo con filtros y ordenamiento.</p>
+                        <a href="productos.html" class="btn-banner">Ver todo el catálogo</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        const btnNext = document.createElement("button");
+        btnNext.className = "carousel-btn next-btn";
+        btnNext.innerHTML = "❯";
+        btnNext.setAttribute("aria-label", "Siguiente");
+
+        btnPrev.addEventListener("click", () => {
+            rowTrack.scrollBy({ left: -320, behavior: "smooth" });
         });
-    }
+
+        btnNext.addEventListener("click", () => {
+            rowTrack.scrollBy({ left: 320, behavior: "smooth" });
+        });
+
+        wrapper.appendChild(btnPrev);
+        wrapper.appendChild(rowTrack);
+        wrapper.appendChild(btnNext);
+
+        return wrapper;
+    };
+
+    // Ambas filas llevan la tarjeta de catálogo (true)
+    trackElement.appendChild(crearFilaConBotones(productosFila1, true));
+    trackElement.appendChild(crearFilaConBotones(productosFila2, true));
 }
 
 function aplicarFiltros() {
