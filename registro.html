@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario - TecnoShop</title>
-    <!-- Mantenemos tus estilos del header/footer -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Estilos directos para asegurar la apariencia exacta de la tarjeta -->
     <style>
-        /* Centrado general de la tarjeta */
         .main-content {
             display: flex !important;
             justify-content: center !important;
@@ -19,7 +16,6 @@
             background-color: #f8fafc !important;
         }
 
-        /* Tarjeta idéntica a la imagen */
         .form-card {
             width: 100% !important;
             max-width: 460px !important;
@@ -30,7 +26,6 @@
             overflow: hidden !important;
         }
 
-        /* Cabecera Celeste */
         .form-card-header {
             background-color: #e0f2fe !important;
             padding: 0.75rem 1.25rem !important;
@@ -61,7 +56,6 @@
             padding: 1.5rem 1.25rem !important;
         }
 
-        /* Filas del formulario (Labels alineados a la derecha) */
         .form-row {
             display: grid !important;
             grid-template-columns: 130px 1fr !important;
@@ -95,7 +89,6 @@
             color: #94a3b8 !important;
         }
 
-        /* Captcha */
         .captcha-box {
             background: #f8fafc !important;
             border: 1px solid #cbd5e1 !important;
@@ -122,7 +115,6 @@
             cursor: pointer !important;
         }
 
-        /* Botón celeste pequeño */
         .btn-submit {
             background-color: #38bdf8 !important;
             color: #ffffff !important;
@@ -139,7 +131,6 @@
             background-color: #0284c7 !important;
         }
 
-        /* Alerta roja */
         .alert-error {
             background-color: #fecdd3 !important;
             border: 1px solid #fda4af !important;
@@ -154,7 +145,7 @@
         .close-alert {
             position: absolute !important;
             top: 6px !important;
-            left: 8px !important;
+            right: 8px !important;
             cursor: pointer !important;
             font-weight: bold !important;
             color: #9f1239 !important;
@@ -180,10 +171,13 @@
 
     <header class="header">
         <div class="nav-container">
-            <div class="brand-box">
-                <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
-                <span class="sub-logo">Cotizador Hardware</span>
-            </div>
+            <a href="index.html" class="brand-link">
+                <img src="images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
+                <div class="brand-box">
+                    <span class="logo">TecnoShop</span>
+                    <span class="sub-logo">Cotizador Hardware</span>
+                </div>
+            </a>
 
             <nav>
                 <ul class="nav-links">
@@ -191,7 +185,15 @@
                     <li><a href="productos.html">Catálogo</a></li>
                     <li><a href="nosotros.html">Nosotros</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="login.html">Acceso</a></li>
+                    <li id="navProfileItem" style="display: none;">
+    <a href="perfil.html" class="profile-pill">
+        <span class="avatar-circle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </span>
+        <span id="navUserName">Mi Perfil</span>
+        <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </a>
+</li>
                     <li>
                         <a href="carrito.html" class="cart-icon">
                             🛒 <span class="cart-count">0</span>
@@ -203,17 +205,14 @@
     </header>
 
     <main class="main-content">
-        <!-- Formulario Estilo Tarjeta -->
         <div class="form-card">
-            <!-- Cabecera del Cuadro -->
             <div class="form-card-header">
                 <h2>Regístrate</h2>
                 <a href="login.html" class="link-login">Iniciar Sesión</a>
             </div>
 
             <div class="form-card-body">
-                <!-- Se agregó action="index.html" para redirigir al presionar enviar -->
-                <form id="registroForm" action="index.html" method="GET">
+                <form id="registroForm">
                     <div class="form-row">
                         <label for="regNombre">Nombre:</label>
                         <input type="text" id="regNombre" placeholder="Usuario">
@@ -244,7 +243,6 @@
                         <input type="email" id="regEmail" placeholder="usuario@duoc.cl">
                     </div>
 
-                    <!-- Captcha Simulado -->
                     <div class="form-row">
                         <div></div>
                         <div class="captcha-box">
@@ -264,9 +262,8 @@
                     </div>
                 </form>
 
-                <!-- Cuadro de Errores -->
                 <div id="errorContainer" class="alert-error" style="display: none;">
-                    <span class="close-alert" onclick="this.parentElement.style.display='none'">[X]</span>
+                    <span class="close-alert" onclick="document.getElementById('errorContainer').style.display='none'">[X]</span>
                     <ul id="errorList"></ul>
                 </div>
             </div>
@@ -278,7 +275,59 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/validaciones.js"></script>
     <script src="js/carrito.js"></script>
+
+    <script>
+        document.getElementById("registroForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const nombre = document.getElementById("regNombre").value.trim();
+            const rut = document.getElementById("regRut").value.trim();
+            const usuario = document.getElementById("regUser").value.trim();
+            const pass = document.getElementById("regPass").value;
+            const confirmPass = document.getElementById("regConfirmPass").value;
+            const email = document.getElementById("regEmail").value.trim();
+            const captcha = document.getElementById("regCaptcha").checked;
+
+            const errorContainer = document.getElementById("errorContainer");
+            const errorList = document.getElementById("errorList");
+            errorList.innerHTML = "";
+            let errores = [];
+
+            // Validaciones
+            if (!nombre) errores.push("El campo Nombre es obligatorio.");
+            if (!rut) errores.push("El campo RUT / RUN es obligatorio.");
+            if (!usuario) errores.push("El campo Usuario es obligatorio.");
+            if (!pass) errores.push("El campo Password es obligatorio.");
+            if (pass !== confirmPass) errores.push("Las contraseñas no coinciden.");
+            if (!email) errores.push("El campo Email es obligatorio.");
+            if (!captcha) errores.push("Debes confirmar el reCAPTCHA ('No soy un robot').");
+
+            // Verificar duplicados en localStorage
+            let usuarios = JSON.parse(localStorage.getItem("usuariosTecnoShop")) || [];
+            if (usuarios.some(u => u.usuario === usuario || u.email === email)) {
+                errores.push("El usuario o correo electrónico ya se encuentra registrado.");
+            }
+
+            // Mostrar errores si existen
+            if (errores.length > 0) {
+                errores.forEach(err => {
+                    const li = document.createElement("li");
+                    li.textContent = err;
+                    errorList.appendChild(li);
+                });
+                errorContainer.style.display = "block";
+                return;
+            }
+
+            // Guardar usuario en la base de datos local
+            const nuevoUsuario = { nombre, rut, usuario, password: pass, email };
+            usuarios.push(nuevoUsuario);
+            localStorage.setItem("usuariosTecnoShop", JSON.stringify(usuarios));
+
+            // Redirigir de una a la página de Iniciar Sesión (login.html)
+            window.location.href = "login.html";
+        });
+    </script>
 </body>
 </html>

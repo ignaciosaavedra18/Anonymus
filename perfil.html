@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - TecnoShop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Principal -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-link">
+                <img src="images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
+                <div class="brand-box">
+                    <span class="logo">TecnoShop</span>
+                    <span class="sub-logo">Cotizador Hardware</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Catálogo</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    
+                    <li id="navLoginItem"><a href="login.html">Acceso</a></li>
+                    <li id="navProfileItem" style="display: none;">
+                        <a href="perfil.html" class="profile-pill active">
+                            <span class="avatar-circle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </span>
+                            <span id="navUserName">Mi Perfil</span>
+                            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </a>
+                        <button id="btnLogout" class="btn-logout" title="Cerrar sesión">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        </button>
+                    </li>
+
+                    <li>
+                        <a href="carrito.html" class="cart-icon">
+                            🛒 <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" style="max-width: 480px; margin: 3rem auto; padding: 0 1rem;">
+        <div style="background: var(--bg-card); padding: 2.5rem 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--border-color); text-align: center;">
+            
+            <!-- Avatar e Ícono -->
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--purple-700), var(--purple-500)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+
+            <!-- Datos de Usuario -->
+            <h2 id="profileName" style="margin-bottom: 0.3rem; color: var(--text-primary); font-size: 1.4rem; font-weight: 800;">Cargando...</h2>
+            <p id="profileEmail" style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem;">Cargando correo...</p>
+
+            <!-- Acciones -->
+            <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                <a href="index.html" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0.75rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Volver a la tienda
+                </a>
+                
+                <button id="btnProfileLogout" style="background-color: transparent; color: #ef4444; border: 1.5px solid #ef4444; padding: 0.7rem; border-radius: var(--radius-sm); cursor: pointer; font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s ease;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Cerrar Sesión
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 TecnoShop - Proyecto Fullstack II (Duoc UC)</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sesion = JSON.parse(localStorage.getItem("usuarioSesion"));
+
+            // Si no se detecta sesión iniciada, redirige al login
+            if (!sesion) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            // Muestra los datos almacenados en localStorage
+            document.getElementById("profileName").textContent = sesion.nombre || sesion.usuario || "Usuario";
+            document.getElementById("profileEmail").textContent = sesion.email || sesion.correo || "Usuario Registrado";
+
+            // Botón de cerrar sesión propio de la vista
+            const btnProfileLogout = document.getElementById("btnProfileLogout");
+            if (btnProfileLogout) {
+                btnProfileLogout.addEventListener("click", () => {
+                    localStorage.removeItem("usuarioSesion");
+                    window.location.href = "index.html";
+                });
+            }
+        });
+    </script>
+</body>
+</html>

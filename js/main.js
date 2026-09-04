@@ -14,8 +14,8 @@ const catalogoProductos = [
     { id: 10, nombre: "Mouse Logitech G203 Lightsync", categoria: "perifericos", precio: 21990, img: "images/Mouse Logitech G203 Lightsync.jpg" },
     { id: 11, nombre: "Mouse Logitech G502 Hero", categoria: "perifericos", precio: 44990, img: "images/Mouse Logitech G502 Hero.jpg" },
     { id: 12, nombre: "Mouse Razer Cobra Pro", categoria: "perifericos", precio: 129990, img: "images/Mouse Razer Cobra Pro.jpg" },
-    { id: 13, nombre: "AMD Ryzen 9 9900X 4.4GHz", categoria: "componentes", precio: 549990, img: "images/Procesador AMD Ryzen 9 9900X 4,4GHz.jpg" },
-    { id: 14, nombre: "AMD Ryzen 7 9700X 3.8GHz", categoria: "componentes", precio: 389990, img: "images/Procesador Ryzen 7 9700X 3,8GHz 8 nucleos.jpg" },
+    { id: 13, nombre: "AMD Ryzen 9 9900X 4.4GHz", categoria: "componentes", precio: 549990, img: "images/Procesador AMD Ryzen 9 9900X 4,4GHz 12 cores 24 hilos.jpg" },
+    { id: 14, nombre: "AMD Ryzen 7 9700X 3.8GHz", categoria: "componentes", precio: 389990, img: "images/Procesador Ryzen 7 9700X 3,8GHz 8 nucleos 16 hilos.jpg" },
     { id: 15, nombre: "NVIDIA GeForce RTX 4060 8GB", categoria: "componentes", precio: 349990, img: "images/RTX.png" },
     { id: 16, nombre: "Razer BlackShark V2", categoria: "perifericos", precio: 69990, img: "images/Ryzen BlackShark V2.jpg" },
     { id: 17, nombre: "Logitech G PRO X 60 LIGHTSPEED", categoria: "perifericos", precio: 159990, img: "images/Teclado Logitech G PRO X 60.png" },
@@ -159,4 +159,32 @@ function normalizarCategoria(texto) {
     if (t.includes("monitor")) return "monitores";
     if (t.includes("componente")) return "componentes";
     return "todos";
+}
+// Control de sesión en el Header
+document.addEventListener("DOMContentLoaded", () => {
+    actualizarSesionHeader();
+});
+
+function actualizarSesionHeader() {
+    const sesion = JSON.parse(localStorage.getItem("usuarioSesion"));
+    const navLoginItem = document.getElementById("navLoginItem");
+    const navProfileItem = document.getElementById("navProfileItem");
+    const navUserName = document.getElementById("navUserName");
+    const btnLogout = document.getElementById("btnLogout");
+
+    if (sesion && (sesion.nombre || sesion.usuario)) {
+        if (navLoginItem) navLoginItem.style.display = "none";
+        if (navProfileItem) navProfileItem.style.display = "inline-flex";
+        if (navUserName) navUserName.textContent = sesion.nombre || sesion.usuario;
+    } else {
+        if (navLoginItem) navLoginItem.style.display = "block";
+        if (navProfileItem) navProfileItem.style.display = "none";
+    }
+
+    if (btnLogout) {
+        btnLogout.onclick = () => {
+            localStorage.removeItem("usuarioSesion");
+            window.location.reload();
+        };
+    }
 }

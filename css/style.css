@@ -896,3 +896,71 @@ body {
     border: 1px solid #c3e6cb;
     margin-top: 1rem;
 }
+
+/* --- BOTÓN PERFIL ESTILO CÁPSULA TECNOSHOP --- */
+#navProfileItem {
+    align-items: center;
+    gap: 6px;
+}
+
+.profile-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 4px 12px 4px 6px;
+    border-radius: 30px;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(6px);
+}
+
+.profile-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+.avatar-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    color: #4c1d95;
+    border-radius: 50%;
+}
+
+.chevron-icon {
+    color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.profile-pill:hover .chevron-icon {
+    color: #ffffff;
+    transform: translateY(1px);
+}
+
+.btn-logout {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    padding: 6px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+    background: rgba(239, 68, 68, 0.85);
+    border-color: #ef4444;
+    transform: scale(1.05);
+}
