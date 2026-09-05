@@ -1,6 +1,6 @@
-// js/main.js
 
-// Catálogo con los 19 productos exactos asociados a las imágenes de tu carpeta /images
+
+// este es el catalogo con unos 19 productos asociados a las imágenes de la carpeta images
 const catalogoProductos = [
     { id: 1, nombre: "ASUS TUF Gaming A15", categoria: "notebooks", precio: 719990, img: "images/ASUS.png" },
     { id: 2, nombre: "HyperX Cloud Stinger 2", categoria: "perifericos", precio: 39990, img: "images/HyperX Cloud Stinger 2.jpg" },
@@ -27,138 +27,158 @@ function getProductos() {
     return catalogoProductos;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Inicialización del Carrusel horizontal estilo SoloTodo
-    const track = document.getElementById("carouselTrack");
-    if (track) {
-        renderCarrusel(track);
-        initCarouselControls(track);
+// Cargar funciones cuando el HTML este listo
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // Inicializar carrusel en la pagina de inicio
+    let pistaCarrusel = document.getElementById("carouselTrack");
+    if (pistaCarrusel) {
+        renderCarrusel(pistaCarrusel);
     }
 
-    // Inicialización de Grilla de Filtros (Si existe)
-    const grilla = document.getElementById("grilla-productos");
-    if (grilla) {
-        const btnApply = document.getElementById("btnApplyFilters");
-        if (btnApply) {
-            btnApply.addEventListener("click", aplicarFiltros);
+    // Configurar filtros si estamos en la pagina del catalogo
+    let grillaProductos = document.getElementById("grilla-productos");
+    if (grillaProductos) {
+        let btnFiltros = document.getElementById("btnApplyFilters");
+        if (btnFiltros) {
+            btnFiltros.addEventListener("click", aplicarFiltros);
         }
 
-        const searchInput = document.getElementById("searchInput");
-        const searchBtn = document.querySelector(".search-bar button");
+        let inputBusqueda = document.getElementById("searchInput");
+        let btnBusqueda = document.querySelector(".search-bar button");
 
-        if (searchInput) {
-            searchInput.addEventListener("keyup", (e) => {
+        if (inputBusqueda) {
+            inputBusqueda.addEventListener("keyup", function(e) {
                 if (e.key === "Enter") aplicarFiltros();
             });
         }
-        if (searchBtn) {
-            searchBtn.addEventListener("click", aplicarFiltros);
+        
+        if (btnBusqueda) {
+            btnBusqueda.addEventListener("click", aplicarFiltros);
         }
     }
+
+    // Verificar si hay usuario logueado en el header
+    actualizarSesionHeader();
 });
 
-// Renderiza 2 filas independientes con su propia tarjeta de catálogo
+// Renderizar las 2 filas de productos con botones laterales
 function renderCarrusel(trackElement) {
     trackElement.innerHTML = "";
 
-    const productosFila1 = catalogoProductos.slice(0, 7);
-    const productosFila2 = catalogoProductos.slice(7, 14);
+    // Separar productos para la fila 1 y fila 2
+    let productosFila1 = catalogoProductos.slice(0, 7);
+    let productosFila2 = catalogoProductos.slice(7, 14);
 
-    const crearCardHTML = (producto) => `
-        <div class="product-card">
-            <div class="product-img-box">
-                <img src="${producto.img}" alt="${producto.nombre}">
-            </div>
-            <div class="product-info">
-                <span class="product-category">${producto.categoria}</span>
-                <h3>${producto.nombre}</h3>
-                <div class="rating">★★★★☆ <span class="rating-count">(12)</span></div>
-                <div class="price-box">
-                    <span class="current-price">$${producto.precio.toLocaleString("es-CL")}</span>
+    // Funcion interna para generar la estructura de la tarjeta
+    function generarTarjetaHTML(producto) {
+        return `
+            <div class="product-card">
+                <div class="product-img-box">
+                    <img src="${producto.img}" alt="${producto.nombre}">
                 </div>
-                <button class="btn-primary" onclick="addToCart(${producto.id})">Agregar al Carrito</button>
+                <div class="product-info">
+                    <span class="product-category">${producto.categoria}</span>
+                    <h3>${producto.nombre}</h3>
+                    <div class="rating">★★★★☆ <span class="rating-count">(12)</span></div>
+                    <div class="price-box">
+                        <span class="current-price">$${producto.precio.toLocaleString("es-CL")}</span>
+                    </div>
+                    <button class="btn-primary" onclick="addToCart(${producto.id})">Agregar al Carrito</button>
+                </div>
+            </div>
+        `;
+    }
+
+    // Tarjeta del final para redireccionar al catalogo completo
+    let tarjetaIrACatalogo = `
+        <div class="product-card catalog-cta-card">
+            <div class="cta-content">
+                <span class="cta-icon">🚀</span>
+                <h3>¿No encontraste lo que buscabas?</h3>
+                <p>Explora todo nuestro catálogo con filtros y ofertas.</p>
+                <a href="productos.html" class="btn-banner">Ver catálogo completo</a>
             </div>
         </div>
     `;
 
-    const crearFilaConBotones = (productos, tieneCTA = true) => {
-        const wrapper = document.createElement("div");
-        wrapper.className = "carousel-row-wrapper";
+    // Crear una fila horizontal completa con sus botones de scroll
+    function crearFilaConBotones(listaProductos, mostrarCta) {
+        let contenedorFila = document.createElement("div");
+        contenedorFila.className = "carousel-row-wrapper";
 
-        const btnPrev = document.createElement("button");
-        btnPrev.className = "carousel-btn prev-btn";
-        btnPrev.innerHTML = "❮";
-        btnPrev.setAttribute("aria-label", "Anterior");
+        let botonAnterior = document.createElement("button");
+        botonAnterior.className = "carousel-btn prev-btn";
+        botonAnterior.innerHTML = "❮";
+        botonAnterior.setAttribute("aria-label", "Anterior");
 
-        const rowTrack = document.createElement("div");
-        rowTrack.className = "carousel-row-track";
+        let pistaHorizontal = document.createElement("div");
+        pistaHorizontal.className = "carousel-row-track";
 
-        productos.forEach(producto => {
-            rowTrack.innerHTML += crearCardHTML(producto);
-        });
-
-        if (tieneCTA) {
-            rowTrack.innerHTML += `
-                <div class="product-card catalog-cta-card">
-                    <div class="cta-content">
-                        <span class="cta-icon">🚀</span>
-                        <h3>¿Buscas algo más?</h3>
-                        <p>Explora todo nuestro catálogo con filtros y ordenamiento.</p>
-                        <a href="productos.html" class="btn-banner">Ver todo el catálogo</a>
-                    </div>
-                </div>
-            `;
+        // Cargar productos de la fila usando un bucle clasico
+        let htmlAcumulado = "";
+        for (let i = 0; i < listaProductos.length; i++) {
+            htmlAcumulado += generarTarjetaHTML(listaProductos[i]);
         }
 
-        const btnNext = document.createElement("button");
-        btnNext.className = "carousel-btn next-btn";
-        btnNext.innerHTML = "❯";
-        btnNext.setAttribute("aria-label", "Siguiente");
+        if (mostrarCta) {
+            htmlAcumulado += tarjetaIrACatalogo;
+        }
 
-        btnPrev.addEventListener("click", () => {
-            rowTrack.scrollBy({ left: -320, behavior: "smooth" });
-        });
+        pistaHorizontal.innerHTML = htmlAcumulado;
 
-        btnNext.addEventListener("click", () => {
-            rowTrack.scrollBy({ left: 320, behavior: "smooth" });
-        });
+        let botonSiguiente = document.createElement("button");
+        botonSiguiente.className = "carousel-btn next-btn";
+        botonSiguiente.innerHTML = "❯";
+        botonSiguiente.setAttribute("aria-label", "Siguiente");
 
-        wrapper.appendChild(btnPrev);
-        wrapper.appendChild(rowTrack);
-        wrapper.appendChild(btnNext);
+        // Eventos de movimiento horizontal al hacer clic
+        botonAnterior.onclick = function() {
+            pistaHorizontal.scrollBy({ left: -320, behavior: "smooth" });
+        };
 
-        return wrapper;
-    };
+        botonSiguiente.onclick = function() {
+            pistaHorizontal.scrollBy({ left: 320, behavior: "smooth" });
+        };
 
-    // Ambas filas llevan la tarjeta de catálogo (true)
+        contenedorFila.appendChild(botonAnterior);
+        contenedorFila.appendChild(pistaHorizontal);
+        contenedorFila.appendChild(botonSiguiente);
+
+        return contenedorFila;
+    }
+
+    // Insertar ambas filas al contenedor principal del HTML
     trackElement.appendChild(crearFilaConBotones(productosFila1, true));
     trackElement.appendChild(crearFilaConBotones(productosFila2, true));
 }
 
+// Filtrar productos en la vista de catalogo
 function aplicarFiltros() {
-    const catSeleccionada = document.getElementById("filterCategory") ? document.getElementById("filterCategory").value : "todos";
-    const precioMinInput = document.getElementById("priceMin") ? document.getElementById("priceMin").value : "";
-    const precioMaxInput = document.getElementById("priceMax") ? document.getElementById("priceMax").value : "";
-    const textoBusqueda = document.getElementById("searchInput") ? document.getElementById("searchInput").value.toLowerCase().trim() : "";
+    let catSeleccionada = document.getElementById("filterCategory") ? document.getElementById("filterCategory").value : "todos";
+    let precioMinInput = document.getElementById("priceMin") ? document.getElementById("priceMin").value : "";
+    let precioMaxInput = document.getElementById("priceMax") ? document.getElementById("priceMax").value : "";
+    let textoBusqueda = document.getElementById("searchInput") ? document.getElementById("searchInput").value.toLowerCase().trim() : "";
 
-    const precioMin = precioMinInput !== "" ? parseInt(precioMinInput) : 0;
-    const precioMax = precioMaxInput !== "" ? parseInt(precioMaxInput) : Infinity;
+    let precioMin = precioMinInput !== "" ? parseInt(precioMinInput) : 0;
+    let precioMax = precioMaxInput !== "" ? parseInt(precioMaxInput) : Infinity;
 
-    const tarjetas = document.querySelectorAll("#grilla-productos .product-card");
+    let tarjetas = document.querySelectorAll("#grilla-productos .product-card");
     let tarjetasVisibles = 0;
 
-    tarjetas.forEach(card => {
-        const catTexto = card.querySelector(".product-category")?.textContent.trim() || "";
-        const catNormalizada = normalizarCategoria(catTexto);
+    for (let i = 0; i < tarjetas.length; i++) {
+        let card = tarjetas[i];
+        let catTexto = card.querySelector(".product-category") ? card.querySelector(".product-category").textContent.trim() : "";
+        let catNormalizada = normalizarCategoria(catTexto);
 
-        const precioTexto = card.querySelector(".product-price")?.textContent || "";
-        const precio = parseInt(precioTexto.replace(/\D/g, "")) || 0;
+        let precioTexto = card.querySelector(".product-price") ? card.querySelector(".product-price").textContent : "";
+        let precio = parseInt(precioTexto.replace(/\D/g, "")) || 0;
 
-        const textoTarjeta = card.textContent.toLowerCase();
+        let textoTarjeta = card.textContent.toLowerCase();
 
-        const cumpleCategoria = (catSeleccionada === "todos") || (catNormalizada === catSeleccionada);
-        const cumplePrecio = (precio >= precioMin) && (precio <= precioMax);
-        const cumpleBusqueda = (textoBusqueda === "") || textoTarjeta.includes(textoBusqueda);
+        let cumpleCategoria = (catSeleccionada === "todos") || (catNormalizada === catSeleccionada);
+        let cumplePrecio = (precio >= precioMin) && (precio <= precioMax);
+        let cumpleBusqueda = (textoBusqueda === "") || textoTarjeta.includes(textoBusqueda);
 
         if (cumpleCategoria && cumplePrecio && cumpleBusqueda) {
             card.style.display = "";
@@ -166,33 +186,31 @@ function aplicarFiltros() {
         } else {
             card.style.display = "none";
         }
-    });
+    }
 
-    const contador = document.querySelector(".results-count");
+    let contador = document.querySelector(".results-count");
     if (contador) {
-        contador.textContent = `Mostrando ${tarjetasVisibles} producto(s)`;
+        contador.textContent = "Mostrando " + tarjetasVisibles + " producto(s)";
     }
 }
 
+// Normalizar nombres de categorias
 function normalizarCategoria(texto) {
-    const t = texto.toLowerCase().trim();
+    let t = texto.toLowerCase().trim();
     if (t.includes("notebook")) return "notebooks";
     if (t.includes("periférico") || t.includes("periferico")) return "perifericos";
     if (t.includes("monitor")) return "monitores";
     if (t.includes("componente")) return "componentes";
     return "todos";
 }
-// Control de sesión en el Header
-document.addEventListener("DOMContentLoaded", () => {
-    actualizarSesionHeader();
-});
 
+// Control del menu de usuario en la barra superior
 function actualizarSesionHeader() {
-    const sesion = JSON.parse(localStorage.getItem("usuarioSesion"));
-    const navLoginItem = document.getElementById("navLoginItem");
-    const navProfileItem = document.getElementById("navProfileItem");
-    const navUserName = document.getElementById("navUserName");
-    const btnLogout = document.getElementById("btnLogout");
+    let sesion = JSON.parse(localStorage.getItem("usuarioSesion"));
+    let navLoginItem = document.getElementById("navLoginItem");
+    let navProfileItem = document.getElementById("navProfileItem");
+    let navUserName = document.getElementById("navUserName");
+    let btnLogout = document.getElementById("btnLogout");
 
     if (sesion && (sesion.nombre || sesion.usuario)) {
         if (navLoginItem) navLoginItem.style.display = "none";
@@ -204,7 +222,7 @@ function actualizarSesionHeader() {
     }
 
     if (btnLogout) {
-        btnLogout.onclick = () => {
+        btnLogout.onclick = function() {
             localStorage.removeItem("usuarioSesion");
             window.location.reload();
         };
