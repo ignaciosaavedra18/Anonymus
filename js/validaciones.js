@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Éxito
+            
             txtRespuesta.textContent = "Usuario registrado correctamente.";
             txtRespuesta.style.color = "green";
             txtRespuesta.classList.remove("oculto");
@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// js/validaciones.js
 
 document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contactForm");
