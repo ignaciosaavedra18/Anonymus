@@ -1020,3 +1020,23 @@ body {
 .carousel-row-wrapper .next-btn {
     right: -15px;
 }
+
+/* --- ESTILOS DEL LOGIN Y FORMULARIOS --- */
+.login-caja {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+}
+.login-caja h2 { text-align: center; color: #333; }
+.login-caja p { text-align: center; color: #666; margin-bottom: 20px; }
+.grupo-input { margin-bottom: 15px; }
+.grupo-input label { display: block; margin-bottom: 5px; font-weight: bold; }
+.grupo-input input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;}
+.btn-primario { width: 100%; padding: 10px; background-color: #0284c7; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+.btn-primario:hover { background-color: #0369a1; }
+.btn-secundario { display: block; width: 100%; text-align: center; padding: 10px; border: 2px solid #0284c7; color: #0284c7; border-radius: 5px; text-decoration: none; box-sizing: border-box; font-weight: bold;}
+.alerta-error { background-color: #fecdd3; color: #9f1239; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center;}
