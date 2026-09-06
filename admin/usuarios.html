@@ -10,12 +10,18 @@
 
     <header class="header">
         <div class="nav-container">
-            <h1 class="logo">TecnoShop Admin</h1>
+            <a href="../index.html" class="brand-link">
+                <img src="../images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
+                <div class="brand-box">
+                    <span class="logo">TecnoShop Admin</span>
+                </div>
+            </a>
             <nav>
                 <ul class="nav-links">
+                    <li><a href="index.html">Panel Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="usuarios.html" class="active">Usuarios</a></li>
-                    <li><a href="../index.html">Volver a Tienda</a></li>
+                    <li><a href="../index.html" style="color: #ef4444;">Salir</a></li>
                 </ul>
             </nav>
         </div>
@@ -24,44 +30,47 @@
     <main class="main-content">
         <h2>Mantenedor de Usuarios</h2>
 
-        <section class="form-container" style="max-width: 100%; margin-bottom: 2rem;">
-            <h3>Registrar / Modificar Usuario</h3>
-            <form id="adminUserForm" novalidate>
-                <div class="filter-group">
-                    <label for="uRun">RUN / RUT:</label>
-                    <input type="text" id="uRun" placeholder="19011022K" required>
+        <div class="login-caja" style="max-width: 100%; margin-bottom: 2rem;">
+            <h3>Registrar Usuario</h3>
+            <form id="adminUserForm" onsubmit="return agregarUsuario(event)">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label>RUN / RUT:</label>
+                        <input type="text" id="uRun" placeholder="19011022K" style="width:100%; padding:8px;">
+                    </div>
+                    <div>
+                        <label>Nombre Completo:</label>
+                        <input type="text" id="uNombre" placeholder="Juan Pérez" style="width:100%; padding:8px;">
+                    </div>
+                    <div>
+                        <label>Correo Electrónico:</label>
+                        <input type="email" id="uEmail" placeholder="usuario@gmail.com" style="width:100%; padding:8px;">
+                    </div>
                 </div>
-                <div class="filter-group">
-                    <label for="uNombre">Nombre Completo:</label>
-                    <input type="text" id="uNombre" placeholder="Juan Pérez" required>
-                </div>
-                <div class="filter-group">
-                    <label for="uEmail">Correo:</label>
-                    <input type="email" id="uEmail" placeholder="usuario@duoc.cl" required>
-                </div>
-                <button type="submit" class="btn-primary">Guardar Usuario</button>
+                <button type="submit" class="btn-primario" style="width: auto; padding: 8px 20px;">Guardar Usuario</button>
             </form>
-        </section>
+        </div>
 
         <section>
             <h3>Usuarios Registrados</h3>
-            <table class="data-table">
+            <table class="tabla-admin">
                 <thead>
                     <tr>
                         <th>RUN</th>
                         <th>Nombre</th>
                         <th>Correo</th>
-                        
+                        <th>Opciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tabla-usuarios">
                     <tr>
                         <td>19011022K</td>
-                        <td>jose alfonso</td>
+
+                        <td>José Alfonso</td>
+                        
                         <td>jose.alfonso@gmail.com</td>
                         <td>
-                            <button class="btn-secondary" style="width:auto; padding: 0.2rem 0.5rem;">Editar</button>
-                            <button class="btn-secondary" style="width:auto; padding: 0.2rem 0.5rem; background:#fee2e2; color:#dc2626;">Eliminar</button>
+                            <button onclick="borrarUser(this)" style="padding: 4px 8px; background: #ef4444; color: white; border: none; border-radius: 4px; font-size: 12px; cursor: pointer;">Eliminar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -69,6 +78,46 @@
         </section>
     </main>
 
-    <script src="../js/validaciones.js"></script>
+    <footer class="footer">
+        <p> TecnoShop - Panel de Administración</p>
+    </footer>
+
+    <script>
+        function agregarUsuario(event) {
+            event.preventDefault();
+            let run = document.getElementById("uRun").value.trim();
+            let nombre = document.getElementById("uNombre").value.trim();
+            let email = document.getElementById("uEmail").value.trim();
+
+            if (rut === "" || nombre === "" || email === "") {
+                alert("Por favor, completa todos los campos del usuario.");
+                return false;
+            }
+
+            let tbody = document.getElementById("tabla-usuarios");
+            let nuevaFila = document.createElement("tr");
+
+            nuevaFila.innerHTML = `
+                <td>${rut }</td>
+
+                <td>${nombre }</td>
+
+                <td>${email }</td>
+                <td>
+                    <button onclick="borrarUser(this)" style="padding: 4px 8px; background: #ef4444; color: white; border: none; border-radius: 4px; font-size: 12px; cursor: pointer;">Eliminar</button>
+                </td>
+            `;
+
+            tbody.appendChild(nuevaFila);
+            document.getElementById("adminUserForm").reset();
+            alert("Usuario agregado con éxito.");
+        }
+
+        function borrarUser(btn) {
+            if (confirm("¿Eliminar usuario del sistema?")) {
+                btn.closest("tr").remove();
+            }
+        }
+    </script>
 </body>
 </html>

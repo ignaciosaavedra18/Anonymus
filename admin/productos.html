@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Productos - TecnoShop</title>
+    <title>Formulario Producto - TecnoShop</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -20,93 +20,87 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Panel Inicio</a></li>
                     <li><a href="productos.html" class="active">Productos</a></li>
-                    <li><a href="#">Usuarios</a></li>
+                    <li><a href="usuarios.html">Usuarios</a></li>
                     <li><a href="../index.html" style="color: #ef4444;">Salir</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="main-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h2>Lista de Productos</h2>
-            <a href="producto_formulario.html" class="btn-primario" style="width: auto; text-decoration: none; background-color: #10b981;">+ Nuevo Producto</a>
-        </div>
+    <main class="main-content" style="display: flex; justify-content: center; padding: 40px 20px;">
+        
+        <div class="login-caja" style="width: 100%; max-width: 500px;">
+            <h2 id="titulo-form">Ingresar Nuevo Producto</h2>
+            <p>Ingresa los datos para guardar en el catálogo</p>
 
-        <table class="tabla-admin">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre del Producto</th>
-                    <th>Categoría</th>
-                    <th>Precio</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>ASUS TUF Gaming A15</td>
-                    <td>Notebooks</td>
-                    <td>$719.990</td>
-                    <td>
-                        <a href="producto_formulario.html" class="btn-editar-admin">Editar</a>
-                        <button class="btn-eliminar-admin" onclick="borrarFila()">Borrar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Mouse Logitech G203</td>
-                    <td>Periféricos</td>
-                    <td>$21.990</td>
-                    <td>
-                        <a href="producto_formulario.html" class="btn-editar-admin">Editar</a>
-                        <button class="btn-eliminar-admin" onclick="borrarFila()">Borrar</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            <form id="formAdmin" onsubmit="return guardarDatos(event)">
+                <div class="grupo-input" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px;">Nombre del Producto:</label>
+                    <input type="text" id="nombreProd" placeholder="Ej: Monitor 144Hz" style="width:100%; padding:8px;">
+                </div>
+
+                <div class="grupo-input" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px;">Categoría:</label>
+                    <select id="categoriaProd" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
+                        <option value="">Selecciona...</option>
+                        <option value="notebooks">Notebooks</option>
+                        <option value="perifericos">Periféricos</option>
+                        <option value="componentes">Componentes PC</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input" style="margin-bottom: 15px;">
+                    <label style="display:block; margin-bottom:5px;">Precio ($):</label>
+                    <input type="number" id="precioProd" placeholder="Ej: 150000" style="width:100%; padding:8px;">
+                </div>
+
+                <button type="submit" class="btn-primario" style="width:100%;">Guardar Producto</button>
+                <a href="productos.html" class="btn-secundario" style="margin-top: 10px; text-align:center; display:block; text-decoration:none;">Cancelar</a>
+            </form>
+        </div>
     </main>
 
     <footer class="footer">
-        <p>TecnoShop - Panel de Administración</p>
+        <p>&copy; 2026 TecnoShop - Panel de Administración</p>
     </footer>
 
+    <script src="../js/main.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get("id");
+
+            if (id && typeof catalogoProductos !== "undefined") {
+                const prod = catalogoProductos.find(p => p.id == id);
+                if (prod) {
+                    document.getElementById("titulo-form").textContent = "Editar Producto #" + prod.id;
+                    document.getElementById("nombreProd").value = prod.nombre;
+                    document.getElementById("categoriaProd").value = prod.categoria.toLowerCase();
+                    document.getElementById("precioProd").value = prod.precio;
+                }
+            }
+        });
+
         function guardarDatos(evento) {
-            evento.preventDefault();
-
-            let nombre = document.getElementById("nombreProducto").value;
-            let categoria = document.getElementById("categoriaProducto").value;
-            let precio = document.getElementById("precioProducto").value;
-
-            if (nombre == "" || categoria == "" || precio == "") {
-                alert("Por favor, completa todos los campos.");
-                return;
-
-            }
+            evento.preventDefault(); 
             
-            if (precio <= 0) {
-                alert("El precio debe ser un número positivo.");
-                return;
+            let nombre = document.getElementById("nombreProd").value.trim();
+            let categoria = document.getElementById("categoriaProd").value;
+            let precio = document.getElementById("precioProd").value;
+
+            if (nombre === "" || categoria === "" || precio === "") {
+                alert("Cuidado: Todos los campos son obligatorios.");
+                return false;
             }
 
-            let productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
-            
-            let nuevoProducto = {
-                id: productosGuardados.length + 100, // es 100 para que no llegue a molestar con lo que ya esta echoS
-                nombre: nombre,
-                categoria: categoria,
-                precio: precio,
-                img: "images/ASUS.png"
-            };
-            
-            productosGuardados.push(nuevoProducto);
-            localStorage.setItem("productos", JSON.stringify(productosGuardados));
+            if (Number(precio) <= 0) {
+                alert("Cuidado: El precio no puede ser cero o negativo.");
+                return false;
+            }
 
-            alert("Producto guardado exitosamente.");
-            document.getElementById("formularioProducto").reset();
+            alert("¡Listo! Producto guardado exitosamente.");
+            window.location.href = "productos.html";
         }
     </script>
 </body>
-</html>_
+</html>
