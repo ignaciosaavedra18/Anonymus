@@ -8,18 +8,17 @@
 </head>
 <body> 
 
-    <!-- Header / Barra Superior -->
     <header class="header">
         <div class="nav-container">
-             <a href="productos.html" class="brand-link"></a>
-            <img src="images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
+            <a href="productos.html" class="brand-link">
+                <img src="images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
                 <div class="brand-box">
                     <span class="logo">TecnoShop</span>
                 </div>
             </a>
 
             <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Buscar notebooks, procesadores, tarjetas de video...">
+                <input type="text" id="searchInput" placeholder="Buscar notebooks, procesadores...">
                 <button type="button">🔍</button>
             </div>
 
@@ -39,388 +38,11 @@
         </div>
     </header>
 
-    <!-- Contenedor Principal: Filtros + Lista de Productos -->
     <main class="main-content catalog-layout">
-        
-        <!-- Barra Lateral de Filtros -->
-        <aside class="filters-sidebar">
-            <h3>Filtros de Búsqueda</h3>
-
-            <div class="filter-group">
-                <label for="filterCategory">Categoría</label>
-                <select id="filterCategory">
-                    <option value="todos">Todas las categorías</option>
-                    <option value="notebooks">Notebooks</option>
-                    <option value="perifericos">Periféricos</option>
-                    <option value="monitores">Monitores</option>
-                    <option value="componentes">Componentes PC</option>
-                </select>
-            </div>
-
-            <div class="filter-group">
-                <label>Rango de Precio</label>
-                <div class="price-inputs">
-                    <input type="number" placeholder="Mín" id="priceMin">
-                    <span>-</span>
-                    <input type="number" placeholder="Máx" id="priceMax">
-                </div>
-            </div>
-
-            <button class="btn-secondary" id="btnApplyFilters">Aplicar Filtros</button>
-        </aside>
-
-        <!-- Resultados y Grilla de Productos -->
-        <section class="products-section">
-            <div class="catalog-header">
-                <h2>Catálogo de Productos</h2>
-                <span class="results-count">Mostrando 19 productos destacados</span>
-            </div>
-
+        <section class="productos-section">
+            <h2>Catálogo de Productos</h2>
             <div id="grilla-productos" class="productos-grid">
                 
-                <!-- 1. Notebook ASUS -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/ASUS.png" alt="ASUS TUF Gaming A15">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Notebooks</span>
-                        <h3>ASUS TUF Gaming A15</h3>
-                        <ul class="product-specs">
-                            <li><strong>CPU:</strong> AMD Ryzen 7 7735HS</li>
-                            <li><strong>RAM:</strong> 16 GB DDR5</li>
-                            <li><strong>Almacenamiento:</strong> SSD 512 GB NVMe</li>
-                            <li><strong>GPU:</strong> NVIDIA RTX 3050 4GB</li>
-                        </ul>
-                        <div class="product-price">$719.990</div>
-                        <button class="btn-primary" onclick="addToCart(1)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 2. Audífonos HyperX Cloud Stinger 2 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/HyperX Cloud Stinger 2.jpg" alt="HyperX Cloud Stinger 2">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>HyperX Cloud Stinger 2</h3>
-                        <ul class="product-specs">
-                            <li><strong>Drivers:</strong> 50 mm dinámicos</li>
-                            <li><strong>Micrófono:</strong> Con cancelación de ruido</li>
-                            <li><strong>Conexión:</strong> Jack 3.5 mm</li>
-                        </ul>
-                        <div class="product-price">$39.990</div>
-                        <button class="btn-primary" onclick="addToCart(2)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 3. Audífonos Logitech G733 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Logitech G733.jpg" alt="Logitech G733 LIGHTSPEED">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Logitech G733 LIGHTSPEED</h3>
-                        <ul class="product-specs">
-                            <li><strong>Conexión:</strong> Inalámbrica LIGHTSPEED</li>
-                            <li><strong>Iluminación:</strong> RGB LIGHTSYNC</li>
-                            <li><strong>Autonomía:</strong> Hasta 29 horas</li>
-                        </ul>
-                        <div class="product-price">$119.990</div>
-                        <button class="btn-primary" onclick="addToCart(3)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 4. Teclado Logitech G915 X LIGHTSPEED TKL -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Logitech G915 X LIGHTSPEED TKL.jpg" alt="Logitech G915 X LIGHTSPEED TKL">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Logitech G915 X LIGHTSPEED TKL</h3>
-                        <ul class="product-specs">
-                            <li><strong>Switches:</strong> Perfil bajo táctil</li>
-                            <li><strong>Conexión:</strong> Tri-Mode (LIGHTSPEED/Bluetooth/Cable)</li>
-                            <li><strong>Estructura:</strong> Aleación de aluminio</li>
-                        </ul>
-                        <div class="product-price">$199.990</div>
-                        <button class="btn-primary" onclick="addToCart(4)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 5. Mouse Logitech Wireless -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Logitech.jpg" alt="Mouse Logitech Wireless">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Mouse Logitech Wireless</h3>
-                        <ul class="product-specs">
-                            <li><strong>Conexión:</strong> Receptor USB 2.4 GHz</li>
-                            <li><strong>Sensor:</strong> Óptico de alta precisión</li>
-                            <li><strong>Batería:</strong> Hasta 12 meses de duración</li>
-                        </ul>
-                        <div class="product-price">$24.990</div>
-                        <button class="btn-primary" onclick="addToCart(5)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 6. Monitor Caixun 27" -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Monitor Caixun 27 pulgadas, 165Hz 1ms.jpg" alt="Monitor Caixun 27 pulgadas">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Monitores</span>
-                        <h3>Monitor Caixun 27" 165Hz 1ms</h3>
-                        <ul class="product-specs">
-                            <li><strong>Resolución:</strong> Full HD (1920x1080)</li>
-                            <li><strong>Refresco:</strong> 165 Hz</li>
-                            <li><strong>Respuesta:</strong> 1 ms</li>
-                        </ul>
-                        <div class="product-price">$149.990</div>
-                        <button class="btn-primary" onclick="addToCart(6)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 7. Monitor LG 27" -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Monitor LG 27 pulgadas, Panel IPS, 144Hz 1ms.jpg" alt="Monitor LG 27 pulgadas">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Monitores</span>
-                        <h3>Monitor LG UltraGear 27" IPS</h3>
-                        <ul class="product-specs">
-                            <li><strong>Panel:</strong> IPS Full HD</li>
-                            <li><strong>Refresco:</strong> 144 Hz</li>
-                            <li><strong>Tecnología:</strong> G-Sync / FreeSync Premium</li>
-                        </ul>
-                        <div class="product-price">$189.990</div>
-                        <button class="btn-primary" onclick="addToCart(7)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 8. Monitor Samsung 32" 4K -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Monitor Samsung 32 pulgadas, 4K 60Hz 4ms.jpg" alt="Monitor Samsung 32 pulgadas 4K">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Monitores</span>
-                        <h3>Monitor Samsung Smart 32" 4K</h3>
-                        <ul class="product-specs">
-                            <li><strong>Resolución:</strong> 4K UHD (3840x2160)</li>
-                            <li><strong>Refresco:</strong> 60 Hz</li>
-                            <li><strong>Funciones:</strong> Smart TV / HDR10</li>
-                        </ul>
-                        <div class="product-price">$249.990</div>
-                        <button class="btn-primary" onclick="addToCart(8)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 9. Mouse Logitech G Pro 2 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Mouse Logitech G Pro 2.jpg" alt="Mouse Logitech G Pro 2">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Mouse Logitech G Pro 2</h3>
-                        <ul class="product-specs">
-                            <li><strong>Sensor:</strong> HERO 25K</li>
-                            <li><strong>Conexión:</strong> LIGHTSPEED Wireless</li>
-                            <li><strong>Diseño:</strong> Ambidextro ultra ligero</li>
-                        </ul>
-                        <div class="product-price">$99.990</div>
-                        <button class="btn-primary" onclick="addToCart(9)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 10. Mouse Logitech G203 Lightsync -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Mouse Logitech G203 Lightsync.jpg" alt="Mouse Logitech G203 Lightsync">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Mouse Logitech G203 Lightsync</h3>
-                        <ul class="product-specs">
-                            <li><strong>Sensor:</strong> 8.000 DPI ajustable</li>
-                            <li><strong>Iluminación:</strong> RGB LIGHTSYNC de 3 zonas</li>
-                            <li><strong>Botones:</strong> 6 programables</li>
-                        </ul>
-                        <div class="product-price">$21.990</div>
-                        <button class="btn-primary" onclick="addToCart(10)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 11. Mouse Logitech G502 Hero -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Mouse Logitech G502 Hero.jpg" alt="Mouse Logitech G502 Hero">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Mouse Logitech G502 Hero</h3>
-                        <ul class="product-specs">
-                            <li><strong>Sensor:</strong> HERO 25K (25.600 DPI)</li>
-                            <li><strong>Botones:</strong> 11 programables</li>
-                            <li><strong>Pesos:</strong> 5 pesas ajustables de 3.6g</li>
-                        </ul>
-                        <div class="product-price">$44.990</div>
-                        <button class="btn-primary" onclick="addToCart(11)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 12. Mouse Razer Cobra Pro -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Mouse Razer Cobra Pro.jpg" alt="Mouse Razer Cobra Pro">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Mouse Razer Cobra Pro</h3>
-                        <ul class="product-specs">
-                            <li><strong>Sensor:</strong> Óptico Focus Pro 30K</li>
-                            <li><strong>Conexión:</strong> HyperSpeed Wireless / Bluetooth</li>
-                            <li><strong>Iluminación:</strong> RGB Chroma de 11 zonas</li>
-                        </ul>
-                        <div class="product-price">$129.990</div>
-                        <button class="btn-primary" onclick="addToCart(12)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 13. Procesador AMD Ryzen 9 9900X -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Procesador AMD Ryzen 9 9900X 4,4GHz 12 cores 24 hilos.jpg" alt="Procesador AMD Ryzen 9 9900X">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Componentes PC</span>
-                        <h3>AMD Ryzen 9 9900X 4.4GHz</h3>
-                        <ul class="product-specs">
-                            <li><strong>Núcleos / Hilos:</strong> 12 / 24</li>
-                            <li><strong>Frecuencia Max:</strong> 5.6 GHz</li>
-                            <li><strong>Socket:</strong> AM5 / PCIe 5.0</li>
-                        </ul>
-                        <div class="product-price">$549.990</div>
-                        <button class="btn-primary" onclick="addToCart(13)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 14. Procesador AMD Ryzen 7 9700X -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Procesador Ryzen 7 9700X 3,8GHz 8 nucleos 16 hilos.jpg" alt="Procesador AMD Ryzen 7 9700X">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Componentes PC</span>
-                        <h3>AMD Ryzen 7 9700X 3.8GHz</h3>
-                        <ul class="product-specs">
-                            <li><strong>Núcleos / Hilos:</strong> 8 / 16</li>
-                            <li><strong>Frecuencia Max:</strong> 5.5 GHz</li>
-                            <li><strong>Caché L3:</strong> 32 MB</li>
-                        </ul>
-                        <div class="product-price">$389.990</div>
-                        <button class="btn-primary" onclick="addToCart(14)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 15. Tarjeta de Video RTX 4060 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/RTX.png" alt="NVIDIA GeForce RTX 4060 8GB">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Componentes PC</span>
-                        <h3>NVIDIA GeForce RTX 5060 8GB</h3>
-                        <ul class="product-specs">
-                            <li><strong>Memoria:</strong> 8 GB GDDR6</li>
-                            <li><strong>Tecnología:</strong> DLSS 3 / Ray Tracing</li>
-                            <li><strong>Interfaz:</strong> PCIe 4.0 x8</li>
-                        </ul>
-                        <div class="product-price">$349.990</div>
-                        <button class="btn-primary" onclick="addToCart(15)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 16. Audífonos Razer BlackShark V2 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Ryzen BlackShark V2.jpg" alt="Razer BlackShark V2">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Razer BlackShark V2</h3>
-                        <ul class="product-specs">
-                            <li><strong>Drivers:</strong> TriForce Titanium 50mm</li>
-                            <li><strong>Audio:</strong> Sonido Espacial THX</li>
-                            <li><strong>Micrófono:</strong> Cardioide HyperClear</li>
-                        </ul>
-                        <div class="product-price">$69.990</div>
-                        <button class="btn-primary" onclick="addToCart(16)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 17. Teclado Logitech G PRO X 60 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Teclado Logitech G PRO X 60.png" alt="Teclado Logitech G PRO X 60">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Logitech G PRO X 60 LIGHTSPEED</h3>
-                        <ul class="product-specs">
-                            <li><strong>Formato:</strong> Compacto 60%</li>
-                            <li><strong>Switches:</strong> Ópticos GX Táctiles</li>
-                            <li><strong>Conexión:</strong> Inalámbrica LIGHTSPEED</li>
-                        </ul>
-                        <div class="product-price">$159.990</div>
-                        <button class="btn-primary" onclick="addToCart(17)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 18. Teclado Logitech G915 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Teclado Logitech G915.jpg" alt="Teclado Logitech G915">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Teclado Logitech G915 RGB</h3>
-                        <ul class="product-specs">
-                            <li><strong>Formato:</strong> Completo de perfil bajo</li>
-                            <li><strong>Conexión:</strong> LIGHTSPEED Wireless</li>
-                            <li><strong>Teclas G:</strong> 5 teclas de macro dedicadas</li>
-                        </ul>
-                        <div class="product-price">$179.990</div>
-                        <button class="btn-primary" onclick="addToCart(18)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
-                <!-- 19. Teclado Redragon Kurama 60 -->
-                <div class="product-card">
-                    <div class="product-img-box">
-                        <img src="images/Teclado Redragon Kurama blanco 60.jpg" alt="Teclado Redragon Kurama blanco 60">
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Periféricos</span>
-                        <h3>Teclado Redragon Kurama Blanco 60%</h3>
-                        <ul class="product-specs">
-                            <li><strong>Formato:</strong> Compacto 60%</li>
-                            <li><strong>Switches:</strong> Mecánicos Hot-Swap</li>
-                            <li><strong>Iluminación:</strong> RGB Dinámico</li>
-                        </ul>
-                        <div class="product-price">$39.990</div>
-                        <button class="btn-primary" onclick="addToCart(19)">Agregar al Carrito</button>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -433,5 +55,32 @@
     <script src="js/main.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/validaciones.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let contenedor = document.getElementById("grilla-productos");
+            let htmlAcumulado = "";
+
+            for (let i = 0; i < catalogoProductos.length; i++) {
+                let prod = catalogoProductos[i];
+                
+                let categoriaFormateada = prod.categoria.charAt(0).toUpperCase() + prod.categoria.slice(1);
+
+                htmlAcumulado += `
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="${prod.img}" alt="${prod.nombre}">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${categoriaFormateada}</span>
+                        <h3>${prod.nombre}</h3>
+                        <div class="product-price">$${prod.precio.toLocaleString("es-CL")}</div>
+                        <button class="btn-primary" onclick="addToCart(${prod.id})">Agregar al Carrito</button>
+                    </div>
+                </div>`;
+            }
+
+            contenedor.innerHTML = htmlAcumulado;
+        });
+    </script>
 </body>
 </html>

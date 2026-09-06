@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Header Principal -->
+
     <header class="header">
         <div class="nav-container">
             <a href="index.html" class="brand-link">
@@ -53,16 +53,15 @@
     <main class="main-content" style="max-width: 480px; margin: 3rem auto; padding: 0 1rem;">
         <div style="background: var(--bg-card); padding: 2.5rem 2rem; border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--border-color); text-align: center;">
             
-            <!-- Avatar e Ícono -->
+  
             <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--purple-700), var(--purple-500)); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
 
-            <!-- Datos de Usuario -->
+    
             <h2 id="profileName" style="margin-bottom: 0.3rem; color: var(--text-primary); font-size: 1.4rem; font-weight: 800;">Cargando...</h2>
             <p id="profileEmail" style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem;">Cargando correo...</p>
 
-            <!-- Acciones -->
             <div style="display: flex; flex-direction: column; gap: 0.8rem;">
                 <a href="index.html" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0.75rem;">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -78,7 +77,7 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 TecnoShop - Proyecto Fullstack II (Duoc UC)</p>
+        <p>TecnoShop</p>
     </footer>
 
     <script src="js/main.js"></script>
@@ -86,17 +85,14 @@
         document.addEventListener("DOMContentLoaded", () => {
             const sesion = JSON.parse(localStorage.getItem("usuarioSesion"));
 
-            // Si no se detecta sesión iniciada, redirige al login
             if (!sesion) {
                 window.location.href = "login.html";
                 return;
             }
 
-            // Muestra los datos almacenados en localStorage
             document.getElementById("profileName").textContent = sesion.nombre || sesion.usuario || "Usuario";
             document.getElementById("profileEmail").textContent = sesion.email || sesion.correo || "Usuario Registrado";
 
-            // Botón de cerrar sesión propio de la vista
             const btnProfileLogout = document.getElementById("btnProfileLogout");
             if (btnProfileLogout) {
                 btnProfileLogout.addEventListener("click", () => {

@@ -1,4 +1,3 @@
-// Base de datos local para los selectores dinámicos
 const zonasChile = {
     "Región Metropolitana": ["Santiago", "Maipú", "Providencia", "Las Condes", "Puente Alto"],
     "Valparaíso": ["Valparaíso", "Viña del Mar", "Quilpué", "Concón"],
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const comunaDropdown = document.getElementById("select-comuna");
     const formRegistro = document.getElementById("formulario-registro");
 
-    // Cargar regiones en el primer select
     if (regionDropdown) {
         Object.keys(zonasChile).forEach(region => {
             const opc = document.createElement("option");
@@ -19,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
             regionDropdown.appendChild(opc);
         });
 
-        // Evento cambio de región para desplegar comunas
         regionDropdown.addEventListener("change", function () {
             const seleccion = this.value;
             comunaDropdown.innerHTML = '<option value="">-- Selecciona una comuna --</option>';
@@ -38,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Procesar el envío del formulario
     if (formRegistro) {
         formRegistro.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const emailVal = document.getElementById("email-usuario").value.trim();
             const txtRespuesta = document.getElementById("mensaje-respuesta");
 
-            // Validar RUT (Entre 7 y 9 caracteres numéricos + K opcional al final)
             const regexRut = /^[0-9]{7,8}[0-9kK]{1}$/;
             if (!regexRut.test(rutVal)) {
                 txtRespuesta.textContent = "El RUT debe ingresarse sin puntos ni guión (ej: 19876543K).";
@@ -56,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Validar correo institucional o gmail
             const regexEmail = /^[a-zA-Z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
             if (!regexEmail.test(emailVal)) {
                 txtRespuesta.textContent = "El correo debe terminar en @duoc.cl, @profesor.duoc.cl o @gmail.com.";
@@ -65,6 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+
+            const nuevoUsuario = {
+                rut: rutVal,
+                email: emailVal,
+                nombre: "Estudiante" // Nombre por defecto para que se vea en el Header
+            };
+            localStorage.setItem("usuarioRegistrado", JSON.stringify(nuevoUsuario));
             
             txtRespuesta.textContent = "Usuario registrado correctamente.";
             txtRespuesta.style.color = "green";
@@ -75,25 +76,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contactForm");
     const successAlert = document.getElementById("contactSuccessAlert");
 
     if (contactForm) {
         contactForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Previene recargar la página
-
-            // Mostrar la alerta de éxito
+            e.preventDefault(); 
+           
             if (successAlert) {
                 successAlert.style.display = "block";
             }
 
-            // Limpiar el formulario
             contactForm.reset();
-
-            // Ocultar la alerta tras 5 segundos
             setTimeout(() => {
                 if (successAlert) {
                     successAlert.style.display = "none";

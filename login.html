@@ -3,102 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - TecnoShop</title>
+    <title>TecnoShop - Iniciar Sesión</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Header Principal (El mismo de tus otras páginas) -->
+  
     <header class="header">
         <div class="nav-container">
             <a href="index.html" class="brand-link">
-                <img src="images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
                 <div class="brand-box">
                     <span class="logo">TecnoShop</span>
                 </div>
             </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="productos.html">Catálogo</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li><a href="login.html" class="active">Acceso</a></li>
-                    <li>
-                        <a href="carrito.html" class="cart-icon">
-                            🛒 <span class="cart-count">0</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Contenedor del formulario de Login -->
-    <main class="main-content" style="display: flex; justify-content: center; padding: 50px 20px;">
-        <div class="login-caja">
-            <h2>Bienvenido</h2>
-            <p>Ingresa tus datos para continuar</p>
+   
+    <main class="main-content" style="display: flex; justify-content: center; padding: 60px 20px;">
+        
+        <div class="login-caja" style="max-width: 400px; width: 100%;">
+            <h2 style="text-align: center; margin-bottom: 10px;">Bienvenido de vuelta</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Ingresa tus datos para continuar</p>
 
-            <div id="errorMsg" class="alerta-error" style="display: none;">
-                Correo o contraseña incorrectos.
-            </div>
-
-            <form id="loginForm">
-                <div class="grupo-input">
-                    <label>Correo electrónico:</label>
-                    <input type="email" id="email" placeholder="tu@correo.com" required>
+            <form id="formulario-login">
+                <div class="grupo-input" style="margin-bottom: 15px;">
+                    <label>Correo Electrónico:</label>
+                    <input type="email" id="email-login" placeholder="ejemplo@duoc.cl" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
                 </div>
 
-                <div class="grupo-input">
+                <div class="grupo-input" style="margin-bottom: 20px;">
                     <label>Contraseña:</label>
-                    <input type="password" id="password" placeholder="********" required>
+                    <input type="password" id="pass-login" placeholder="********" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
                 </div>
 
-                <button type="submit" class="btn-primario">Iniciar Sesión</button>
+                <button type="submit" class="btn-primary" style="width: 100%;">Iniciar Sesión</button>
             </form>
 
-            <hr style="margin: 20px 0; border: 1px solid #ddd;">
-
-            <div style="text-align: center;">
-                <p>¿No tienes una cuenta?</p>
-                <a href="registro.html" class="btn-secundario">Registrarse</a>
-            </div>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
+                ¿No tienes una cuenta? <a href="registro.html" style="color: #6d28d9; text-decoration: none; font-weight: bold;">Regístrate aquí</a>
+            </p>
         </div>
+
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 TecnoShop</p>
-    </footer>
-
-    <!-- Script básico para el Login -->
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function(evento) {
-            evento.preventDefault(); // Evita que la página recargue
+        document.addEventListener("DOMContentLoaded", function() {
+            const formLogin = document.getElementById("formulario-login");
             
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-            
-            // Traemos los usuarios guardados o creamos una lista vacía
-            let usuarios = JSON.parse(localStorage.getItem("usuariosTecnoShop")) || [];
-            
-            let usuarioEncontrado = null;
-            
-            // Buscamos si existe el usuario con un for básico (muy de estudiante)
-            for(let i = 0; i < usuarios.length; i++) {
-                if(usuarios[i].email === email && usuarios[i].password === password) {
-                    usuarioEncontrado = usuarios[i];
-                    break;
-                }
-            }
+            if(formLogin) {
+                formLogin.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    
+                    let emailIngresado = document.getElementById("email-login").value;
+                    let usuarioGuardado = JSON.parse(localStorage.getItem("usuarioRegistrado"));
 
-            if (usuarioEncontrado != null) {
-                // Guardar la sesión y redirigir
-                localStorage.setItem("usuarioSesion", JSON.stringify(usuarioEncontrado));
-                window.location.href = "index.html";
-            } else {
-                // Mostrar error
-                document.getElementById("errorMsg").style.display = "block";
+                    if (usuarioGuardado && usuarioGuardado.email === emailIngresado) {
+                        alert("¡Bienvenido a TecnoShop!");
+                        localStorage.setItem("usuarioSesion", JSON.stringify({ nombre: usuarioGuardado.email }));
+                        window.location.href = "index.html"; 
+                    } else {
+                        alert("Error: El correo no está registrado o es incorrecto.");
+                    }
+                });
             }
         });
     </script>

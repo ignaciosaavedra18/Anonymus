@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras - TechStore</title>
+    <title>Carrito de Compras - TecnoShop</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header class="header">
         <div class="nav-container">
-            <h1 class="logo"><a href="index.html">TechStore</a></h1>
+            <h1 class="logo"><a href="index.html">TecnoShop</a></h1>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="productos.html">Productos</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="login.html">Acceso</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
                     <li>
                         <a href="carrito.html" class="cart-icon active">
                             🛒 Carrito <span class="cart-count">0</span>
@@ -30,11 +32,10 @@
         <section class="cart-section">
             <div class="section-title-bar">
                 <h2>Tu Carrito de Compras</h2>
-                <a href="productos.html">&larr; Seguir comprando</a>
+                <a href="productos.html">Seguir comprando</a>
             </div>
 
             <div class="cart-layout">
-                <!-- Columna izquierda: listado de productos -->
                 <div class="cart-items-box">
                     <div class="table-responsive">
                         <table class="data-table" id="cartTable">
@@ -48,12 +49,10 @@
                                 </tr>
                             </thead>
                             <tbody id="cartTableBody">
-                                <!-- Filas generadas dinámicamente con JS -->
                             </tbody>
                         </table>
                     </div>
 
-                    <!-- se muestra el estado en el que se encuentra si esta esta vacio o con algo agregado (se muestra/oculta desde la clase carrito.js) -->
                     <div class="cart-empty" id="cartEmpty" hidden>
                         <p class="cart-empty-icon">🛒</p>
                         <h3>Tu carrito está vacío</h3>
@@ -62,7 +61,6 @@
                     </div>
                 </div>
 
-                <!-- agregamos unas columnas hacia la derecha para poder mostrar un resumen del pedido -->
                 <aside class="cart-summary">
                     <h3>Resumen del pedido</h3>
                     <div class="summary-row">
@@ -85,7 +83,7 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 TechStore</p>
+        <p>TecnoShop</p>
     </footer>
 
     <script src="js/main.js"></script>

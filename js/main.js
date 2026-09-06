@@ -1,6 +1,3 @@
-
-
-// este es el catalogo con unos 19 productos asociados a las imágenes de la carpeta images
 const catalogoProductos = [
     { id: 1, nombre: "ASUS TUF Gaming A15", categoria: "notebooks", precio: 719990, img: "images/ASUS.png" },
     { id: 2, nombre: "HyperX Cloud Stinger 2", categoria: "perifericos", precio: 39990, img: "images/HyperX Cloud Stinger 2.jpg" },
@@ -22,6 +19,12 @@ const catalogoProductos = [
     { id: 18, nombre: "Teclado Logitech G915 RGB", categoria: "perifericos", precio: 179990, img: "images/Teclado Logitech G915.jpg" },
     { id: 19, nombre: "Teclado Redragon Kurama Blanco 60%", categoria: "perifericos", precio: 39990, img: "images/Teclado Redragon Kurama blanco 60.jpg" }
 ];
+
+
+let productosExtra = JSON.parse(localStorage.getItem("Catalago")) || [];
+for (let i = 0; i < productosExtra.length; i++) {
+    catalogoProductos.push(productosExtra[i]);
+}
 
 function getProductos() {
     return catalogoProductos;
@@ -57,20 +60,16 @@ document.addEventListener("DOMContentLoaded", function() {
             btnBusqueda.addEventListener("click", aplicarFiltros);
         }
     }
-
-    // Verificar si hay usuario logueado en el header
     actualizarSesionHeader();
 });
 
-// Renderizar las 2 filas de productos con botones laterales
 function renderCarrusel(trackElement) {
     trackElement.innerHTML = "";
 
-    // Separar productos para la fila 1 y fila 2
+   
     let productosFila1 = catalogoProductos.slice(0, 7);
     let productosFila2 = catalogoProductos.slice(7, 14);
 
-    // Funcion interna para generar la estructura de la tarjeta
     function generarTarjetaHTML(producto) {
         return `
             <div class="product-card">
@@ -90,7 +89,6 @@ function renderCarrusel(trackElement) {
         `;
     }
 
-    // Tarjeta del final para redireccionar al catalogo completo
     let tarjetaIrACatalogo = `
         <div class="product-card catalog-cta-card">
             <div class="cta-content">
@@ -102,7 +100,6 @@ function renderCarrusel(trackElement) {
         </div>
     `;
 
-    // Crear una fila horizontal completa con sus botones de scroll
     function crearFilaConBotones(listaProductos, mostrarCta) {
         let contenedorFila = document.createElement("div");
         contenedorFila.className = "carousel-row-wrapper";
@@ -115,7 +112,6 @@ function renderCarrusel(trackElement) {
         let pistaHorizontal = document.createElement("div");
         pistaHorizontal.className = "carousel-row-track";
 
-        // Cargar productos de la fila usando un bucle clasico
         let htmlAcumulado = "";
         for (let i = 0; i < listaProductos.length; i++) {
             htmlAcumulado += generarTarjetaHTML(listaProductos[i]);
@@ -131,8 +127,6 @@ function renderCarrusel(trackElement) {
         botonSiguiente.className = "carousel-btn next-btn";
         botonSiguiente.innerHTML = "❯";
         botonSiguiente.setAttribute("aria-label", "Siguiente");
-
-        // Eventos de movimiento horizontal al hacer clic
         botonAnterior.onclick = function() {
             pistaHorizontal.scrollBy({ left: -320, behavior: "smooth" });
         };
@@ -148,12 +142,10 @@ function renderCarrusel(trackElement) {
         return contenedorFila;
     }
 
-    // Insertar ambas filas al contenedor principal del HTML
     trackElement.appendChild(crearFilaConBotones(productosFila1, true));
     trackElement.appendChild(crearFilaConBotones(productosFila2, true));
 }
 
-// Filtrar productos en la vista de catalogo
 function aplicarFiltros() {
     let catSeleccionada = document.getElementById("filterCategory") ? document.getElementById("filterCategory").value : "todos";
     let precioMinInput = document.getElementById("priceMin") ? document.getElementById("priceMin").value : "";
@@ -194,7 +186,6 @@ function aplicarFiltros() {
     }
 }
 
-// Normalizar nombres de categorias
 function normalizarCategoria(texto) {
     let t = texto.toLowerCase().trim();
     if (t.includes("notebook")) return "notebooks";
@@ -204,7 +195,6 @@ function normalizarCategoria(texto) {
     return "todos";
 }
 
-// Control del menu de usuario en la barra superior
 function actualizarSesionHeader() {
     let sesion = JSON.parse(localStorage.getItem("usuarioSesion"));
     let navLoginItem = document.getElementById("navLoginItem");

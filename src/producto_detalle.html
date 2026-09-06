@@ -4,42 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle del Producto - TecnoShop</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* CSS sencillo solo para esta vista, luego lo puedes pasar a style.css */
-        .detalle-contenedor { display: flex; gap: 40px; background: white; padding: 30px; border-radius: 10px; margin-top: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
-        .detalle-imagen { flex: 1; text-align: center; }
-        .detalle-imagen img { max-width: 100%; height: auto; border: 1px solid #ddd; padding: 10px; border-radius: 10px; }
-        .detalle-info { flex: 1; }
-        .detalle-precio { font-size: 28px; color: #0284c7; font-weight: bold; margin: 20px 0; }
-        .detalle-descripcion { line-height: 1.6; color: #444; margin-bottom: 20px;}
-        .btn-comprar { background-color: #10b981; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 18px; cursor: pointer; }
-        
-        /* Para celulares */
-        @media (max-width: 768px) {
-            .detalle-contenedor { flex-direction: column; }
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-    <!-- Header Principal -->
     <header class="header">
         <div class="nav-container">
-            <a href="index.html" class="brand-link">
-                <img src="images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
+            <a href="../index.html" class="brand-link">
+                <img src="../images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
                 <div class="brand-box">
                     <span class="logo">TecnoShop</span>
                 </div>
             </a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="productos.html">Catálogo</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li>
-                        <a href="carrito.html" class="cart-icon">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../productos.html">Catálogo</a></li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../login.html">Acceso</a></li>
+                    <li><a href="../nosotros.html">Nosotros</a></li>
+                    <li><a href="../blogs.html">Blogs</a></li>
+                    <li><a href="../carrito.html" class="cart-icon">
                             🛒 <span class="cart-count">0</span>
                         </a>
                     </li>
@@ -49,46 +34,66 @@
     </header>
 
     <main class="main-content">
-        <a href="productos.html" style="color: #0284c7; text-decoration: none;">← Volver al catálogo</a>
+        <a href="../productos.html" style="color: #0284c7; text-decoration: none;">← Volver al catálogo</a>
         
-        <div class="detalle-contenedor">
-            <div class="detalle-imagen">
-                <!-- Usamos una imagen de las que ya tienes -->
-                <img src="images/ASUS.png" alt="ASUS TUF Gaming">
-            </div>
-            
-            <div class="detalle-info">
-                <span>Categoría: Notebooks</span>
-                <h1>ASUS TUF Gaming A15</h1>
-                <p class="detalle-precio">$719.990</p>
-                
-                <div class="detalle-descripcion">
-                    <h3>Descripción del producto:</h3>
-                    <p>Potente notebook gamer diseñado para ofrecer una experiencia fluida en juegos pesados y tareas de diseño. Cuenta con un sistema de refrigeración avanzado y teclado retroiluminado RGB.</p>
-                    <br>
-                    <h3>Especificaciones técnicas:</h3>
-                    <ul>
-                        <li>Procesador: AMD Ryzen 7 7735HS</li>
-                        <li>Memoria RAM: 16 GB DDR5</li>
-                        <li>Almacenamiento: SSD 512 GB NVMe ultrarrápido</li>
-                        <li>Tarjeta Gráfica: NVIDIA RTX 3050 4GB</li>
-                    </ul>
-                </div>
-
-                <label>Cantidad: </label>
-                <input type="number" value="1" min="1" max="10" style="padding: 5px; width: 60px; margin-bottom: 20px;">
-                <br>
-                <!-- Llama a la función addToCart que ya debes tener en carrito.js -->
-                <button class="btn-comprar" onclick="addToCart(1)">🛒 Agregar al Carrito</button>
-            </div>
+        <div id="contenedor-producto" class="detalle-contenedor">
+            <p>Cargando producto...</p>
         </div>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 TecnoShop</p>
+        <p>TecnoShop</p>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/carrito.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            const params = new URLSearchParams(window.location.search);
+            const paramId = params.get("id");
+
+            if (typeof catalogoProductos === "undefined" || !catalogoProductos.length) {
+                document.getElementById("contenedor-producto").innerHTML = "<h2>Error al cargar el catálogo desde main.js</h2>";
+                return;
+            }
+
+            let producto = catalogoProductos.find(p => p.id == paramId) || catalogoProductos[0];
+            const contenedor = document.getElementById("contenedor-producto");
+            const categoria = producto.categoria ? (producto.categoria.charAt(0).toUpperCase() + producto.categoria.slice(1)) : "General";
+            const precioFormateado = producto.precio ? producto.precio.toLocaleString("es-CL") : "0";
+            let rutaImagen = producto.img.startsWith("../") ? producto.img : "../" + producto.img;
+
+            contenedor.innerHTML = `
+                <div class="detalle-imagen">
+                    <img src="${rutaImagen}" alt="${producto.nombre}">
+                </div>
+                
+                <div class="detalle-info">
+                    <span style="color: #0284c7; font-weight: bold; font-size: 0.9rem;">Categoría: ${categoria}</span>
+                    <h1 style="margin-top: 10px;">${producto.nombre}</h1>
+                    <p class="detalle-precio">$${precioFormateado}</p>
+                    
+                    <div class="detalle-descripcion">
+                        <h3>Descripción del producto:</h3>
+                        <p>${producto.descripcion || 'El ASUS TUF Gaming A15 es un portátil diseñado para juegos de entrada y alto rendimiento, Especificaciones Principales Procesador: AMD Ryzen™ 7 (según la versión, modelos como el Ryzen 7 7445HS o 8845HS).Tarjeta Gráfica: NVIDIA® GeForce RTX™ 3050 con 4GB GDDR6.Memoria RAM: 8 GB o 16 GB DDR5 (ampliable hasta 64 GB).Almacenamiento: 512 GB SSD M.2 NVMe™ PCIe®.Pantalla: 15.6 pulgadas con resolución Full HD (1920 × 1080), panel nivel IPS, y frecuencia de actualización de 144 Hz.'}</p>
+                    </div>
+
+                    <label>Cantidad: </label>
+                    <input type="number" id="cantidad-input" value="1" min="1" max="10" style="padding: 5px; width: 60px; margin-bottom: 20px;">
+                    <br>
+                    <button class="btn-comprar" id="btn-comprar-prod"> Agregar al Carrito</button>
+                </div>
+            `;
+
+            document.getElementById("btn-comprar-prod").onclick = function() {
+                const cant = parseInt(document.getElementById("cantidad-input").value) || 1;
+                for (let i = 0; i < cant; i++) {
+                    if (typeof addToCart === "function") {
+                        addToCart(producto.id);
+                    }
+                }
+            };
+        });
+    </script>
 </body>
 </html>

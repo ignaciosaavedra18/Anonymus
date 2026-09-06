@@ -3,331 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Usuario - TecnoShop</title>
+    <title>TecnoShop - Crear Cuenta</title>
     <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .main-content {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            min-height: calc(100vh - 220px) !important;
-            padding: 2.5rem 1rem !important;
-            background-color: #f8fafc !important;
-        }
-
-        .form-card {
-            width: 100% !important;
-            max-width: 460px !important;
-            background: #ffffff !important;
-            border: 1px solid #bae6fd !important;
-            border-radius: 6px !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-            overflow: hidden !important;
-        }
-
-        .form-card-header {
-            background-color: #e0f2fe !important;
-            padding: 0.75rem 1.25rem !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            border-bottom: 1px solid #bae6fd !important;
-        }
-
-        .form-card-header h2 {
-            font-size: 1.1rem !important;
-            color: #0284c7 !important;
-            font-weight: 600 !important;
-            margin: 0 !important;
-        }
-
-        .link-login {
-            font-size: 0.85rem !important;
-            color: #0284c7 !important;
-            text-decoration: none !important;
-        }
-
-        .link-login:hover {
-            text-decoration: underline !important;
-        }
-
-        .form-card-body {
-            padding: 1.5rem 1.25rem !important;
-        }
-
-        .form-row {
-            display: grid !important;
-            grid-template-columns: 130px 1fr !important;
-            align-items: center !important;
-            gap: 0.75rem !important;
-            margin-bottom: 1rem !important;
-        }
-
-        .form-row label {
-            font-size: 0.88rem !important;
-            font-weight: 700 !important;
-            color: #334155 !important;
-            text-align: right !important;
-            line-height: 1.2 !important;
-        }
-
-        .form-row input[type="text"],
-        .form-row input[type="password"],
-        .form-row input[type="email"] {
-            width: 100% !important;
-            padding: 0.45rem 0.6rem !important;
-            border: 1px solid #cbd5e1 !important;
-            border-radius: 4px !important;
-            font-size: 0.9rem !important;
-            color: #334155 !important;
-            outline: none !important;
-            box-sizing: border-box !important;
-        }
-
-        .form-row input::placeholder {
-            color: #94a3b8 !important;
-        }
-
-        .captcha-box {
-            background: #f8fafc !important;
-            border: 1px solid #cbd5e1 !important;
-            border-radius: 4px !important;
-            padding: 0.75rem 1rem !important;
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-        }
-
-        .captcha-checkbox {
-            display: flex !important;
-            align-items: center !important;
-            gap: 0.6rem !important;
-            font-size: 0.88rem !important;
-            color: #1e293b !important;
-        }
-
-        .captcha-checkbox input[type="checkbox"] {
-            width: 20px !important;
-            height: 20px !important;
-            cursor: pointer !important;
-        }
-
-        .btn-submit {
-            background-color: #38bdf8 !important;
-            color: #ffffff !important;
-            border: none !important;
-            padding: 0.5rem 1.2rem !important;
-            border-radius: 4px !important;
-            font-weight: 600 !important;
-            font-size: 0.9rem !important;
-            cursor: pointer !important;
-            justify-self: start !important;
-        }
-
-        .btn-submit:hover {
-            background-color: #0284c7 !important;
-        }
-
-        .alert-error {
-            background-color: #fecdd3 !important;
-            border: 1px solid #fda4af !important;
-            border-radius: 4px !important;
-            padding: 0.8rem 1rem !important;
-            margin-top: 1.25rem !important;
-            position: relative !important;
-            color: #9f1239 !important;
-            font-size: 0.85rem !important;
-        }
-
-        .close-alert {
-            position: absolute !important;
-            top: 6px !important;
-            right: 8px !important;
-            cursor: pointer !important;
-            font-weight: bold !important;
-            color: #9f1239 !important;
-        }
-
-        .alert-error ul {
-            margin: 0.4rem 0 0 1.2rem !important;
-            padding: 0 !important;
-        }
-
-        @media (max-width: 500px) {
-            .form-row {
-                grid-template-columns: 1fr !important;
-                gap: 0.25rem !important;
-            }
-            .form-row label {
-                text-align: left !important;
-            }
-        }
-    </style>
 </head>
 <body>
 
     <header class="header">
         <div class="nav-container">
             <a href="index.html" class="brand-link">
-                <img src="images/LogoTienda.jpg" alt="Logo TecnoShop" class="header-logo-img">
                 <div class="brand-box">
                     <span class="logo">TecnoShop</span>
-                    <span class="sub-logo">Cotizador Hardware</span>
                 </div>
             </a>
-
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="productos.html">Catálogo</a></li>
-                    <li><a href="nosotros.html">Nosotros</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                    <li id="navProfileItem" style="display: none;">
-    <a href="perfil.html" class="profile-pill">
-        <span class="avatar-circle">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </span>
-        <span id="navUserName">Mi Perfil</span>
-        <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-    </a>
-</li>
-                    <li>
-                        <a href="carrito.html" class="cart-icon">
-                            🛒 <span class="cart-count">0</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="main-content">
-        <div class="form-card">
-            <div class="form-card-header">
-                <h2>Regístrate</h2>
-                <a href="login.html" class="link-login">Iniciar Sesión</a>
-            </div>
+    <main class="main-content" style="display: flex; justify-content: center; padding: 40px 20px;">
+        
+        <div class="login-caja" style="max-width: 450px; width: 100%;">
+            <h2 style="text-align: center; margin-bottom: 10px;">Crear Cuenta</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Únete a TecnoShop</p>
 
-            <div class="form-card-body">
-                <form id="registroForm">
-                    <div class="form-row">
-                        <label for="regNombre">Nombre:</label>
-                        <input type="text" id="regNombre" placeholder="Usuario">
-                    </div>
+            <form id="formulario-registro">
+    <div class="grupo-input">
+        <label>Nombre:</label>
+        <input type="text" id="nombre-usuario" maxlength="50" required placeholder="Juan">
+    </div>
 
-                    <div class="form-row">
-                        <label for="regRut">RUT / RUN:</label>
-                        <input type="text" id="regRut" placeholder="12345678-K">
-                    </div>
+    <div class="grupo-input">
+        <label>Apellidos:</label>
+        <input type="text" id="apellido-usuario" maxlength="100" required placeholder="Pérez González">
+    </div>
 
-                    <div class="form-row">
-                        <label for="regUser">Usuario:</label>
-                        <input type="text" id="regUser" placeholder="usuario">
-                    </div>
+    <div class="grupo-input">
+        <label>RUT (Sin puntos ni guión):</label>
+        <input type="text" id="rut-usuario" minlength="7" maxlength="9" required placeholder="19011022K">
+    </div>
 
-                    <div class="form-row">
-                        <label for="regPass">Password:</label>
-                        <input type="password" id="regPass" placeholder="Password">
-                    </div>
+    <div class="grupo-input">
+        <label>Correo Electrónico:</label>
+        <input type="email" id="email-usuario" maxlength="100" required placeholder="usuario@duoc.cl">
+    </div>
 
-                    <div class="form-row">
-                        <label for="regConfirmPass">Confirmar Password:</label>
-                        <input type="password" id="regConfirmPass" placeholder="Confirmar Password">
-                    </div>
+    <div class="grupo-input">
+        <label>Dirección:</label>
+        <input type="text" id="direccion-usuario" maxlength="300" required placeholder="Av. Siempre Viva 123">
+    </div>
 
-                    <div class="form-row">
-                        <label for="regEmail">Email:</label>
-                        <input type="email" id="regEmail" placeholder="usuario@duoc.cl">
-                    </div>
+    <div class="grupo-input">
+        <label>Región:</label>
+        <select id="select-region" required>
+            <option value="">-- Seleccione una región --</option>
+        </select>
+    </div>
 
-                    <div class="form-row">
-                        <div></div>
-                        <div class="captcha-box">
-                            <div class="captcha-checkbox">
-                                <input type="checkbox" id="regCaptcha">
-                                <label for="regCaptcha">No soy un robot</label>
-                            </div>
-                            <div style="font-size: 10px; color: #64748b; text-align: right;">
-                                🔄 reCAPTCHA
-                            </div>
-                        </div>
-                    </div>
+    <div class="grupo-input">
+        <label>Comuna:</label>
+        <select id="select-comuna" required disabled>
+            <option value="">-- Seleccione una comuna --</option>
+        </select>
+    </div>
 
-                    <div class="form-row">
-                        <div></div>
-                        <button type="submit" class="btn-submit">Registrar</button>
-                    </div>
-                </form>
+    <button type="submit" class="btn-primary">Registrarme</button>
+    <p id="mensaje-respuesta" class="oculto"></p>
+</form>
 
-                <div id="errorContainer" class="alert-error" style="display: none;">
-                    <span class="close-alert" onclick="document.getElementById('errorContainer').style.display='none'">[X]</span>
-                    <ul id="errorList"></ul>
-                </div>
-            </div>
+            <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
+                ¿Ya tienes una cuenta? <a href="login.html" style="color: #6d28d9; text-decoration: none; font-weight: bold;">Inicia sesión aquí</a>
+            </p>
         </div>
+
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 TecnoShop </p>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/carrito.js"></script>
-
-    <script>
-        document.getElementById("registroForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-
-            const nombre = document.getElementById("regNombre").value.trim();
-            const rut = document.getElementById("regRut").value.trim();
-            const usuario = document.getElementById("regUser").value.trim();
-            const pass = document.getElementById("regPass").value;
-            const confirmPass = document.getElementById("regConfirmPass").value;
-            const email = document.getElementById("regEmail").value.trim();
-            const captcha = document.getElementById("regCaptcha").checked;
-
-            const errorContainer = document.getElementById("errorContainer");
-            const errorList = document.getElementById("errorList");
-            errorList.innerHTML = "";
-            let errores = [];
-
-            // Validaciones
-            if (!nombre) errores.push("El campo Nombre es obligatorio.");
-            if (!rut) errores.push("El campo RUT / RUN es obligatorio.");
-            if (!usuario) errores.push("El campo Usuario es obligatorio.");
-            if (!pass) errores.push("El campo Password es obligatorio.");
-            if (pass !== confirmPass) errores.push("Las contraseñas no coinciden.");
-            if (!email) errores.push("El campo Email es obligatorio.");
-            if (!captcha) errores.push("Debes confirmar el reCAPTCHA ('No soy un robot').");
-
-            // Verificar duplicados en localStorage
-            let usuarios = JSON.parse(localStorage.getItem("usuariosTecnoShop")) || [];
-            if (usuarios.some(u => u.usuario === usuario || u.email === email)) {
-                errores.push("El usuario o correo electrónico ya se encuentra registrado.");
-            }
-
-            // Mostrar errores si existen
-            if (errores.length > 0) {
-                errores.forEach(err => {
-                    const li = document.createElement("li");
-                    li.textContent = err;
-                    errorList.appendChild(li);
-                });
-                errorContainer.style.display = "block";
-                return;
-            }
-
-            // Guardar usuario en la base de datos local
-            const nuevoUsuario = { nombre, rut, usuario, password: pass, email };
-            usuarios.push(nuevoUsuario);
-            localStorage.setItem("usuariosTecnoShop", JSON.stringify(usuarios));
-
-            // Redirigir de una a la página de Iniciar Sesión (login.html)
-            window.location.href = "login.html";
-        });
-    </script>
+    <script src="js/validaciones.js"></script>
 </body>
 </html>
