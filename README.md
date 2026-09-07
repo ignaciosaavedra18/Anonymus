@@ -1,86 +1,80 @@
-# Tecnoshop
+# TecnoShop
 
-Tienda online de tecnología (computadores, celulares, tablets, smartwatches,
-monitores, audífonos y accesorios). Aplicación 100% frontend: HTML + TypeScript
-con Vite, **sin backend ni microservicios**. Los datos (productos, usuarios y
-pedidos) viven en archivos JSON locales y se persisten en el navegador con
-`localStorage`.
+Tienda online de tecnología (notebooks, componentes, monitores y periféricos gamer), desarrollada como proyecto del ramo **DSY1104 – Ingeniería de Requisitos**.
 
-## Cómo ejecutar el proyecto
+## Integrantes
 
-Requiere [Node.js](https://nodejs.org/) 18 o superior.
+- Kevin Aguilera
+- Ignacio Saavedra
+- Joaquín Cárdenas
 
-```bash
-cd tecnoshop
-npm install       # instala dependencias (leaflet, vite, typescript)
-npm run dev       # servidor de desarrollo con recarga en caliente
-```
+## Descripción
 
-Abre la URL que muestra la terminal (normalmente http://localhost:5173).
+TecnoShop es una aplicación **100% frontend**: no tiene backend ni base de datos propia. Todo el catálogo, el carrito de compras y la sesión del usuario se manejan directamente en el navegador usando **JavaScript vanilla** y **`localStorage`**.
 
-Para generar la build de producción (ya incluida en la carpeta `dist/` de
-este entrega, pero puedes regenerarla):
+La idea del proyecto es simular el comportamiento de una tienda online real (catálogo, carrito, login, panel de administración) sin depender de un servidor, cumpliendo los requerimientos funcionales y no funcionales definidos en la etapa de levantamiento de requisitos del ramo.
 
-```bash
-npm run build     # compila TypeScript y genera dist/
-npm run preview   # sirve la build de producción localmente
-```
+## Tecnologías utilizadas
 
-La carpeta `dist/` es autocontenida: puedes subirla tal cual a cualquier
-hosting estático (GitHub Pages, Netlify, Vercel, un servidor Apache/Nginx, etc.).
+- HTML5
+- CSS3
+- JavaScript (vanilla, sin frameworks)
+- `localStorage` del navegador como mecanismo de persistencia
 
 ## Estructura del proyecto
 
 ```
-tecnoshop/
-├── index.html              Punto de entrada HTML
-├── src/
-│   ├── main.ts              Arranque de la app y router
-│   ├── router.ts            Router basado en hash (#/ruta)
-│   ├── types.ts             Tipos TypeScript del dominio
-│   ├── style.css            Sistema de diseño y estilos
-│   ├── data/                 Datos semilla (100 registros)
-│   │   ├── products.json     56 productos
-│   │   ├── users.json        20 usuarios
-│   │   └── orders.json       24 pedidos
-│   ├── state/store.ts        Persistencia en localStorage (carrito, sesión, CRUD)
-│   ├── components/           Header, footer, tarjeta de producto
-│   ├── views/                Una vista por página (catálogo, producto, carrito...)
-│   └── utils/format.ts       Formato de moneda CLP y estados de pedido
-├── scripts/gen_data.py       Script usado para generar los datos semilla
-└── public/favicon.svg
+Anonymus-main/
+├── index.html              Página de inicio (carrusel de productos)
+├── productos.html           Catálogo con búsqueda y filtros
+├── login.html / registro.html   Autenticación de usuarios
+├── carrito.html             Carrito de compras
+├── perfil.html               Datos y perfil del usuario
+├── contacto.html             Formulario de contacto y soporte
+├── blogs.html                 Novedades y artículos
+├── admin/                     Panel de administración
+│   ├── productos.html
+│   ├── producto_formulario.html
+│   └── usuarios.html
+├── src/                        Vistas de detalle
+│   ├── producto_detalle.html
+│   └── detalle_blog.html
+├── css/style.css              Estilos generales
+└── js/
+    ├── main.js                 Catálogo, carrusel y filtros
+    ├── carrito.js               Lógica del carrito de compras
+    └── validaciones.js          Validación de formularios (RUT, región/comuna)
 ```
 
-## Funcionalidades
+## Funcionalidades principales
 
-- **Catálogo** con búsqueda, filtros (categoría, marca, rango de precio) y orden.
-- **Detalle de producto** con specs, stock y productos relacionados.
-- **Carrito de compras** persistente (localStorage).
-- **Checkout** con resumen y confirmación de pedido.
-- **Mis pedidos** con seguimiento visual por etapas (pendiente → confirmado →
-  en preparación → enviado → entregado).
-- **Login / registro** de usuarios (cuentas de prueba en `src/data/users.json`,
-  contraseña `Demo1234` para todas).
-- **Panel de administración** (solo rol `administrador`): editar precio/stock,
-  agregar productos y cambiar el estado de los pedidos.
-- **Contacto y soporte** con mapa interactivo (Leaflet/OpenStreetMap) mostrando
-  la ubicación de la tienda.
+- **Catálogo de productos** con búsqueda por palabra clave y filtros por categoría y rango de precio.
+- **Detalle de producto** con especificaciones, precio y stock.
+- **Carrito de compras** persistente en `localStorage` (se agregan, modifican y eliminan productos).
+- **Registro e inicio de sesión** de usuarios, con validación de RUT chileno y campos obligatorios.
+- **Perfil de usuario** para ver y editar los datos personales.
+- **Panel de administración** para gestionar productos (crear, editar, eliminar) y usuarios.
+- **Formulario de contacto/soporte**.
+- **Sección de blogs** con novedades y consejos.
 
-## Cuentas de prueba
+## Actores del sistema
 
-Todas las cuentas semilla usan la contraseña `Demo1234`. Revisa
-`src/data/users.json` para ver los correos disponibles; hay usuarios con rol
-`cliente`, `administrador` y `soporte`. Ejemplo:
+| Actor | Descripción |
+|---|---|
+| Cliente | Usuario que navega el catálogo, compra y gestiona su perfil. |
+| Administrador | Usuario con permisos para gestionar productos y usuarios desde el panel admin. |
 
-- `ignacio.saavedra@tecnoshop.cl` — cliente
-- Busca en el JSON el primer usuario con `"role": "administrador"` para
-  probar el panel de administración.
+## Cómo ejecutar el proyecto
 
-## Notas sobre los datos
+Al ser un proyecto 100% frontend, no requiere instalación de dependencias ni servidor backend:
 
-- Los 100 registros exigidos por el proyecto están distribuidos así:
-  **56 productos + 20 usuarios + 24 pedidos = 100**.
-- Como no hay backend, todo cambio (nuevo pedido, edición de stock, registro
-  de usuario) se guarda en el `localStorage` del navegador. Para reiniciar los
-  datos a su estado original, abre la consola del navegador y ejecuta:
-  `localStorage.clear()` y recarga la página.
+1. Descargar o clonar el repositorio.
+2. Abrir el archivo `index.html` directamente en el navegador (o servirlo con una extensión tipo "Live Server").
+3. Navegar libremente por el catálogo, agregar productos al carrito, registrarse e iniciar sesión.
+
+> Nota: al no existir backend, los datos (carrito, sesión, usuarios agregados) se guardan en el `localStorage` del navegador. Para reiniciar el estado, hay que limpiar el `localStorage` del sitio.
+
+## Notas para la presentación
+
+- El proyecto no usa frameworks: cada página HTML es independiente y la lógica de negocio vive en los archivos JavaScript (`main.js`, `carrito.js`, `validaciones.js`).
+- Como no hay backend, todo el "estado" de la aplicación (catálogo extra, carrito, sesión activa) se guarda en `localStorage`, por lo que los cambios son locales al navegador de cada usuario.
