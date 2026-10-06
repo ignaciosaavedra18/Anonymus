@@ -1,0 +1,7 @@
+module.exports = {
+  plugins: ['babel-plugin-istanbul'],
+  presets: [
+    ['@babel/preset-env', { targets: { chrome: '120' } }],
+    ['@babel/preset-react', { runtime: 'automatic' }]
+  ]
+}

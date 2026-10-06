@@ -1,0 +1,133 @@
+/* Centra el contenedor del formulario dentro de la pantalla */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 2rem 1rem;
+}
+
+/* Tarjeta del formulario */
+.form-card {
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.form-card-header {
+    background: var(--purple-50);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-card-header h2 {
+    font-size: 1.2rem;
+    color: var(--purple-700);
+    font-weight: 700;
+}
+
+.link-login {
+    font-size: 0.85rem;
+    color: var(--purple-600);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-login:hover {
+    text-decoration: underline;
+}
+
+.form-card-body {
+    padding: 1.5rem;
+}
+
+/* Filas alineadas */
+.form-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.9rem;
+}
+
+.form-row label {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.form-row input[type="text"],
+.form-row input[type="password"],
+.form-row input[type="email"] {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    outline: none;
+}
+
+.form-row input:focus {
+    border-color: var(--purple-500);
+}
+
+/* Captcha */
+.captcha-box {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.captcha-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.btn-submit {
+    width: auto;
+    padding: 0.5rem 1.8rem;
+}
+
+/* Alerta de errores */
+.alert-error {
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 1rem;
+    margin-top: 1.2rem;
+    position: relative;
+    color: #991b1b;
+    font-size: 0.85rem;
+}
+
+.close-alert {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media (max-width: 580px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+    .form-row label {
+        text-align: left;
+    }
+}
