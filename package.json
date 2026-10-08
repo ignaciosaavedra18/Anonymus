@@ -23,7 +23,6 @@
     "@babel/preset-react": "7.27.1",
     "@vitejs/plugin-react": "6.1.1",
     "babel-loader": "10.0.0",
-    "esbuild": "0.25.9",
     "babel-plugin-istanbul": "7.0.0",
     "jasmine-core": "5.9.0",
     "karma": "6.4.4",
