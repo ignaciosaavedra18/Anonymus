@@ -1,4 +1,4 @@
-# Cambios de la Evaluación 2
+# cambios para la evaluacion 2
 
 - Se mantiene el CSS y las imágenes originales.
 - Se conserva una copia completa del proyecto anterior en `legacy/`.
