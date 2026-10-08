@@ -131,3 +131,69 @@
         text-align: left;
     }
 }
+.alert-error {
+    background: #fee2e2;
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 2.5rem 0.8rem 1rem; /* Aumentado padding derecho */
+    margin-top: 1.2rem;
+    position: relative;
+    color: #991b1b;
+    font-size: 0.85rem;
+}
+
+.close-alert {
+    position: absolute;
+    top: 50%;
+    right: 12px; /* Cambiado de left a right */
+    transform: translateY(-50%); /* Centra el botón verticalmente */
+    cursor: pointer;
+    font-weight: bold;
+}
+.form-row input[type="text"],
+.form-row input[type="password"],
+.form-row input[type="email"],
+.form-row input[type="tel"],
+.form-row select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    outline: none;
+    box-sizing: border-box; /* Previene desbordamientos de ancho */
+}
+.form-row-submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+.btn-submit {
+    width: 100%; /* O 'auto' si prefieres que no sea full width */
+    padding: 0.65rem 1.8rem;
+    background-color: var(--purple-600);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--purple-700);
+}
+:root {
+    --bg-card: #ffffff;
+    --bg-main: #f9fafb;
+    --border-color: #e5e7eb;
+    --text-secondary: #4b5563;
+    --purple-50: #f5f3ff;
+    --purple-500: #8b5cf6;
+    --purple-600: #7c3aed;
+    --purple-700: #6d28d9;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
