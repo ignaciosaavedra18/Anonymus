@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
 const blogs = [
-  { id: 1, title: 'Cómo elegir un mouse gamer', text: 'Aspectos básicos para escoger un mouse según el uso.', image: '/images/Logitech.jpg' },
-  { id: 2, title: 'Monitor para jugar', text: 'Revisa frecuencia, resolución y tiempo de respuesta.', image: '/images/Monitor LG 27 pulgadas, Panel IPS, 144Hz 1ms.jpg' },
-  { id: 3, title: 'Procesadores para tu PC', text: 'Una guía sencilla para comparar distintas alternativas.', image: '/images/RTX.png' }
+  { id: 1, title: 'Cómo elegir un mouse gamer', text: 'Aspectos básicos para escoger un mouse según el uso.', image: '/Anonymus/images/Logitech.jpg' },
+  { id: 2, title: 'Monitor para jugar', text: 'Revisa frecuencia, resolución y tiempo de respuesta.', image: '/Anonymus/images/Monitor LG 27 pulgadas, Panel IPS, 144Hz 1ms.jpg' },
+  { id: 3, title: 'Procesadores para tu PC', text: 'Una guía sencilla para comparar distintas alternativas.', image: '/Anonymus/images/RTX.png' }
 ]
 
 function Blogs() {
