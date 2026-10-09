@@ -12,7 +12,7 @@ export const productosIniciales = [
   { id: 11, nombre: 'Mouse Logitech G502 Hero', categoria: 'perifericos', precio: 44990, img: '/Anonymus/images/Mouse Logitech G502 Hero.jpg', oferta: false },
   { id: 12, nombre: 'Mouse Razer Cobra Pro', categoria: 'perifericos', precio: 129990, img: '/Anonymus/images/Mouse Razer Cobra Pro.jpg', oferta: false },
   { id: 13, nombre: 'AMD Ryzen 9 9900X 4.4GHz', categoria: 'componentes', precio: 549990, img: '/Anonymus/images/Procesador AMD Ryzen 9 9900X 4,4GHz 12 cores 24 hilos.jpg', oferta: false },
-  { id: 14, nombre: 'AMD Ryzen 7 9700X 3.8GHz', categoria: 'componentes', precio: 399990, img: '/Anonymus/images/Procesador AMD Ryzen 7 9700X 3,8GHz 8 cores 16 hilos.jpg', oferta: false },
+  { id: 14, nombre: 'AMD Ryzen 7 9700X 3.8GHz', categoria: 'componentes', precio: 399990, img: '/Anonymus/images/Procesador AMD Ryzen 7 9700X 3,8GHz 8 nucleos 16 hilos.jpg', oferta: false },
   { id: 17, nombre: 'Logitech G PRO X 60 LIGHTSPEED', categoria: 'perifericos', precio: 159990, img: '/Anonymus/images/Teclado Logitech G PRO X 60.png', oferta: false },
   { id: 18, nombre: 'Teclado Logitech G915 RGB', categoria: 'perifericos', precio: 179990, img: '/Anonymus/images/Teclado Logitech G915.jpg', oferta: false },
   { id: 19, nombre: 'Teclado Redragon Kurama Blanco 60%', categoria: 'perifericos', precio: 39990, img: '/Anonymus/images/Teclado Redragon Kurama blanco 60.jpg', oferta: true, precioAnterior: 49990 }
