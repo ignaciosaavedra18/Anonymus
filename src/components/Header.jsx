@@ -1,3 +1,4 @@
+import logoTienda from '../assets/LogoTienda.jpg'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { cartCount, getCart } from '../services/cartService'
@@ -38,7 +39,7 @@ function Header() {
     <header className="header">
       <div className="nav-container">
         <Link to="/" className="brand-link">
-          <img src="/images/LogoTienda.jpg" alt="Logo TecnoShop" className="header-logo-img" />
+          <img src={logoTienda} alt="Logo TecnoShop" className="header-logo-img" />
           <div className="brand-box">
             <span className="logo">TecnoShop</span>
           </div>
