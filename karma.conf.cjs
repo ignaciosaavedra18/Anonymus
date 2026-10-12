@@ -8,7 +8,7 @@ module.exports = function (config) {
     preprocessors: {
       'src/tests/**/*.spec.jsx': ['webpack']
     },
-    webpack: {
+    webpack: { 
       mode: 'development',
       module: {
         rules: [
@@ -16,6 +16,10 @@ module.exports = function (config) {
             test: /\.jsx?$/,
             exclude: /node_modules/,
             use: 'babel-loader'
+          },
+          {
+            test: /\.(png|jpe?g)$/,
+            type: 'asset/resource'
           },
           {
             test: /\.m?js$/,
@@ -37,6 +41,12 @@ module.exports = function (config) {
       ]
     },
     browsers: ['ChromeHeadless'],
+    customLaunchers: {
+      ChromeHeadlessCI: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox']
+      }
+    },
     singleRun: true,
     autoWatch: false,
     client: {
