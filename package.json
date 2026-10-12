@@ -11,7 +11,7 @@
     "test": "karma start karma.conf.cjs",
     "test:coverage": "karma start karma.conf.cjs --single-run"
   },
-  "dependencies": {
+  "dependencies": {      
     "bootstrap": "5.3.8",
     "react": "19.3.0",
     "react-dom": "19.3.0",

@@ -28,7 +28,7 @@ function ProductDetail() {
         <div className="detalle-info col-12 col-lg-6">
           <span className="product-category">{product.categoria}</span>
           <h1>{product.nombre}</h1>
-          <p className="detalle-descripcion">Producto disponible en TecnoShop. Vista de detalle integrada al catálogo React para la evaluación.</p>
+          <p className="detalle-descripcion">Producto disponible en TecnoShop. \n Disponibilidad: {product.stock} unidades</p>
           {product.precioAnterior && <p className="old-price">${Number(product.precioAnterior).toLocaleString('es-CL')}</p>}
           <div className="detalle-precio">${Number(product.precio).toLocaleString('es-CL')}</div>
           <div className="d-flex gap-2 flex-wrap">
