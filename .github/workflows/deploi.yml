@@ -43,7 +43,7 @@ jobs:
           echo "CHROME_BIN=$(command -v chromium)" >> "$GITHUB_ENV"
 
       - name: Pruebas unitarias Jasmine y Karma
-        run: npm run test:coverage -- --browsers ChromeHeadlessNoSandbox
+        run: npm run test:coverage -- --browsers ChromeHeadlessCI
 
       - name: Subir informe de cobertura
         if: ${{ !cancelled() }}
