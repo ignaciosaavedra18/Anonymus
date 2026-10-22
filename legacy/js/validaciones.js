@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const nuevoUsuario = {
                 rut: rutVal,
                 email: emailVal,
-                nombre: "Estudiante" // Nombre por defecto para que se vea en el Header
+                nombre: "Estudiante"
             };
             localStorage.setItem("usuarioRegistrado", JSON.stringify(nuevoUsuario));
             

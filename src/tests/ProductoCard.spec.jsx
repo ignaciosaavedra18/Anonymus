@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { act } from 'react'
 import { createRoot } from 'react-dom/client'
 import { MemoryRouter } from 'react-router-dom'
 import ProductoCard from '../components/ProductCard'
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true
 
 const producto = {
   id: 500,
@@ -12,34 +14,42 @@ const producto = {
 }
 
 describe('ProductoCard', () => {
-  let container
-  let root
+  let contenedor
+  let raiz
 
   beforeEach(() => {
-    container = document.createElement('div')
-    document.body.appendChild(container)
-    root = createRoot(container)
+    contenedor = document.createElement('div')
+    document.body.appendChild(contenedor)
+    raiz = createRoot(contenedor)
   })
 
   afterEach(() => {
-    root.unmount()
-    container.remove()
+    act(() => raiz.unmount())
+    contenedor.remove()
   })
 
+  function mostrarTarjeta() {
+    act(() => {
+      raiz.render(<MemoryRouter><ProductoCard product={producto} /></MemoryRouter>)
+    })
+  }
+
   it('debe mostrar el nombre recibido por props', () => {
-    root.render(<MemoryRouter><ProductoCard product={producto} /></MemoryRouter>)
-    expect(container.textContent).toContain('Teclado de prueba')
+    mostrarTarjeta()
+    expect(contenedor.textContent).toContain('Teclado de prueba')
   })
 
   it('debe mostrar el botón de agregar al carrito', () => {
-    root.render(<MemoryRouter><ProductoCard product={producto} /></MemoryRouter>)
-    expect(container.querySelector('.btn-primary')).not.toBeNull()
+    mostrarTarjeta()
+    expect(contenedor.querySelector('.btn-primary')).not.toBeNull()
   })
 
   it('debe ejecutar la función al hacer clic', () => {
     spyOn(localStorage, 'setItem').and.callThrough()
-    root.render(<MemoryRouter><ProductoCard product={producto} /></MemoryRouter>)
-    container.querySelector('.btn-primary').click()
+    mostrarTarjeta()
+    act(() => {
+      contenedor.querySelector('.btn-primary').click()
+    })
     expect(localStorage.setItem).toHaveBeenCalled()
   })
 })

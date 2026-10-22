@@ -42,7 +42,7 @@ function Cart() {
   }
 
   return (
-    <section className="cart-layout row g-4">
+    <section className="row g-4">
       <div className="col-12 col-lg-8">
         <div className="cart-items-box">
           <div className="table-responsive">
