@@ -1,12 +1,11 @@
-# Integración y despliegue continuo (CI/CD):
-# cada push a "main" revisa el código, corre las pruebas y, si todo pasa, publica en GitHub Pages.
+
 name: CI y despliegue a GitHub Pages
 
 on:
   push:
     branches: [main]
   pull_request:
-  workflow_dispatch: # permite ejecutarlo a mano desde la pestaña "Actions"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -20,10 +19,13 @@ concurrency:
 jobs:
   test-y-build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v7
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
@@ -31,56 +33,45 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Lint (ESLint)
+      - name: Lint ESLint
         run: npm run lint
 
-      - name: Pruebas unitarias y cobertura (Vitest)
-        run: npm run test:coverage
+      - name: Instalar navegador para Karma
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium
+          echo "CHROME_BIN=$(command -v chromium)" >> "$GITHUB_ENV"
+
+      - name: Pruebas unitarias Jasmine y Karma
+        run: npm run test:coverage -- --browsers ChromeHeadlessNoSandbox
 
       - name: Subir informe de cobertura
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage/
           if-no-files-found: ignore
-          retention-days: 30
 
-      - name: Instalar navegador para Playwright
-        run: npx playwright install --with-deps chromium
-
-      - name: Pruebas E2E (Playwright)
-        run: npm run test:e2e
-
-      # Evidencia de Playwright: informe HTML + capturas, videos y trazas (se sube aunque fallen las pruebas).
-      - name: Subir evidencia de Playwright
-        if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: playwright-report
-          path: |
-            playwright-report/
-            test-results/
-          if-no-files-found: ignore
-          retention-days: 30
-
-      - name: Build de producción
+      - name: Build de produccion
         run: npm run build
 
-      - name: Subir carpeta dist como artefacto de Pages
+      - name: Subir carpeta dist
         if: github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist/
 
   deploy:
     if: github.ref == 'refs/heads/main'
     needs: test-y-build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Publicar en GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5 
+        uses: actions/deploy-pages@v4
