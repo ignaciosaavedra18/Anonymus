@@ -11,7 +11,7 @@
     "test": "karma start karma.conf.cjs",
     "test:coverage": "karma start karma.conf.cjs --single-run"
   },
-  "dependencies": {      
+  "dependencies": {
     "bootstrap": "5.3.8",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -21,9 +21,12 @@
     "@babel/core": "7.28.4",
     "@babel/preset-env": "7.28.3",
     "@babel/preset-react": "7.27.1",
+    "@eslint/js": "^9.39.5",
     "@vitejs/plugin-react": "6.1.1",
     "babel-loader": "10.0.0",
     "babel-plugin-istanbul": "7.0.0",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
     "jasmine-core": "5.9.0",
     "karma": "6.4.4",
     "karma-babel-preprocessor": "8.0.1",
